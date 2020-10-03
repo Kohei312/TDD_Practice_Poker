@@ -82,61 +82,119 @@ class TDD_Practice_PokerTests: XCTestCase {
     //    }
     
     //  MARK:- 動作確認済み
-    func testCardEqual(){
-        //            var card_1:Card
-        //            var card_2:Card
-        //
-        //            // Suit, Rankとも同じ場合を検証 => OK
-        //            card_1 = Card(suit: .diamond, rank: .jack)
-        //            card_2 = Card(suit: .diamond, rank: .jack)
-        //
-        //            // Card型自体がEquatableに準拠していないとエラーになる => レッドコード
-        //            XCTAssertEqual(card_1, card_2)
-        //
-        //
-        //            // Suit, Rankとも同じでないケースを検証 => OK
-        //            card_1 = Card(suit: .spade, rank: .five)
-        //            card_2 = Card(suit: .spade, rank: .four)
-        //            XCTAssertNotEqual(card_1, card_2)
-        //
-        //            // Suitは同じ, Rankが異なる場合を検証 => OK
-        //            card_1 = Card(suit: .spade, rank: .five)
-        //            card_2 = Card(suit: .spade, rank: .four)
-        //            XCTAssertNotEqual(card_1, card_2)
-        //
-        //            // Suitは異なり, Rankが同じ場合を検証 => OK
-        //            card_1 = Card(suit: .spade, rank: .five)
-        //            card_2 = Card(suit: .club, rank: .five)
-        //            XCTAssertNotEqual(card_1, card_2)
-        
-        // tips: XCTAsserEqualの引数内で初期化処理を書いてスッキリ
-        // Suit, Rankとも同じ場合を検証 => OK
-        XCTAssertEqual(
-            Card(suit: .diamond, rank: .jack),
-            Card(suit: .diamond, rank: .jack)
-        )
-        
-        
-        // Suit, Rankとも同じでないケースを検証 => OK
-        XCTAssertNotEqual(
-            Card(suit: .spade, rank: .five),
-            Card(suit: .spade, rank: .four)
-        )
-        
-        // Suitは同じ, Rankが異なる場合を検証 => OK
-        XCTAssertNotEqual(
-            Card(suit: .spade, rank: .five),
-            Card(suit: .spade, rank: .four)
-        )
-        
-        // Suitは異なり, Rankが同じ場合を検証 => OK
-        XCTAssertNotEqual(
-            Card(suit: .spade, rank: .five),
-            Card(suit: .club, rank: .five)
-        )
-        
-        
-    }
+    //    func testCardEqual(){
+    //        // tips: XCTAsserEqualの引数内で初期化処理を書いてスッキリ
+    //        // Suit, Rankとも同じ場合を検証 => OK
+    //        XCTAssertEqual(
+    //            Card(suit: .diamond, rank: .jack),
+    //            Card(suit: .diamond, rank: .jack)
+    //        )
+    //
+    //
+    //        // Suit, Rankとも同じでないケースを検証 => OK
+    //        XCTAssertNotEqual(
+    //            Card(suit: .spade, rank: .five),
+    //            Card(suit: .spade, rank: .four)
+    //        )
+    //
+    //        // Suitは同じ, Rankが異なる場合を検証 => OK
+    //        XCTAssertNotEqual(
+    //            Card(suit: .spade, rank: .five),
+    //            Card(suit: .spade, rank: .four)
+    //        )
+    //
+    //        // Suitは異なり, Rankが同じ場合を検証 => OK
+    //        XCTAssertNotEqual(
+    //            Card(suit: .spade, rank: .five),
+    //            Card(suit: .club, rank: .five)
+    //        )
+    //
+    //    }
+    
+    //  MARK:- 動作確認済み
+    //    func testIsPair(){
+    //
+    //        var card_1:Card
+    //        var card_2:Card
+    //        var hand:Hand
+    //
+    //        card_1 = Card(suit: .diamond, rank: .jack)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //        // まずは仮実装 => OK
+    //        XCTAssertEqual(hand.isPair, true)
+    //
+    //        // 一般化 => OK
+    //        card_1 = Card(suit: .diamond, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //
+    //        XCTAssertEqual(hand.isPair, true)
+    //
+    //
+    //    }
+    
+
+//  MARK:- 動作確認済み
+//    func testIsFlush(){
+//
+//        var card_1:Card
+//        var card_2:Card
+//        var hand:Hand
+//
+//        card_1 = Card(suit: .diamond, rank: .jack)
+//        card_2 = Card(suit: .diamond, rank: .jack)
+//        hand = Hand(cards:[card_1,card_2])
+//        // まずは仮実装 => OK
+//        XCTAssertEqual(hand.isFlush, true)
+//
+//        // 一般化 => OK
+//        card_1 = Card(suit: .spade, rank: .jack)
+//        card_2 = Card(suit: .diamond, rank: .jack)
+//        hand = Hand(cards:[card_1,card_2])
+//
+//        XCTAssertEqual(hand.isFlush, true)
+//
+//        card_1 = Card(suit: .diamond, rank: .ace)
+//        card_2 = Card(suit: .diamond, rank: .jack)
+//        hand = Hand(cards:[card_1,card_2])
+//
+//        XCTAssertEqual(hand.isFlush, true)
+//
+//
+//    }
+//
+
+    
+//  MARK:- 動作確認済み
+//    func testIshighCard(){
+//
+//        var card_1:Card
+//        var card_2:Card
+//        var hand:Hand
+//
+//        card_1 = Card(suit: .spade, rank: .ace)
+//        card_2 = Card(suit: .diamond, rank: .jack)
+//        hand = Hand(cards:[card_1,card_2])
+//        // まずは仮実装 => OK
+//        XCTAssertEqual(hand.isHighCard, true)
+//
+//        // 一般化 => OK
+//        card_1 = Card(suit: .spade, rank: .jack)
+//        card_2 = Card(suit: .diamond, rank: .jack)
+//        hand = Hand(cards:[card_1,card_2])
+//
+//        XCTAssertEqual(hand.isHighCard, true)
+//
+//        card_1 = Card(suit: .diamond, rank: .ace)
+//        card_2 = Card(suit: .diamond, rank: .jack)
+//        hand = Hand(cards:[card_1,card_2])
+//
+//        XCTAssertEqual(hand.isHighCard, true)
+//
+//
+//    }
+    
     
     
 }

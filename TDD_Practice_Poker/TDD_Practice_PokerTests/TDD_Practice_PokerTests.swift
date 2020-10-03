@@ -81,21 +81,60 @@ class TDD_Practice_PokerTests: XCTestCase {
     //
     //    }
     
+    //  MARK:- 動作確認済み
     func testCardEqual(){
-        var card_1:Card
-        var card_2:Card
+        //            var card_1:Card
+        //            var card_2:Card
+        //
+        //            // Suit, Rankとも同じ場合を検証 => OK
+        //            card_1 = Card(suit: .diamond, rank: .jack)
+        //            card_2 = Card(suit: .diamond, rank: .jack)
+        //
+        //            // Card型自体がEquatableに準拠していないとエラーになる => レッドコード
+        //            XCTAssertEqual(card_1, card_2)
+        //
+        //
+        //            // Suit, Rankとも同じでないケースを検証 => OK
+        //            card_1 = Card(suit: .spade, rank: .five)
+        //            card_2 = Card(suit: .spade, rank: .four)
+        //            XCTAssertNotEqual(card_1, card_2)
+        //
+        //            // Suitは同じ, Rankが異なる場合を検証 => OK
+        //            card_1 = Card(suit: .spade, rank: .five)
+        //            card_2 = Card(suit: .spade, rank: .four)
+        //            XCTAssertNotEqual(card_1, card_2)
+        //
+        //            // Suitは異なり, Rankが同じ場合を検証 => OK
+        //            card_1 = Card(suit: .spade, rank: .five)
+        //            card_2 = Card(suit: .club, rank: .five)
+        //            XCTAssertNotEqual(card_1, card_2)
         
-        card_1 = Card(suit: .diamond, rank: .jack)
-        card_2 = Card(suit: .diamond, rank: .jack)
+        // tips: XCTAsserEqualの引数内で初期化処理を書いてスッキリ
+        // Suit, Rankとも同じ場合を検証 => OK
+        XCTAssertEqual(
+            Card(suit: .diamond, rank: .jack),
+            Card(suit: .diamond, rank: .jack)
+        )
         
-        // Card型自体がEquatableに準拠していないとエラーになる => レッドコード
-        XCTAssertEqual(card_1, card_2)
         
+        // Suit, Rankとも同じでないケースを検証 => OK
+        XCTAssertNotEqual(
+            Card(suit: .spade, rank: .five),
+            Card(suit: .spade, rank: .four)
+        )
         
-        // 等価でないケースも検証 => OK
-        card_1 = Card(suit: .spade, rank: .five)
-        card_2 = Card(suit: .spade, rank: .four)
-        XCTAssertNotEqual(card_1, card_2)
+        // Suitは同じ, Rankが異なる場合を検証 => OK
+        XCTAssertNotEqual(
+            Card(suit: .spade, rank: .five),
+            Card(suit: .spade, rank: .four)
+        )
+        
+        // Suitは異なり, Rankが同じ場合を検証 => OK
+        XCTAssertNotEqual(
+            Card(suit: .spade, rank: .five),
+            Card(suit: .club, rank: .five)
+        )
+        
         
     }
     

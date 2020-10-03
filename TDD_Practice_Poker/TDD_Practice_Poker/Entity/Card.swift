@@ -41,4 +41,13 @@ struct Card{
         return suit.rawValue + rank.rawValue
     }
     
+    
+    func hasSameSuit(_ card:Card)->Bool{
+        // まずは期待値をベタ書きする仮実装 => OK
+//        return true
+        // つづいて一般化 => OK
+        // tips: enumはequatableに準拠するため、等価比較ができる
+        return self.suit == card.suit
+    }
+    
 }

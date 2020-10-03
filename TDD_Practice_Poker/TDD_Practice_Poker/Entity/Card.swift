@@ -32,9 +32,14 @@ extension Card{
     }
 }
 
-struct Card{
+struct Card:Equatable{
     let suit:Suit
     let rank:Rank
+    
+    // tips: ここがなくても動く...
+//    static func ==(lhs: Card, rhs: Card) -> Bool {
+//        return lhs.hasSameSuit(rhs) && lhs.hasSameRank(rhs)
+//    }
     
     // 期待値をベタ書きする仮実装 → まずは成功パターンを作る!!
     var notify: String{
@@ -48,6 +53,14 @@ struct Card{
         // つづいて一般化 => OK
         // tips: enumはequatableに準拠するため、等価比較ができる
         return self.suit == card.suit
+    }
+    
+    func hasSameRank(_ card:Card)->Bool{
+        // まずは期待値をベタ書きする仮実装 => OK
+//        return true
+        // つづいて一般化 => OK
+        // tips: enumはequatableに準拠するため、等価比較ができる
+        return self.rank == card.rank
     }
     
 }

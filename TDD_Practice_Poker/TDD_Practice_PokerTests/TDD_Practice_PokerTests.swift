@@ -134,67 +134,86 @@ class TDD_Practice_PokerTests: XCTestCase {
     //
     //    }
     
+    
+    //  MARK:- 動作確認済み
+    //    func testIsFlush(){
+    //
+    //        var card_1:Card
+    //        var card_2:Card
+    //        var hand:Hand
+    //
+    //        card_1 = Card(suit: .diamond, rank: .jack)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //        // まずは仮実装 => OK
+    //        XCTAssertEqual(hand.isFlush, true)
+    //
+    //        // 一般化 => OK
+    //        card_1 = Card(suit: .spade, rank: .jack)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //
+    //        XCTAssertEqual(hand.isFlush, true)
+    //
+    //        card_1 = Card(suit: .diamond, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //
+    //        XCTAssertEqual(hand.isFlush, true)
+    //
+    //
+    //    }
+    //
+    
+    
+    //  MARK:- 動作確認済み
+    //    func testIsHighCard(){
+    //
+    //        var card_1:Card
+    //        var card_2:Card
+    //        var hand:Hand
+    //
+    //        card_1 = Card(suit: .spade, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //        // まずは仮実装 => OK
+    //        XCTAssertEqual(hand.isHighCard, true)
+    //
+    //        // 一般化 => OK
+    //        card_1 = Card(suit: .spade, rank: .jack)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //
+    //        XCTAssertEqual(hand.isHighCard, true)
+    //
+    //        card_1 = Card(suit: .diamond, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .jack)
+    //        hand = Hand(cards:[card_1,card_2])
+    //
+    //        XCTAssertEqual(hand.isHighCard, true)
+    //
+    //
+    //    }
+    
+    
+    func testIsHand(){
 
-//  MARK:- 動作確認済み
-//    func testIsFlush(){
-//
-//        var card_1:Card
-//        var card_2:Card
-//        var hand:Hand
-//
-//        card_1 = Card(suit: .diamond, rank: .jack)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        hand = Hand(cards:[card_1,card_2])
-//        // まずは仮実装 => OK
-//        XCTAssertEqual(hand.isFlush, true)
-//
-//        // 一般化 => OK
-//        card_1 = Card(suit: .spade, rank: .jack)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        hand = Hand(cards:[card_1,card_2])
-//
-//        XCTAssertEqual(hand.isFlush, true)
-//
-//        card_1 = Card(suit: .diamond, rank: .ace)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        hand = Hand(cards:[card_1,card_2])
-//
-//        XCTAssertEqual(hand.isFlush, true)
-//
-//
-//    }
-//
+        var card_1:Card
+        var card_2:Card
+        var hand:Hand
+        var handState:HandState
+        
+        card_1 = Card(suit: .spade, rank: .ace)
+        card_2 = Card(suit: .diamond, rank: .jack)
+        hand = Hand(cards:[card_1,card_2])
+        handState = HandStatus().updateHandState(hand)
+        
+        
+        // 仮実装OK
+//        XCTAssertEqual(hand.isEqualSuit,true)
+//        XCTAssertEqual(hand.isEqualRank, true)
+        XCTAssertEqual(handState, HandState.pair)
 
-    
-//  MARK:- 動作確認済み
-//    func testIshighCard(){
-//
-//        var card_1:Card
-//        var card_2:Card
-//        var hand:Hand
-//
-//        card_1 = Card(suit: .spade, rank: .ace)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        hand = Hand(cards:[card_1,card_2])
-//        // まずは仮実装 => OK
-//        XCTAssertEqual(hand.isHighCard, true)
-//
-//        // 一般化 => OK
-//        card_1 = Card(suit: .spade, rank: .jack)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        hand = Hand(cards:[card_1,card_2])
-//
-//        XCTAssertEqual(hand.isHighCard, true)
-//
-//        card_1 = Card(suit: .diamond, rank: .ace)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        hand = Hand(cards:[card_1,card_2])
-//
-//        XCTAssertEqual(hand.isHighCard, true)
-//
-//
-//    }
-    
-    
-    
+    }
+
 }

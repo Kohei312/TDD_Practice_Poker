@@ -35,5 +35,4 @@ struct Hand{
     var isContinuousRank: Bool{
         return cards[0].isContinuousRank(cards[1])
     }
-    
 }

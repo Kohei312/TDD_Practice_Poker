@@ -197,48 +197,72 @@ class TDD_Practice_PokerTests: XCTestCase {
     
     //  MARK:- 動作確認済み
     
-//        func testIsHand(){
-//
-//            var card_1:Card
-//            var card_2:Card
-//            var hand:Hand
-//            var handState:HandState
-//
-//            card_1 = Card(suit: .spade, rank: .ace)
-//            card_2 = Card(suit: .diamond, rank: .jack)
-//            hand = Hand(cards:[card_1,card_2])
-//            handState = HandStatus(hand:hand).updateHandState()
-//
-//
-//            // 仮実装OK
-//    //        XCTAssertEqual(hand.isEqualSuit,true)
-//    //        XCTAssertEqual(hand.isEqualRank, true)
-//            XCTAssertEqual(handState, HandState.pair)
-//
-//        }
+    //        func testIsHand(){
+    //
+    //            var card_1:Card
+    //            var card_2:Card
+    //            var hand:Hand
+    //            var handState:HandState
+    //
+    //            card_1 = Card(suit: .spade, rank: .ace)
+    //            card_2 = Card(suit: .diamond, rank: .jack)
+    //            hand = Hand(cards:[card_1,card_2])
+    //            handState = HandStatus(hand:hand).updateHandState()
+    //
+    //
+    //            // 仮実装OK
+    //    //        XCTAssertEqual(hand.isEqualSuit,true)
+    //    //        XCTAssertEqual(hand.isEqualRank, true)
+    //            XCTAssertEqual(handState, HandState.pair)
+    //
+    //        }
     
     //  MARK:- 動作確認済み
-    func testIsContinuisHand(){
-
-        var card_1:Card
-        var card_2:Card
-        var hand:Hand
-
-        card_1 = Card(suit: .spade, rank: .ace)
-        card_2 = Card(suit: .diamond, rank: .king)
-        hand = Hand(cards:[card_1,card_2])
-
-        // 仮実装OK
-//        XCTAssertEqual(hand.cards[0].rank.index + 1, 0)
-        XCTAssertEqual(hand.isContinuousRank,true)
-//        XCTAssertTrue(
-//            hand.cards[0].rank.index - 1 == hand.cards[1].rank.index ||
-//                hand.cards[0].rank.index + 1 == hand.cards[1].rank.index
-//        )
-//        XCTAssertTrue(
-//            hand.cards[0].rank.index == hand.cards[1].rank.index + 1 ||
-//                hand.cards[0].rank.index == hand.cards[1].rank.index - 1
-//        )
-    }
+    //    func testIsContinuisHand(){
+    //
+    //        var card_1:Card
+    //        var card_2:Card
+    //        var hand:Hand
+    //
+    //        card_1 = Card(suit: .spade, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .king)
+    //        hand = Hand(cards:[card_1,card_2])
+    //
+    //        // 仮実装OK
+    ////        XCTAssertEqual(hand.cards[0].rank.index + 1, 0)
+    //        XCTAssertEqual(hand.isContinuousRank,true)
+    //    }
     
+    //  MARK:- 動作確認済み
+    //    func testIsStraight(){
+    //        var card_1:Card
+    //        var card_2:Card
+    //        var hand:Hand
+    //        var handState:HandState
+    //
+    //        card_1 = Card(suit: .spade, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .king)
+    //        hand = Hand(cards:[card_1,card_2])
+    //        handState = HandStatus(hand:hand).updateHandState()
+    //
+    //        XCTAssertEqual(handState, HandState.straight)
+    //
+    //    }
+    
+    //  MARK:- 動作確認済み
+    //    func testIsStraightFlush(){
+    //        var card_1:Card
+    //        var card_2:Card
+    //        var hand:Hand
+    //        var handState:HandState
+    //
+    //        card_1 = Card(suit: .diamond, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .king)
+    //        hand = Hand(cards:[card_1,card_2])
+    //        handState = HandStatus(hand:hand).updateHandState()
+    //
+    //        XCTAssertEqual(handState, HandState.straightFlush)
+    //
+    //    }
+    //
 }

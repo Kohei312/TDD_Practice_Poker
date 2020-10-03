@@ -31,5 +31,11 @@ struct Hand{
     var isEqualRank: Bool{
         return cards[0].rank == cards[1].rank
     }
+    var isContinuisRank: Bool{
+        return cards[0].rank.index - 1 == cards[1].rank.index ||
+               cards[0].rank.index + 1 == cards[1].rank.index ||
+               cards[1].rank.index - 1 == cards[0].rank.index ||
+               cards[1].rank.index + 1 == cards[0].rank.index
+    }
     
 }

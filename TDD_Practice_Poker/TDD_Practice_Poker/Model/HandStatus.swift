@@ -16,7 +16,9 @@ enum HandState{
 
 struct HandStatus{
     
-    func updateHandState(_ hand:Hand)->HandState{
+    var hand:Hand
+    
+    func updateHandState()->HandState{
         
         var handState:HandState = .nothing
         

@@ -8,6 +8,13 @@
 import Foundation
 
 extension Card{
+    enum Suit: String{
+        case spade = "♠︎"
+        case heart = "❤︎"
+        case club = "♣︎"
+        case diamond = "♦︎"
+    }
+    
     enum Rank:String,Comparable,CaseIterable{
         static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
             return lhs.rawValue < rhs.rawValue
@@ -31,13 +38,6 @@ extension Card{
         case queen = "Q"
         case king = "K"
         
-    }
-    
-    enum Suit: String{
-        case spade = "♠︎"
-        case heart = "❤︎"
-        case club = "♣︎"
-        case diamond = "♦︎"
     }
 }
 
@@ -71,6 +71,27 @@ struct Card:Equatable{
         // つづいて一般化 => OK
         // tips: enumはequatableに準拠するため、等価比較ができる
         return self.rank == card.rank
+    }
+    
+    func isContinuousRank(_ card:Card)->Bool{
+        return handleKingAndAce(self.rank.index - 1) == card.rank.index ||
+               handleKingAndAce(self.rank.index + 1) == card.rank.index ||
+               handleKingAndAce(card.rank.index + 1) == self.rank.index ||
+               handleKingAndAce(card.rank.index + 1) == self.rank.index
+    }
+    
+    func handleKingAndAce(_ index:Int)->Int{
+        var handleIndex = 0
+        
+        if index > 12{
+            handleIndex = 0
+        } else if index < 0 {
+            handleIndex = 12
+        } else  {
+            handleIndex = index
+        }
+        
+        return handleIndex
     }
     
 }

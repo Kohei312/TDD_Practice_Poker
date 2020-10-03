@@ -15,6 +15,7 @@
 		7C002488252847140031FAC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C002486252847140031FAC9 /* LaunchScreen.storyboard */; };
 		7C002493252847140031FAC9 /* TDD_Practice_PokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002492252847140031FAC9 /* TDD_Practice_PokerTests.swift */; };
 		7C00249E252847140031FAC9 /* TDD_Practice_PokerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00249D252847140031FAC9 /* TDD_Practice_PokerUITests.swift */; };
+		7C0024BC2528491F0031FAC9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024BB2528491F0031FAC9 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7C002499252847140031FAC9 /* TDD_Practice_PokerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDD_Practice_PokerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C00249D252847140031FAC9 /* TDD_Practice_PokerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_PokerUITests.swift; sourceTree = "<group>"; };
 		7C00249F252847140031FAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C0024BB2528491F0031FAC9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		7C00247A252847120031FAC9 /* TDD_Practice_Poker */ = {
 			isa = PBXGroup;
 			children = (
+				7C0024BA252849160031FAC9 /* Entity */,
 				7C00247B252847120031FAC9 /* AppDelegate.swift */,
 				7C00247D252847120031FAC9 /* SceneDelegate.swift */,
 				7C00247F252847120031FAC9 /* ViewController.swift */,
@@ -126,6 +129,14 @@
 				7C00249F252847140031FAC9 /* Info.plist */,
 			);
 			path = TDD_Practice_PokerUITests;
+			sourceTree = "<group>";
+		};
+		7C0024BA252849160031FAC9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				7C0024BB2528491F0031FAC9 /* Card.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				7C002480252847120031FAC9 /* ViewController.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
+				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@
 		7C0024E0252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */; };
 		7C0024E8252957C50031FAC9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024E7252957C50031FAC9 /* Player.swift */; };
 		7C0024F0252960580031FAC9 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024EF252960580031FAC9 /* PlayerStatus.swift */; };
+		7C0024F525298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_LogicTest.swift; sourceTree = "<group>"; };
 		7C0024E7252957C50031FAC9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7C0024EF252960580031FAC9 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
+		7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_ThreeCardLogicTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				7C002492252847140031FAC9 /* TDD_Practice_PokerTests.swift */,
 				7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */,
+				7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */,
 				7C002494252847140031FAC9 /* Info.plist */,
 			);
 			path = TDD_Practice_PokerTests;
@@ -309,6 +312,7 @@
 			files = (
 				7C0024E0252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift in Sources */,
 				7C002493252847140031FAC9 /* TDD_Practice_PokerTests.swift in Sources */,
+				7C0024F525298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

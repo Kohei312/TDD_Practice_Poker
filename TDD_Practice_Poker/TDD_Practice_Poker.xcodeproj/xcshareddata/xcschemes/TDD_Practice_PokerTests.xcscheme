@@ -25,6 +25,9 @@
                <Test
                   Identifier = "TDD_Practice_PokerTests">
                </Test>
+               <Test
+                  Identifier = "TDD_Practice_Poker_LogicTest">
+               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference

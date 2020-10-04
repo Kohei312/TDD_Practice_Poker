@@ -23,7 +23,7 @@ extension Card{
         var index:Int{
             return Card.Rank.allCases.firstIndex(of: self) ?? 0
         }
-    
+        
         case two = "2"
         case three = "3"
         case four = "4"
@@ -47,9 +47,9 @@ struct Card:Equatable{
     let rank:Rank
     
     // tips: ここがなくても動く...
-//    static func ==(lhs: Card, rhs: Card) -> Bool {
-//        return lhs.hasSameSuit(rhs) && lhs.hasSameRank(rhs)
-//    }
+    //    static func ==(lhs: Card, rhs: Card) -> Bool {
+    //        return lhs.hasSameSuit(rhs) && lhs.hasSameRank(rhs)
+    //    }
     
     // 期待値をベタ書きする仮実装 → まずは成功パターンを作る!!
     var notify: String{
@@ -57,17 +57,29 @@ struct Card:Equatable{
     }
     
     
-    func hasSameSuit(_ card:Card)->Bool{
+    func hasSameSuit(_ card:Card)->[Card]{
         // まずは期待値をベタ書きする仮実装 => OK
-//        return true
+        //        return true
         // つづいて一般化 => OK
         // tips: enumはequatableに準拠するため、等価比較ができる
-        return self.suit == card.suit
+        
+        //        return self.suit == card.suit
+        
+        var sameSuitCards:[Card] = []
+        
+        
+        if self.suit == card.suit{
+            sameSuitCards = [self,card]
+        }
+        
+        
+        // 仮実装OK
+        return sameSuitCards
     }
     
     func hasSameRank(_ card:Card)->Bool{
         // まずは期待値をベタ書きする仮実装 => OK
-//        return true
+        //        return true
         // つづいて一般化 => OK
         // tips: enumはequatableに準拠するため、等価比較ができる
         return self.rank == card.rank
@@ -75,9 +87,9 @@ struct Card:Equatable{
     
     func isContinuousRank(_ card:Card)->Bool{
         return handleKingAndAce(self.rank.index - 1) == card.rank.index ||
-               handleKingAndAce(self.rank.index + 1) == card.rank.index ||
-               handleKingAndAce(card.rank.index + 1) == self.rank.index ||
-               handleKingAndAce(card.rank.index + 1) == self.rank.index
+            handleKingAndAce(self.rank.index + 1) == card.rank.index ||
+            handleKingAndAce(card.rank.index + 1) == self.rank.index ||
+            handleKingAndAce(card.rank.index + 1) == self.rank.index
     }
     
     func handleKingAndAce(_ index:Int)->Int{

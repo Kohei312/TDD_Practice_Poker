@@ -21,6 +21,21 @@
                BlueprintName = "TDD_Practice_PokerTests"
                ReferencedContainer = "container:TDD_Practice_Poker.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "TDD_Practice_PokerTests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7C002498252847140031FAC9"
+               BuildableName = "TDD_Practice_PokerUITests.xctest"
+               BlueprintName = "TDD_Practice_PokerUITests"
+               ReferencedContainer = "container:TDD_Practice_Poker.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>

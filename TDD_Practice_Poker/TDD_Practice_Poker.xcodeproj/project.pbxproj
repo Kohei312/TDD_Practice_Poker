@@ -19,6 +19,7 @@
 		7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024C7252861FD0031FAC9 /* Hand.swift */; };
 		7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024D425287CD00031FAC9 /* HandStatus.swift */; };
 		7C0024E0252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */; };
+		7C0024E8252957C50031FAC9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024E7252957C50031FAC9 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7C0024C7252861FD0031FAC9 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		7C0024D425287CD00031FAC9 /* HandStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandStatus.swift; sourceTree = "<group>"; };
 		7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_LogicTest.swift; sourceTree = "<group>"; };
+		7C0024E7252957C50031FAC9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
+				7C0024E7252957C50031FAC9 /* Player.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */,
 				7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
+				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
 			);

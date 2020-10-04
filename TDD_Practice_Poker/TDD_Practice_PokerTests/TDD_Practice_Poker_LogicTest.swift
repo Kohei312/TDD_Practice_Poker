@@ -11,29 +11,45 @@ import XCTest
 class TDD_Practice_Poker_LogicTest: XCTestCase {
     
     //              MARK:- 動作確認済み
-    func testCompareHands(){
+    //    func testCompareHands(){
+    //        var card_1:Card
+    //        var card_2:Card
+    //
+    //        var hand_1:Hand
+    //        var handState_1:HandState
+    //
+    //        var hand_2:Hand
+    //        var handState_2:HandState
+    //
+    //
+    //        card_1 = Card(suit: .club, rank: .three)
+    //        card_2 = Card(suit: .diamond, rank: .king)
+    //        hand_1 = Hand(cards:[card_1,card_2])
+    //        handState_1 = HandStatus(hand:hand_1).handState
+    //
+    //        card_1 = Card(suit: .diamond, rank: .ace)
+    //        card_2 = Card(suit: .diamond, rank: .king)
+    //        hand_2 = Hand(cards:[card_1,card_2])
+    //        handState_2 = HandStatus(hand:hand_2).handState
+    //
+    //        XCTAssertTrue(handState_1 > handState_2)
+    //
+    //    }
+    
+    func testInitializePlayer(){
         var card_1:Card
         var card_2:Card
-
+        
         var hand_1:Hand
-        var handState_1:HandState
-
-        var hand_2:Hand
-        var handState_2:HandState
-
-
+        var handStatus:HandStatus
+        
         card_1 = Card(suit: .club, rank: .three)
         card_2 = Card(suit: .diamond, rank: .king)
         hand_1 = Hand(cards:[card_1,card_2])
-        handState_1 = HandStatus(hand:hand_1).handState
-
-        card_1 = Card(suit: .diamond, rank: .ace)
-        card_2 = Card(suit: .diamond, rank: .king)
-        hand_2 = Hand(cards:[card_1,card_2])
-        handState_2 = HandStatus(hand:hand_2).handState
-
-        XCTAssertTrue(handState_1 > handState_2)
-
+        handStatus = HandStatus(hand:hand_1)
+        
+        let player_1 = Player(playerType:.me,handStatus:handStatus)
+        XCTAssertEqual(player_1.playerType, PlayerType.me)
     }
     
 }

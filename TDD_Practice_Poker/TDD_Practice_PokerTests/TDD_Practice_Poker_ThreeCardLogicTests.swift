@@ -28,7 +28,7 @@ class TDD_Practice_Poker_ThreeCardLogicTests: XCTestCase {
         // 一般化をすすめる => OK
         card_1 = Card(suit: .spade, rank: .ace)
         card_3 = Card(suit: .spade, rank: .jack)
-        card_2 = Card(suit: .heart, rank: .queen)
+        card_2 = Card(suit: .spade, rank: .queen)
         hand = Hand(cards:[card_1,card_2,card_3])
         XCTAssertEqual(hand.hasEqualSuit,[])
     }

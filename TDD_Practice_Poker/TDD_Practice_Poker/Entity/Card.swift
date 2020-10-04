@@ -41,7 +41,7 @@ extension Card{
     }
 }
 
-struct Card:Equatable{
+struct Card:Equatable,Hashable{
     
     let suit:Suit
     let rank:Rank

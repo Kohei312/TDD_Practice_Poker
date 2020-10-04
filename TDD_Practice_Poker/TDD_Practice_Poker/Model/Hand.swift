@@ -7,25 +7,44 @@
 
 import Foundation
 
+extension Hand{
+    func checkEqualSuit()->[[Card]]{
+        var suitCards:[[Card]] = []
+
+        for j in 0 ..< cards.count{
+            let comparedCards = cards.filter({$0 != cards[j]})
+
+            for i in j..<comparedCards.count{
+                let suitPair = cards[j].hasSameSuit(comparedCards[i])
+                if suitPair != []{
+                    suitCards.append(suitPair)
+                    
+                    if suitCards.count >= 2{
+                        for r in 1..<suitCards.count{
+                            if suitCards.indices.contains(r){
+                                let i:Set<Card> = Set(suitCards[r])
+                                let k:Set<Card> = Set(suitCards[r-1])
+                                
+                                let t = Array(i.union(k))
+                                suitCards = [t]
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        return suitCards
+    }
+}
+
 struct Hand{
     
     #warning("ただし、手札が0,または1枚のときに必ずクラッシュする")
     var cards:[Card]
     
     var hasEqualSuit:[ [Card] ]{
-               
-        var suitCards:[ [Card] ] = []
-        
-        for j in 0 ..< cards.count{
-            for i in j+1..<cards.count{
-                let suitPair = cards[j].hasSameSuit(cards[i])
-                if suitPair != []{
-                    suitCards.append(suitPair)
-                }
-            }
-        }
-        
-        return suitCards
+        checkEqualSuit()
     }
     var isEqualRank: Bool{
         return cards[0].hasSameRank(cards[1])

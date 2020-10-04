@@ -17,8 +17,7 @@ struct Hand{
     }
     var isEqualRank: Bool{
         return cards[0].hasSameRank(cards[1])
-    }    
-    
+    }
     var isContinuousRank: Bool{
         return cards[0].isContinuousRank(cards[1])
     }

@@ -17,14 +17,13 @@ extension Card{
     
     enum Rank:String,Comparable,CaseIterable{
         static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
-            return lhs.rawValue < rhs.rawValue
+            return rhs.rawValue < lhs.rawValue
         }
         
         var index:Int{
             return Card.Rank.allCases.firstIndex(of: self) ?? 0
         }
     
-        case ace = "A"
         case two = "2"
         case three = "3"
         case four = "4"
@@ -37,6 +36,7 @@ extension Card{
         case jack = "J"
         case queen = "Q"
         case king = "K"
+        case ace = "A"
         
     }
 }
@@ -93,5 +93,4 @@ struct Card:Equatable{
         
         return handleIndex
     }
-    
 }

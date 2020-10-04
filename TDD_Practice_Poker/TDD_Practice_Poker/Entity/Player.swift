@@ -12,6 +12,7 @@ enum PlayerType{
     case other
 }
 
+
 struct Player{
     
     var playerType:PlayerType

@@ -76,14 +76,17 @@ struct PlayerStatus{
                 state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
             }
             break
-        case .straight:
-            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
-            break
         case.flush:
             state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             if state == .draw{
                 state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
             }
+            break
+        case .straight:
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
+            break
+        case.threeCard:
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             break
         case .straightFlush:
             state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)

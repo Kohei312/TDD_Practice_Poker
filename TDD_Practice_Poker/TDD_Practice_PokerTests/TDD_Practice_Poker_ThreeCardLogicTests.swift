@@ -56,28 +56,88 @@ class TDD_Practice_Poker_ThreeCardLogicTests: XCTestCase {
 //        XCTAssertEqual(hand.hasEqualSuit,[])
 //    }
     
-    func testHasContinuousRank(){
-        
-        // 一般化が確認できたら、リファクタリング
-        var card_1 :Card
-        var card_2 :Card
-        var card_3 :Card
-        var hand:Hand
-
-        // 仮実装での挙動確認 OK
-//        card_1 = Card(suit: .club, rank: .ace)
-//        card_2 = Card(suit: .diamond, rank: .jack)
-//        card_3 = Card(suit: .diamond, rank: .jack)
-//        XCTAssertTrue(card_1.hasSameSuit([card_2,card_3]))
-        
-        // 一般化をすすめる => OK
-        card_1 = Card(suit: .club, rank: .three)
-        card_3 = Card(suit: .club, rank: .ace)
-        card_2 = Card(suit: .heart, rank: .two)
-        hand = Hand(cards:[card_1,card_2,card_3])
+//    func testHasContinuousRank(){
+//
+//        // 一般化が確認できたら、リファクタリング
+//        var card_1 :Card
+//        var card_2 :Card
+//        var card_3 :Card
+//        var hand:Hand
+//
+//        // 仮実装での挙動確認 OK
+////        card_1 = Card(suit: .club, rank: .ace)
+////        card_2 = Card(suit: .diamond, rank: .jack)
+////        card_3 = Card(suit: .diamond, rank: .jack)
+////        XCTAssertTrue(card_1.hasSameSuit([card_2,card_3]))
+//
+//        // 一般化をすすめる => OK
+//        card_1 = Card(suit: .club, rank: .three)
+//        card_3 = Card(suit: .club, rank: .ace)
+//        card_2 = Card(suit: .heart, rank: .two)
+//        hand = Hand(cards:[card_1,card_2,card_3])
+//
+//        XCTAssertEqual(hand.hasContinuousRank,[])
+////        let continuousRank = hand.hasContinuousRank
+////        XCTAssertEqual(continuousRank,[])
+//    }
     
-        XCTAssertEqual(hand.hasContinuousRank,[])
-//        let continuousRank = hand.hasContinuousRank
-//        XCTAssertEqual(continuousRank,[])
-    }
+    //              MARK:- 動作確認済み
+        func testComparePlayerHands(){
+            var card_1:Card
+            var card_2:Card
+            var card_3:Card
+    
+            var hand_1:Hand
+            var handStatus_1:HandStatus
+
+            var hand_2:Hand
+            var handStatus_2:HandStatus
+            
+            card_1 = Card(suit: .club, rank: .three)
+            card_2 = Card(suit: .diamond, rank: .king)
+            card_3 = Card(suit: .heart, rank: .ace)
+            hand_1 = Hand(cards:[card_1,card_2,card_3])
+            handStatus_1 = HandStatus(hand:hand_1)
+    
+            let player_1 = Player(playerType:.me,handStatus:handStatus_1)
+            XCTAssertEqual(player_1.handStatus.handState, HandState.highCard)
+    
+            card_1 = Card(suit: .heart, rank: .two)
+            card_2 = Card(suit: .spade, rank: .two)
+            card_3 = Card(suit: .club, rank: .two)
+            hand_2 = Hand(cards:[card_1,card_2,card_3])
+            handStatus_2 = HandStatus(hand:hand_2)
+    
+            let player_2 = Player(playerType:.other,handStatus:handStatus_2)
+            XCTAssertEqual(player_2.handStatus.handState, HandState.pair)
+            XCTAssertTrue(player_1.handStatus.handState < player_2.handStatus.handState)
+        }
+    
+//    func testCompareSamePlayerHands(){
+//        var card_1:Card
+//        var card_2:Card
+//
+//        var hand_1:Hand
+//        var handStatus:HandStatus
+//
+//        card_1 = Card(suit: .diamond, rank: .two)
+//        card_2 = Card(suit: .diamond, rank: .ace)
+//        hand_1 = Hand(cards:[card_1,card_2])
+//        handStatus = HandStatus(hand:hand_1)
+//        let player_1 = Player(playerType:.me,handStatus:handStatus)
+//        XCTAssertEqual(player_1.handStatus.handState, HandState.straightFlush)
+//
+//
+//        card_1 = Card(suit: .diamond, rank: .queen)
+//        card_2 = Card(suit: .diamond, rank: .king)
+//        hand_1 = Hand(cards:[card_1,card_2])
+//        handStatus = HandStatus(hand:hand_1)
+//        let player_2 = Player(playerType:.other,handStatus:handStatus)
+//        XCTAssertEqual(player_2.handStatus.handState, HandState.straightFlush)
+//
+//
+//        let playerStatus = PlayerStatus(players:[player_1,player_2])
+//        XCTAssertEqual(playerStatus.PlayerState,PlayerState.lose)
+//
+//    }
 }

@@ -9,10 +9,10 @@ import Foundation
 
 enum HandState:Comparable{
     case nothing
-    case pair
-    case flush
     case highCard
+    case pair
     case straight
+    case flush
     case straightFlush
 }
 

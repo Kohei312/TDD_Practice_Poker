@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HandState{
+enum HandState:Comparable{
     case nothing
     case pair
     case flush

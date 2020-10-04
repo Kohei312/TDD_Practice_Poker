@@ -17,7 +17,7 @@ extension Card{
     
     enum Rank:String,Comparable,CaseIterable{
         static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
-            return rhs.rawValue < lhs.rawValue
+            return lhs.index < rhs.index
         }
         
         var index:Int{

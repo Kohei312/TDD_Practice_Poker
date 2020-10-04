@@ -60,7 +60,7 @@ class TDD_Practice_Poker_LogicTest: XCTestCase {
         var hand_1:Hand
         var handStatus:HandStatus
         
-        card_1 = Card(suit: .diamond, rank: .queen)
+        card_1 = Card(suit: .diamond, rank: .two)
         card_2 = Card(suit: .diamond, rank: .king)
         hand_1 = Hand(cards:[card_1,card_2])
         handStatus = HandStatus(hand:hand_1)
@@ -68,7 +68,7 @@ class TDD_Practice_Poker_LogicTest: XCTestCase {
         XCTAssertEqual(player_1.handStatus.handState, HandState.straightFlush)
         
         
-        card_1 = Card(suit: .diamond, rank: .ace)
+        card_1 = Card(suit: .diamond, rank: .three)
         card_2 = Card(suit: .diamond, rank: .king)
         hand_1 = Hand(cards:[card_1,card_2])
         handStatus = HandStatus(hand:hand_1)

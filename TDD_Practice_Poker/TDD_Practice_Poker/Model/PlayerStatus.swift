@@ -39,7 +39,7 @@ struct PlayerStatus{
             } else if myHandStatus.handState > otherHandStatus.handState{
                 state = .win
             } else if myHandStatus.handState == otherHandStatus.handState{
-                state = self.compareCardRanks(myHandStatus,otherHandStatus:otherHandStatus)
+                state = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
             }
         }
         
@@ -47,7 +47,7 @@ struct PlayerStatus{
     }
     
     // 仮実装OK
-    func compareCardRanks(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState{
+    func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState{
         
         let handState = myHandStatus.handState
         let myCards = myHandStatus.hand.cards
@@ -57,78 +57,55 @@ struct PlayerStatus{
               let otherStrongCard = otherCards.compactMap({$0.rank}).max(),
               let myWeakCard = myCards.compactMap({$0.rank}).min(),
               let otherWeakCard = otherCards.compactMap({$0.rank}).min() else {return .inPlaying}
+
         
-        var state:PlayerState = .draw
+        var state:PlayerState = .inPlaying
         
         switch handState{
         case .nothing:
             break
         case .highCard:
-            
-            if myStrongCard < otherStrongCard{
-                state = .lose
-            } else if myStrongCard > otherStrongCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard) && myWeakCard < otherWeakCard{
-                state = .lose
-            } else if (myStrongCard == otherStrongCard) && myWeakCard > otherWeakCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard) && myWeakCard == otherWeakCard{
-                state = .draw
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
+            if state == .draw{
+                state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
             }
             break
         case .pair:
-            
-            if myStrongCard < otherStrongCard{
-                state = .lose
-            } else if myStrongCard > otherStrongCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard) && myWeakCard < otherWeakCard{
-                state = .lose
-            } else if (myStrongCard == otherStrongCard) && myWeakCard > otherWeakCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard) && myWeakCard == otherWeakCard{
-                state = .draw
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
+            if state == .draw{
+                state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
             }
-
             break
         case .straight:
-            if myStrongCard < otherStrongCard{
-                state = .lose
-            } else if myStrongCard > otherStrongCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard){
-                state = .draw
-            }
-
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             break
         case.flush:
-            if myStrongCard < otherStrongCard{
-                state = .lose
-            } else if myStrongCard > otherStrongCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard) && myWeakCard < otherWeakCard{
-                state = .lose
-            } else if (myStrongCard == otherStrongCard) && myWeakCard > otherWeakCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard) && myWeakCard == otherWeakCard{
-                state = .draw
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
+            if state == .draw{
+                state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
             }
             break
         case .straightFlush:
-            if myStrongCard < otherStrongCard{
-                state = .lose
-            } else if myStrongCard > otherStrongCard{
-                state = .win
-            } else if (myStrongCard == otherStrongCard){
-                state = .draw
-            }
+            state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             break
         }
         
         return state
-// 仮実装OK
-//        return .draw
+    }
+    
+    func compareCardRanks(myCard:Card.Rank,otherCard:Card.Rank)->PlayerState{
+        
+        var currentState:PlayerState = .draw
+ 
+        if myCard < otherCard{
+            currentState = .lose
+        } else if myCard > otherCard{
+            currentState = .win
+        } else if myCard == otherCard{
+            currentState = .draw
+        }
+        
+        return currentState
     }
     
     

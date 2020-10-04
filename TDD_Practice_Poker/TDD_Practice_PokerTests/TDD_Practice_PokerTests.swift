@@ -233,21 +233,21 @@ class TDD_Practice_PokerTests: XCTestCase {
     //        XCTAssertEqual(hand.isContinuousRank,true)
     //    }
     
-    //  MARK:- 動作確認済み
-    //    func testIsStraight(){
-    //        var card_1:Card
-    //        var card_2:Card
-    //        var hand:Hand
-    //        var handState:HandState
-    //
-    //        card_1 = Card(suit: .spade, rank: .ace)
-    //        card_2 = Card(suit: .diamond, rank: .king)
-    //        hand = Hand(cards:[card_1,card_2])
-    //        handState = HandStatus(hand:hand).updateHandState()
-    //
-    //        XCTAssertEqual(handState, HandState.straight)
-    //
-    //    }
+//      MARK:- 動作確認済み
+        func testIsStraight(){
+            var card_1:Card
+            var card_2:Card
+            var hand:Hand
+            var handState:HandState
+    
+            card_1 = Card(suit: .club, rank: .queen)
+            card_2 = Card(suit: .diamond, rank: .king)
+            hand = Hand(cards:[card_1,card_2])
+            handState = HandStatus(hand:hand).handState
+    
+            XCTAssertEqual(handState, HandState.straight)
+    
+        }
     
     //  MARK:- 動作確認済み
     //    func testIsStraightFlush(){

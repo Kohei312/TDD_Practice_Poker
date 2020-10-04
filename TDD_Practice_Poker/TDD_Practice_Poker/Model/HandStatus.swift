@@ -19,59 +19,40 @@ enum HandState{
 struct HandStatus{
     
     var hand:Hand
-    
-    func updateHandState()->HandState{
+    var handState:HandState{
+        var state:HandState = .nothing
         
-        var handState:HandState = .nothing
-        
-        if hand.isEqualRank && (hand.isEqualSuit != true){
+        if hand.isEqualRank && (!hand.isEqualSuit){
             
-            handState = .pair
+            state = .pair
             
-        } else if (hand.isEqualRank != true){
+        } else if (!hand.isEqualRank){
             
-            if hand.isContinuousRank{
+            if hand.isContinuousRank && hand.isEqualSuit{
                 
-                if hand.isEqualSuit {
-                    
-                    handState = .straightFlush
+                state = .straightFlush
                 
-                } else {
-                    
-                    handState = .straight
-                    
-                }
-            
-            } else {
+            } else if hand.isContinuousRank && !hand.isEqualSuit{
+                state = .straight
                 
-                if hand.isEqualSuit {
-                    
-                    handState = .flush
+            } else if !hand.isContinuousRank && hand.isEqualSuit {
                 
-                } else {
-                    
-                    handState = .highCard
-                    
-                }
+                state = .flush
+                
+            } else if !hand.isContinuousRank && !hand.isEqualSuit {
+                
+                state = .highCard
                 
             }
             
-//        else if (hand.isEqualRank != true) && hand.isEqualSuit{
-//
-//            handState = .flush
-//
-//        } else if (hand.isEqualRank != true ) && (hand.isEqualSuit != true){
-//
-//            handState = .highCard
-        
         } else {
             
-            handState = .nothing
-        
+            state = .nothing
+            
         }
-
-
-        return handState
+        
+        
+        return state
     }
     
 }

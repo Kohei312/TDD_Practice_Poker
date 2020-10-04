@@ -75,8 +75,8 @@ class TDD_Practice_Poker_ThreeCardLogicTests: XCTestCase {
         card_3 = Card(suit: .club, rank: .ace)
         card_2 = Card(suit: .heart, rank: .two)
         hand = Hand(cards:[card_1,card_2,card_3])
-        print(hand.hasContinuousRank())
-        XCTAssertEqual(hand.hasContinuousRank(),[])
+    
+        XCTAssertEqual(hand.hasContinuousRank,[])
 //        let continuousRank = hand.hasContinuousRank
 //        XCTAssertEqual(continuousRank,[])
     }

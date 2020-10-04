@@ -9,6 +9,7 @@ import Foundation
 
 protocol HandProtocol{
     func checkEqual(type:CardType)->[[Card]]
+    func checkContinuious()->[[Card]]
 }
 
 extension Hand:HandProtocol{
@@ -60,7 +61,7 @@ extension Hand:HandProtocol{
         hasEqualRank.forEach{(equalRanks) in
             let removeCards = equalRanks
             for removeCard in removeCards {
-                willSortCards = self.cards.filter({$0 != removeCard}).sorted(by: {$0.rank < $1.rank})
+                willSortCards = self.cards.filter({$0 != removeCard})
             }
         }
 
@@ -83,7 +84,7 @@ extension Hand:HandProtocol{
                                 let i:Set<Card> = Set(continuousCards[r])
                                 let k:Set<Card> = Set(continuousCards[r-1])
                                 
-                                let t = Array(i.union(k))
+                                let t = Array(i.union(k)).sorted(by: {$0.rank < $1.rank})
                                 continuousCards = [t]
                             }
                         }
@@ -106,18 +107,7 @@ struct Hand{
     var hasEqualRank:[ [Card] ]{
         checkEqual(type: CardType.Rank)
     }
-//    var isContinuousRank: Bool{
-//        return cards[0].isContinuousRank(cards[1])
-//    }
-    
-//    var hasContinuousRank:[ [Card] ]{
-//        checkContinuious()
-//    }
-    // 役の判定にも入ることができる様に
-    // 対象となるのは、hasEqualRankではない[Card]
-    // Hand初期化後にコールする
-    mutating func hasContinuousRank()->[ [Card] ]{
-        // 仮実装OK
-        return checkContinuious()
+    var hasContinuousRank:[ [Card] ]{
+        checkContinuious()
     }
 }

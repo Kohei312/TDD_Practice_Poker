@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum CardType{
+    case Suit
+    case Rank
+}
+
 extension Card{
     enum Suit: String{
         case spade = "♠︎"

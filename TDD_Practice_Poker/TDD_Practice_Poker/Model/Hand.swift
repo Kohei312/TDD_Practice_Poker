@@ -7,26 +7,39 @@
 
 import Foundation
 
-extension Hand{
-    func checkEqualSuit()->[[Card]]{
-        var suitCards:[[Card]] = []
+protocol HandProtocol{
+    func checkEqual(type:CardType)->[[Card]]
+}
+
+extension Hand:HandProtocol{
+    func checkEqual(type:CardType)->[[Card]]{
+        var pairCards:[[Card]] = []
 
         for j in 0 ..< cards.count{
             let comparedCards = cards.filter({$0 != cards[j]})
 
             for i in j..<comparedCards.count{
-                let suitPair = cards[j].hasSameSuit(comparedCards[i])
-                if suitPair != []{
-                    suitCards.append(suitPair)
-                    
-                    if suitCards.count >= 2{
-                        for r in 1..<suitCards.count{
-                            if suitCards.indices.contains(r){
-                                let i:Set<Card> = Set(suitCards[r])
-                                let k:Set<Card> = Set(suitCards[r-1])
+                var pair:[Card] = []
+                switch type{
+                
+                case .Suit:
+                    pair = cards[j].hasSameSuit(comparedCards[i])
+                    break
+                case .Rank:
+                    pair = cards[j].hasSameRank(comparedCards[i])
+                    break
+                }
+               
+                if pair != []{
+                    pairCards.append(pair)
+                    if pairCards.count >= 2{
+                        for r in 1..<pairCards.count{
+                            if pairCards.indices.contains(r){
+                                let i:Set<Card> = Set(pairCards[r])
+                                let k:Set<Card> = Set(pairCards[r-1])
                                 
                                 let t = Array(i.union(k))
-                                suitCards = [t]
+                                pairCards = [t]
                             }
                         }
                     }
@@ -34,38 +47,7 @@ extension Hand{
                 }
             }
         }
-        return suitCards
-    }
-    
-    func checkEqualRank()->[[Card]]{
-        var suitCards:[[Card]] = []
-
-        
-        for j in 0 ..< cards.count{
-            let comparedCards = cards.filter({$0 != cards[j]})
-
-            for i in j..<comparedCards.count{
-                #warning("違うのはここだけ")
-                let suitPair = cards[j].hasSameRank(comparedCards[i])
-                if suitPair != []{
-                    suitCards.append(suitPair)
-                    
-                    if suitCards.count >= 2{
-                        for r in 1..<suitCards.count{
-                            if suitCards.indices.contains(r){
-                                let i:Set<Card> = Set(suitCards[r])
-                                let k:Set<Card> = Set(suitCards[r-1])
-                                
-                                let t = Array(i.union(k))
-                                suitCards = [t]
-                            }
-                        }
-                    }
-                    
-                }
-            }
-        }
-        return suitCards
+        return pairCards
     }
 }
 
@@ -75,14 +57,11 @@ struct Hand{
     var cards:[Card]
     
     var hasEqualSuit:[ [Card] ]{
-        checkEqualSuit()
+        checkEqual(type: CardType.Suit)
     }
     var hasEqualRank:[ [Card] ]{
-        checkEqualRank()
+        checkEqual(type: CardType.Rank)
     }
-//    var isEqualRank: Bool{
-//        return cards[0].hasSameRank(cards[1])
-//    }
     var isContinuousRank: Bool{
         return cards[0].isContinuousRank(cards[1])
     }

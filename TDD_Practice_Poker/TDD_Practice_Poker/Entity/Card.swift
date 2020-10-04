@@ -108,7 +108,7 @@ struct Card:Equatable,Hashable{
     
     func handleKingAndAce(_ index:Int)->Int{
         var handleIndex = 0
-        
+
         if index > 12{
             handleIndex = 0
         } else if index < 0 {

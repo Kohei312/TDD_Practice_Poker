@@ -49,6 +49,50 @@ extension Hand:HandProtocol{
         }
         return pairCards
     }
+    
+    func checkContinuious()->[[Card]]{
+        
+        // 対象となるのは、hasEqualRankではない[Card]
+        var continuousCards:[[Card] ] = []
+        var willSortCards:[Card] = self.cards
+        var checkedCards:[Card] = []
+        
+        hasEqualRank.forEach{(equalRanks) in
+            let removeCards = equalRanks
+            for removeCard in removeCards {
+                willSortCards = self.cards.filter({$0 != removeCard}).sorted(by: {$0.rank < $1.rank})
+            }
+        }
+
+        // 全カードのチェック
+        for j in 0 ..< willSortCards.count{
+            
+            // 軸はcheckCards[j]
+            let comparedCards = willSortCards.filter({$0 != willSortCards[j]})
+            
+            for i in j..<comparedCards.count{
+                
+                if willSortCards[j].isContinuousRank(comparedCards[i]){
+                    // trueなら残す
+                    checkedCards.append(willSortCards[j])
+                    checkedCards.append(comparedCards[i])
+                    continuousCards.append(checkedCards)
+                    if continuousCards.count >= 2{
+                        for r in 1..<continuousCards.count{
+                            if continuousCards.indices.contains(r){
+                                let i:Set<Card> = Set(continuousCards[r])
+                                let k:Set<Card> = Set(continuousCards[r-1])
+                                
+                                let t = Array(i.union(k))
+                                continuousCards = [t]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return continuousCards
+    }
 }
 
 struct Hand{
@@ -62,7 +106,18 @@ struct Hand{
     var hasEqualRank:[ [Card] ]{
         checkEqual(type: CardType.Rank)
     }
-    var isContinuousRank: Bool{
-        return cards[0].isContinuousRank(cards[1])
+//    var isContinuousRank: Bool{
+//        return cards[0].isContinuousRank(cards[1])
+//    }
+    
+//    var hasContinuousRank:[ [Card] ]{
+//        checkContinuious()
+//    }
+    // 役の判定にも入ることができる様に
+    // 対象となるのは、hasEqualRankではない[Card]
+    // Hand初期化後にコールする
+    mutating func hasContinuousRank()->[ [Card] ]{
+        // 仮実装OK
+        return checkContinuious()
     }
 }

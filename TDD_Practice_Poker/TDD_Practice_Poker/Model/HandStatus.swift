@@ -21,35 +21,35 @@ struct HandStatus{
     var hand:Hand
     var handState:HandState{
         var state:HandState = .nothing
-        
-        if hand.hasEqualRank != [] && (hand.hasEqualSuit == []){
-            
-            state = .pair
-            
-        } else if (hand.hasEqualRank == []){
-            
-            if hand.isContinuousRank && hand.hasEqualSuit != []{
-                
-                state = .straightFlush
-                
-            } else if hand.isContinuousRank && hand.hasEqualSuit == []{
-                state = .straight
-                
-            } else if !hand.isContinuousRank && hand.hasEqualSuit != [] {
-                
-                state = .flush
-                
-            } else if !hand.isContinuousRank && hand.hasEqualSuit == []{
-                
-                state = .highCard
-                
-            }
-            
-        } else {
-            
-            state = .nothing
-            
-        }
+//        
+//        if hand.hasEqualRank != [] && (hand.hasEqualSuit == []){
+//            
+//            state = .pair
+//            
+//        } else if (hand.hasEqualRank == []){
+//            
+//            if hand.hasContinuousRank != [] && hand.hasEqualSuit != []{
+//                
+//                state = .straightFlush
+//                
+//            } else if hand.hasContinuousRank != [] && hand.hasEqualSuit == []{
+//                state = .straight
+//                
+//            } else if hand.hasContinuousRank == [] && hand.hasEqualSuit != [] {
+//                
+//                state = .flush
+//                
+//            } else if hand.hasContinuousRank == [] && hand.hasEqualSuit == []{
+//                
+//                state = .highCard
+//                
+//            }
+//            
+//        } else {
+//            
+//            state = .nothing
+//            
+//        }
         
         
         return state

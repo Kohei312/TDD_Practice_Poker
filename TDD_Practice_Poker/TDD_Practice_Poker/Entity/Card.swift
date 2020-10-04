@@ -77,12 +77,21 @@ struct Card:Equatable,Hashable{
         return sameSuitCards
     }
     
-    func hasSameRank(_ card:Card)->Bool{
+    func hasSameRank(_ card:Card)->[Card]{
         // まずは期待値をベタ書きする仮実装 => OK
         //        return true
         // つづいて一般化 => OK
         // tips: enumはequatableに準拠するため、等価比較ができる
-        return self.rank == card.rank
+        var sameRankCards:[Card] = []
+        
+        
+        if self.rank == card.rank{
+            sameRankCards = [self,card]
+        }
+        
+        
+        // 仮実装OK
+        return sameRankCards
     }
     
     func isContinuousRank(_ card:Card)->Bool{

@@ -22,13 +22,13 @@ struct HandStatus{
     var handState:HandState{
         var state:HandState = .nothing
         
-        if hand.isEqualRank && (hand.hasEqualSuit != []){
+        if hand.hasEqualRank != [] && (hand.hasEqualSuit == []){
             
             state = .pair
             
-        } else if (!hand.isEqualRank){
+        } else if (hand.hasEqualRank == []){
             
-            if hand.isContinuousRank && hand.hasEqualSuit == []{
+            if hand.isContinuousRank && hand.hasEqualSuit != []{
                 
                 state = .straightFlush
                 

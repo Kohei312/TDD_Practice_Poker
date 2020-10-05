@@ -56,11 +56,12 @@ struct HandStatus{
                 
             } else if hand.hasEqualSuit.contains(where: {$0.count == 5}){
                                 
-                if !hand.hasContinuousRank.contains(where: {$0.count == 5}){
+                if hand.hasContinuousRank == []{
                     
+                    print("から :",hand.hasContinuousRank)
                     state = .flush
                     
-                } else {
+                } else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {
                     
                     let i = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
                     for j in i {

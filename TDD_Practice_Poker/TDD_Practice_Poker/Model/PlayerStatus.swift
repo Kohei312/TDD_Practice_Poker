@@ -250,7 +250,7 @@ extension PlayerStatus{
     
     func checkStraightStrongRank(_ handStatus:HandStatus)->Card.Rank{
         
-        var rank:Card.Rank = .three
+        var rank:Card.Rank = .five
         
         guard let contnuousRanks = handStatus.hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank})}).last else {
             return rank

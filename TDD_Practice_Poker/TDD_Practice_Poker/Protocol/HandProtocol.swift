@@ -39,7 +39,6 @@ extension Hand:HandProtocol{
                                 // 同じものがあるかどうかを比較したい => OK
                                 if i.intersection(k) != []{
                                     let t = Array(i.union(k))
-                                    print("まとめると　:",t)
                                     pairCards = [t]
                                 }
                             }
@@ -57,7 +56,6 @@ extension Hand:HandProtocol{
         // 対象となるのは、hasEqualRankではない[Card]
         var continuousCards:[[Card] ] = []
         let willSortCards:[Card] = self.cards.sorted(by: {$0.rank < $1.rank})
-//        var checkedCards:[Card] = []
         var count = 0
         
         for z in 0..<willSortCards.count{
@@ -65,7 +63,17 @@ extension Hand:HandProtocol{
             let y = z + 1
             
             if willSortCards.indices.contains(y){
-                if willSortCards[z].isContinuousRank(willSortCards[y]){
+
+                
+                if willSortCards.contains(where: {$0.rank == .two}) &&
+                    willSortCards.contains(where: {$0.rank == .ace}){
+                    // Aceとtwoが共存する場合はOK
+                    count += 1
+                    if count == willSortCards.count-1{
+                        continuousCards.append(willSortCards)
+                    }
+                } else if willSortCards[z].isContinuousRank(willSortCards[y]){
+                    // z番目とz+1番目が連続している場合もOK
                     count += 1
                     if count == willSortCards.count-1{
                         continuousCards.append(willSortCards)

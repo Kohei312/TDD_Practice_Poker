@@ -106,24 +106,15 @@ struct Card:Equatable,Hashable{
         return sameRankCards
     }
     
-    func isContinuousRank(_ card:Card)->Bool{
-        return handleKingAndAce(self.rank.index - 1) == card.rank.index ||
-            handleKingAndAce(self.rank.index + 1) == card.rank.index ||
-            handleKingAndAce(card.rank.index + 1) == self.rank.index ||
-            handleKingAndAce(card.rank.index + 1) == self.rank.index
-    }
-    
-    func handleKingAndAce(_ index:Int)->Int{
-        var handleIndex = 0
-
-        if index > 12{
-            handleIndex = 0
-        } else if index < 0 {
-            handleIndex = 12
-        } else  {
-            handleIndex = index
+    func isContinuousRank(_ nextCard:Card)->Bool{
+        // z番目とz+1番目が連続しているのか知りたい
+        // AceはKing,twoとせっすることを保証
+        var isContinue = false
+        
+        if (self.rank.index+1) == nextCard.rank.index{
+            isContinue = true
         }
         
-        return handleIndex
+        return isContinue
     }
 }

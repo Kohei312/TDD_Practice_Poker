@@ -115,6 +115,7 @@
 		7C00247A252847120031FAC9 /* TDD_Practice_Poker */ = {
 			isa = PBXGroup;
 			children = (
+				7C002506252AA4B70031FAC9 /* Extension */,
 				7C0024FA2529DAC30031FAC9 /* Protocol */,
 				7C0024C6252861F00031FAC9 /* Model */,
 				7C0024BA252849160031FAC9 /* Entity */,
@@ -174,6 +175,13 @@
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7C002506252AA4B70031FAC9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

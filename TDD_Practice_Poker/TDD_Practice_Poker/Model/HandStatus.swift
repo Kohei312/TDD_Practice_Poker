@@ -85,50 +85,6 @@ struct HandStatus{
             
         }
         
-//        if hand.hasEqualRank != [] &&
-//           hand.hasEqualSuit == []{
-//
-//            if hand.hasEqualRank.contains(where: {$0.count == 2}) {
-//                // ok
-//                state = .pair
-//
-//            } else if hand.hasEqualRank.contains(where: {$0.count == 3}){
-//                // OK
-//                state = .threeCard
-//            }
-//
-//
-//        } else if (hand.hasEqualRank == []){
-//
-//            if hand.hasContinuousRank != [] && hand.hasEqualSuit != []{
-//
-//                state = .straightFlush
-//
-//            } else if hand.hasContinuousRank != [] &&
-//                      hand.hasContinuousRank.contains(where: {$0.count == 3}) &&
-//                      hand.hasEqualSuit == []{
-//                // ok
-//                state = .straight
-//
-//            } else if hand.hasContinuousRank == [] &&
-//                      hand.hasEqualSuit != [] &&
-//                      hand.hasEqualSuit.contains(where: {$0.count == 3})  {
-//                // ok
-//                state = .flush
-//
-//            } else if hand.hasContinuousRank == [] && hand.hasEqualSuit == []{
-//                // ok
-//                state = .highCard
-//
-//            }
-//
-//        } else {
-//
-//            state = .nothing
-//
-//        }
-        
-        
         return state
     }
     

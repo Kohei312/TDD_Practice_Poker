@@ -93,24 +93,29 @@ class TDD_Practice_Poker_ThreeCardLogicTests: XCTestCase {
             var hand_2:Hand
             var handStatus_2:HandStatus
             
-            card_1 = Card(suit: .club, rank: .three)
-            card_2 = Card(suit: .diamond, rank: .king)
-            card_3 = Card(suit: .heart, rank: .ace)
+            // 3: まけ
+            card_1 = Card(suit: .heart, rank: .three)
+            card_2 = Card(suit: .club, rank: .three)
+            card_3 = Card(suit: .spade, rank: .ace)
             hand_1 = Hand(cards:[card_1,card_2,card_3])
             handStatus_1 = HandStatus(hand:hand_1)
     
-            let player_1 = Player(playerType:.me,handStatus:handStatus_1)
-            XCTAssertEqual(player_1.handStatus.handState, HandState.highCard)
-    
-            card_1 = Card(suit: .heart, rank: .two)
-            card_2 = Card(suit: .spade, rank: .two)
-            card_3 = Card(suit: .club, rank: .two)
+            let player_me = Player(playerType:.me,handStatus:handStatus_1)
+            XCTAssertEqual(player_me.handStatus.handState, HandState.flush)
+            
+            // K
+            card_1 = Card(suit: .heart, rank: .jack)
+            card_2 = Card(suit: .club, rank: .three)
+            card_3 = Card(suit: .spade, rank: .three)
             hand_2 = Hand(cards:[card_1,card_2,card_3])
             handStatus_2 = HandStatus(hand:hand_2)
     
             let player_2 = Player(playerType:.other,handStatus:handStatus_2)
-            XCTAssertEqual(player_2.handStatus.handState, HandState.pair)
-            XCTAssertTrue(player_1.handStatus.handState < player_2.handStatus.handState)
+            XCTAssertEqual(player_2.handStatus.handState, HandState.flush)
+            XCTAssertTrue(player_me.handStatus.handState == player_2.handStatus.handState)
+            
+            let playerStatus = PlayerStatus(players:[player_me,player_2])
+            XCTAssertEqual(playerStatus.PlayerState,PlayerState.lose)
         }
     
 //    func testCompareSamePlayerHands(){

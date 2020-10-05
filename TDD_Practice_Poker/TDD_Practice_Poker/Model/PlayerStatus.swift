@@ -55,7 +55,7 @@ struct PlayerStatus{
         let handState = myHandStatus.handState
         let myCards = myHandStatus.hand.cards.compactMap({$0.rank}).sorted()
         let otherCards = otherHandStatus.hand.cards.compactMap({$0.rank}).sorted()
-
+        
         guard let myStrongCard = myCards.max(),
               let otherStrongCard = otherCards.max(),
               let myWeakCard = myCards.min(),
@@ -67,13 +67,13 @@ struct PlayerStatus{
         case .nothing:
             break
         case .highCard:
-
+            
             state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             if state == .draw{
-
+                
                 let myMiddleCard = myCards[(myCards.count - 1) / 2]
                 let otherMiddleCard = otherCards[(otherCards.count - 1) / 2]
-
+                
                 state = self.compareCardRanks(myCard: myMiddleCard, otherCard: otherMiddleCard)
                 
                 if state == .draw{
@@ -88,38 +88,38 @@ struct PlayerStatus{
             
             let myStrongRank = checkPairRank(myPairCards,returnStrength: .Strong)
             let otherStrongRank = checkPairRank(otherPairCards,returnStrength: .Strong)
-              
+            
             state = self.compareCardRanks(myCard: myStrongRank, otherCard: otherStrongRank)
+            
+            if state == .draw{
+                
+                // MARK:- 2回目： 弱いペアを比較
+                let myWeakRank = checkPairRank(myPairCards,returnStrength: .Weak)
+                let otherWeakRank = checkPairRank(otherPairCards,returnStrength: .Weak)
+                
+                state = self.compareCardRanks(myCard: myWeakRank, otherCard: otherWeakRank)
                 
                 if state == .draw{
+                    // MARK:- 3回目： そのほかのカードを比較
+                    let myLestCardRank = checkLestRank( myHandStatus,strongRank:myStrongRank,weakRank:myWeakRank,returnStrength:.Strong)
+                    let otherLestCardRank = checkLestRank( otherHandStatus,strongRank:otherStrongRank,weakRank:otherWeakRank,returnStrength:.Strong)
                     
-                    // MARK:- 2回目： 弱いペアを比較
-                    let myWeakRank = checkPairRank(myPairCards,returnStrength: .Weak)
-                    let otherWeakRank = checkPairRank(otherPairCards,returnStrength: .Weak)
+                    state = self.compareCardRanks(myCard: myLestCardRank, otherCard: otherLestCardRank)
                     
-                    state = self.compareCardRanks(myCard: myWeakRank, otherCard: otherWeakRank)
-                    
-                    if state == .draw{
-                        // MARK:- 3回目： そのほかのカードを比較
-                        let myLestCardRank = checkLestRank( myHandStatus,strongRank:myStrongRank,weakRank:myWeakRank,returnStrength:.Strong)
-                        let otherLestCardRank = checkLestRank( otherHandStatus,strongRank:otherStrongRank,weakRank:otherWeakRank,returnStrength:.Strong)
-
-                        state = self.compareCardRanks(myCard: myLestCardRank, otherCard: otherLestCardRank)
-
-
-                    }
                     
                 }
- 
+                
+            }
+            
             break
         case.flush:
- 
+            
             state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             if state == .draw{
                 
                 let myMiddleCard = myCards[(myCards.count - 1) / 2]
                 let otherMiddleCard = otherCards[(otherCards.count - 1) / 2]
-
+                
                 state = self.compareCardRanks(myCard: myMiddleCard, otherCard: otherMiddleCard)
                 if state == .draw{
                     state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
@@ -139,7 +139,7 @@ struct PlayerStatus{
             break
             
         case.threeCard:
-  
+            
             state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
             if state == .draw{
                 state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
@@ -147,14 +147,14 @@ struct PlayerStatus{
             break
             
         case .straightFlush:
-   
+            
             var myRank:Card.Rank{
                 checkStraightStrongRank(myHandStatus)
             }
             var otherRank:Card.Rank{
                 checkStraightStrongRank(otherHandStatus)
             }
-
+            
             
             state = self.compareCardRanks(myCard: myRank, otherCard: otherRank)
             break
@@ -165,16 +165,13 @@ struct PlayerStatus{
         case .fourCard:
             break
         case .royalFlush:
-            break
+            state = .draw
         }
         
         return state
     }
     
     func compareCardRanks(myCard:Card.Rank?,otherCard:Card.Rank?)->PlayerState{
-//        print("カード比較 :")
-//        print("myCard :", myCard)
-//        print("otherCard :", otherCard)
         
         var currentState:PlayerState = .draw
         
@@ -188,6 +185,10 @@ struct PlayerStatus{
             return currentState
         }
         
+        print("カード比較 :")
+        print("myRank :", myRank)
+        print("otherRank :", otherRank)
+        
         if myRank < otherRank{
             currentState = .lose
         } else if myRank > otherRank{
@@ -199,7 +200,7 @@ struct PlayerStatus{
         return currentState
     }
     
-
+    
     
     
 }
@@ -215,12 +216,12 @@ extension PlayerStatus{
             guard let weakRank = pairCards.compactMap({$0.min{a,b in a.rank < b.rank}}).last?.rank else{return rank}
             rank = weakRank
         case .Middle:
-        break
+            break
         case .Strong:
             guard let strongRank = pairCards.compactMap({$0.max{a,b in a.rank < b.rank}}).last?.rank else{return rank}
             rank = strongRank
         case .Others:
-        break
+            break
         }
         return rank
     }
@@ -238,12 +239,12 @@ extension PlayerStatus{
             rank = weakRank
         case .Middle:
             rank = lestRanks[lestRanks.count/2]
-        break
+            break
         case .Strong:
             guard let strongRank = lestRanks.last else {return rank}
             rank = strongRank
         case .Others:
-        break
+            break
         }
         return rank
     }
@@ -256,12 +257,14 @@ extension PlayerStatus{
             return rank
         }
         
-                
-        if contnuousRanks.contains(where: {$0 == .three}) &&
+        
+        if contnuousRanks.contains(where: {$0 == .five}) &&
+            contnuousRanks.contains(where: {$0 == .four}) &&
+            contnuousRanks.contains(where: {$0 == .three}) &&
             contnuousRanks.contains(where: {$0 == .two}) &&
             contnuousRanks.contains(where: {$0 == .ace}){
             
-            rank = .three
+            rank = .five
         } else {
             if let maxRank = contnuousRanks.max(){
                 rank = maxRank

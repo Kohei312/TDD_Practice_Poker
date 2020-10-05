@@ -58,7 +58,7 @@ struct HandStatus{
                                 
                 if hand.hasContinuousRank == []{
                     
-                    print("から :",hand.hasContinuousRank)
+//                    print("から :",hand.hasContinuousRank)
                     state = .flush
                     
                 } else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {

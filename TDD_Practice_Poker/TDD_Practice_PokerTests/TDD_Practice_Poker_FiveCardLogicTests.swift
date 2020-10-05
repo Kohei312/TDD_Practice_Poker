@@ -92,7 +92,7 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         XCTAssertTrue(player_me.handStatus.handState == player_2.handStatus.handState)
         
         let playerStatus = PlayerStatus(players:[player_me,player_2])
-        XCTAssertEqual(playerStatus.PlayerState,PlayerState.lose)
+        XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)
         
     }
     

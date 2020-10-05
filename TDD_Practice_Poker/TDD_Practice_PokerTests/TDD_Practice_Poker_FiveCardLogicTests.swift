@@ -25,11 +25,11 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
             var handStatus_2:HandStatus
 
             // 3: まけ
-            card_1 = Card(suit: .heart, rank: .three)
-            card_2 = Card(suit: .club, rank: .three)
-            card_3 = Card(suit: .spade, rank: .ace)
-            card_4 = Card(suit: .diamond, rank: .ace)
-            card_5 = Card(suit: .spade, rank: .queen)
+            card_1 = Card(suit: .heart, rank: .jack)
+            card_2 = Card(suit: .club, rank: .ace)
+            card_3 = Card(suit: .spade, rank: .two)
+            card_4 = Card(suit: .diamond, rank: .king)
+            card_5 = Card(suit: .heart, rank: .queen)
             hand_1 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
             handStatus_1 = HandStatus(hand:hand_1)
 

@@ -160,6 +160,12 @@ struct PlayerStatus{
             break
         case .twoPair:
             break
+        case .fullHouse:
+            break
+        case .fourCard:
+            break
+        case .royalFlush:
+            break
         }
         
         return state

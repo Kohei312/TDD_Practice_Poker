@@ -34,10 +34,13 @@ extension Hand:HandProtocol{
                                 let i:Set<Card> = Set(pairCards[r])
                                 let k:Set<Card> = Set(pairCards[r-1])
                                 
-                                if i == k {
+                                // i: [Card]の要素と、
+                                // k: [Card]の要素をそれぞれ比較し
+                                // 同じものがあるかどうかを比較したい => OK
+                                if i.intersection(k) != []{
                                     let t = Array(i.union(k))
+                                    print("まとめると　:",t)
                                     pairCards = [t]
-
                                 }
                             }
                         }

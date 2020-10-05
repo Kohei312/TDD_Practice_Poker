@@ -34,8 +34,11 @@ extension Hand:HandProtocol{
                                 let i:Set<Card> = Set(pairCards[r])
                                 let k:Set<Card> = Set(pairCards[r-1])
                                 
-                                let t = Array(i.union(k))
-                                pairCards = [t]
+                                if i == k {
+                                    let t = Array(i.union(k))
+                                    pairCards = [t]
+
+                                }
                             }
                         }
                     }

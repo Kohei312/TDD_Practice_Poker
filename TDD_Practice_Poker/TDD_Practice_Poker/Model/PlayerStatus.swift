@@ -81,7 +81,7 @@ struct PlayerStatus{
                 }
             }
             break
-        case .pair:
+        case .onePair:
             // MARK:- 1回目： 強いペアを比較
             let myPairCards = myHandStatus.hand.hasEqualRank
             let otherPairCards = otherHandStatus.hand.hasEqualRank
@@ -157,6 +157,8 @@ struct PlayerStatus{
 
             
             state = self.compareCardRanks(myCard: myRank, otherCard: otherRank)
+            break
+        case .twoPair:
             break
         }
         

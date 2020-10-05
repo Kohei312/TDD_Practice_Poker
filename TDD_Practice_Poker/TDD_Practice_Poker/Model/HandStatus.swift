@@ -10,7 +10,8 @@ import Foundation
 enum HandState:Comparable{
     case nothing
     case highCard
-    case pair
+    case onePair
+    case twoPair
     case flush
     case straight
     case threeCard
@@ -33,7 +34,13 @@ struct HandStatus{
             
             if hand.hasEqualRank.contains(where: {$0.count == 2}){
                 
-                state = .pair
+                if hand.hasEqualRank.count == 1{
+                    state = .onePair
+                } else if hand.hasEqualRank.count == 2{
+                    // twoPair => OK
+                    state = .twoPair
+                }
+                
                 
             } else if hand.hasEqualSuit.contains(where: {$0.count == 3}){
                 
@@ -77,6 +84,7 @@ struct HandStatus{
                 state = .threeCard
                 
             } else {
+                
                 
                 state = .highCard
                 

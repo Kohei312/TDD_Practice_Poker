@@ -38,6 +38,7 @@ struct HandStatus{
             if hand.hasEqualRank.contains(where: {$0.count == 2}){
                 
                 if hand.hasEqualRank.count == 1 && hand.hasEqualRank.filter({$0.count == 2}).count == 1{
+                    
                     state = .onePair
                 } else if hand.hasEqualRank.count == 2 && hand.hasEqualRank.filter({$0.count == 2}).count == 2{
                     // twoPair => OK
@@ -55,7 +56,11 @@ struct HandStatus{
                 
             } else if hand.hasEqualSuit.contains(where: {$0.count == 5}){
                                 
-                if hand.hasContinuousRank.contains(where: {$0.count == 5}){
+                if !hand.hasContinuousRank.contains(where: {$0.count == 5}){
+                    
+                    state = .flush
+                    
+                } else {
                     
                     let i = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
                     for j in i {
@@ -87,6 +92,7 @@ struct HandStatus{
                 
             } else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {
                 
+//                print("なかみ",hand.hasContinuousRank)
                 let i = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
                 for j in i {
                     if j.contains(where: {$0 == .four}) && j.contains(where: {$0 == .three}) && j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}){
@@ -102,7 +108,7 @@ struct HandStatus{
                         state = .highCard
                         
                     } else {
-                        
+                       
                         state = .straight
                                             
                     }
@@ -116,7 +122,7 @@ struct HandStatus{
                 
             } else {
                 
-                
+            
                 state = .highCard
                 
             }

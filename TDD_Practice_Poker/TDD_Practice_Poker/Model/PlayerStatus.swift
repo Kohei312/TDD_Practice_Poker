@@ -255,6 +255,7 @@ extension PlayerStatus{
         guard let contnuousRanks = handStatus.hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank})}).last else {
             return rank
         }
+        
                 
         if contnuousRanks.contains(where: {$0 == .three}) &&
             contnuousRanks.contains(where: {$0 == .two}) &&

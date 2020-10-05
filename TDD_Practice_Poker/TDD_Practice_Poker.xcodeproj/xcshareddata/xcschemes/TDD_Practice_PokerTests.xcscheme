@@ -10,7 +10,24 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7C00248D252847140031FAC9"
+            BuildableName = "TDD_Practice_PokerTests.xctest"
+            BlueprintName = "TDD_Practice_PokerTests"
+            ReferencedContainer = "container:TDD_Practice_Poker.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7C002477252847120031FAC9"
+            BuildableName = "TDD_Practice_Poker.app"
+            BlueprintName = "TDD_Practice_Poker"
+            ReferencedContainer = "container:TDD_Practice_Poker.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">

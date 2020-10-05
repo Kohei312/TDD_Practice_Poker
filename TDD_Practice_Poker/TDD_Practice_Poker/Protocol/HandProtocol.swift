@@ -10,10 +10,10 @@ import Foundation
 extension Hand:HandProtocol{
     func checkEqual(type:CardType)->[[Card]]{
         var pairCards:[[Card]] = []
-
+        
         for j in 0 ..< cards.count{
             let comparedCards = cards.filter({$0 != cards[j]})
-
+            
             for i in j..<comparedCards.count{
                 var pair:[Card] = []
                 switch type{
@@ -25,7 +25,7 @@ extension Hand:HandProtocol{
                     pair = cards[j].hasSameRank(comparedCards[i])
                     break
                 }
-               
+                
                 if pair != []{
                     pairCards.append(pair)
                     if pairCards.count >= 2{
@@ -56,39 +56,19 @@ extension Hand:HandProtocol{
         
         // 対象となるのは、hasEqualRankではない[Card]
         var continuousCards:[[Card] ] = []
-        var willSortCards:[Card] = self.cards
-        var checkedCards:[Card] = []
+        let willSortCards:[Card] = self.cards.sorted(by: {$0.rank < $1.rank})
+//        var checkedCards:[Card] = []
+        var count = 0
         
-        hasEqualRank.forEach{(equalRanks) in
-            let removeCards = equalRanks
-            for removeCard in removeCards {
-                willSortCards = self.cards.filter({$0 != removeCard})
-            }
-        }
-
-        // 全カードのチェック
-        for j in 0 ..< willSortCards.count{
+        for z in 0..<willSortCards.count{
+            // MARK:- 比較する配列インデックス
+            let y = z + 1
             
-            // 軸はcheckCards[j]
-            let comparedCards = willSortCards.filter({$0 != willSortCards[j]})
-            
-            for i in j..<comparedCards.count{
-                
-                if willSortCards[j].isContinuousRank(comparedCards[i]){
-                    // trueなら残す
-                    checkedCards.append(willSortCards[j])
-                    checkedCards.append(comparedCards[i])
-                    continuousCards.append(checkedCards)
-                    if continuousCards.count >= 2{
-                        for r in 1..<continuousCards.count{
-                            if continuousCards.indices.contains(r){
-                                let i:Set<Card> = Set(continuousCards[r])
-                                let k:Set<Card> = Set(continuousCards[r-1])
-                                
-                                let t = Array(i.union(k)).sorted(by: {$0.rank < $1.rank})
-                                continuousCards = [t]
-                            }
-                        }
+            if willSortCards.indices.contains(y){
+                if willSortCards[z].isContinuousRank(willSortCards[y]){
+                    count += 1
+                    if count == willSortCards.count-1{
+                        continuousCards.append(willSortCards)
                     }
                 }
             }

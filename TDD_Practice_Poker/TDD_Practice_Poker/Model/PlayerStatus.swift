@@ -137,6 +137,7 @@ struct PlayerStatus{
             
             state = self.compareCardRanks(myCard: myRank, otherCard: otherRank)
             break
+            
         case.threeCard:
   
             state = self.compareCardRanks(myCard: myStrongCard, otherCard: otherStrongCard)
@@ -144,6 +145,7 @@ struct PlayerStatus{
                 state = self.compareCardRanks(myCard: myWeakCard, otherCard: otherWeakCard)
             }
             break
+            
         case .straightFlush:
    
             var myRank:Card.Rank{
@@ -162,9 +164,9 @@ struct PlayerStatus{
     }
     
     func compareCardRanks(myCard:Card.Rank?,otherCard:Card.Rank?)->PlayerState{
-        print("カード比較 :")
-        print("myCard :", myCard)
-        print("otherCard :", otherCard)
+//        print("カード比較 :")
+//        print("myCard :", myCard)
+//        print("otherCard :", otherCard)
         
         var currentState:PlayerState = .draw
         

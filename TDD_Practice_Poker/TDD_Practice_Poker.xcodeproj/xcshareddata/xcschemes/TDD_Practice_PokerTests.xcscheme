@@ -28,6 +28,9 @@
                <Test
                   Identifier = "TDD_Practice_Poker_LogicTest">
                </Test>
+               <Test
+                  Identifier = "TDD_Practice_Poker_ThreeCardLogicTests">
+               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference

@@ -72,6 +72,14 @@ extension Hand:HandProtocol{
                         if count == willSortCards.count-1{
                             continuousCards.append(willSortCards)
                         }
+                    } else {
+                        if willSortCards[z].isContinuousRank(willSortCards[y]){
+                            // z番目とz+1番目が連続している場合もOK
+                            count += 1
+                            if count == willSortCards.count-1{
+                                continuousCards.append(willSortCards)
+                            }
+                        }
                     }
                 } else if willSortCards[z].isContinuousRank(willSortCards[y]){
                     // z番目とz+1番目が連続している場合もOK

@@ -7,14 +7,6 @@
 
 import Foundation
 
-enum RankStrength{
-    case Strongest
-    case Stronger
-    case Middle
-    case Weaker
-    case Weakest
-}
-
 enum CardType{
     case Suit
     case Rank

@@ -25,6 +25,7 @@
 		7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */; };
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
 		7C002522252C63760031FAC9 /* HandStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002521252C63760031FAC9 /* HandStatusProtocol.swift */; };
+		7CAC4568252C84DE004008A5 /* PlayerStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandProtocol.swift; sourceTree = "<group>"; };
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
 		7C002521252C63760031FAC9 /* HandStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandStatusProtocol.swift; sourceTree = "<group>"; };
+		7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
 				7C002521252C63760031FAC9 /* HandStatusProtocol.swift */,
+				7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C002480252847120031FAC9 /* ViewController.swift in Sources */,
+				7CAC4568252C84DE004008A5 /* PlayerStatusProtocol.swift in Sources */,
 				7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */,
 				7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,

@@ -22,9 +22,10 @@ enum HandState:Comparable{
 }
 
 protocol HandStatusProtocol{
-    func manageHandState()->HandState
-    func checkFlushStatus(_ cards:[Card.Rank])->HandState
-    func checkStraightStatus(_ cards:[Card.Rank])->HandState
+    func manageHandState() -> HandState
+    func checkCardPairType(pairType:HandState) -> Bool
+    func checkFlushStatus(_ cards:[Card.Rank]) -> HandState
+    func checkStraightStatus(_ cards:[Card.Rank]) -> HandState
 }
 
 struct HandStatus{

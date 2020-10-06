@@ -32,9 +32,9 @@ extension HandStatus:HandStatusProtocol{
                         state = checkFlushStatus(hand.hasContinuousRank)
                 }
                 
-            } else if hand.hasEqualRank.values.contains(where: {$0 == HandState.onePair}){
+            } else if checkCardPairType(pairType: .onePair){
                 
-                if hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
+                if checkCardPairType(pairType: .threeCard){
                     
                     state = .fullHouse
                     
@@ -50,13 +50,13 @@ extension HandStatus:HandStatusProtocol{
                     }
                 }
                 
-            } else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
+            } else if checkCardPairType(pairType: .threeCard){
                 
                 
                 state = .threeCard
                 
                 
-            } else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.fourCard}){
+            } else if checkCardPairType(pairType: .fourCard){
                 
                 
                 state = .fourCard
@@ -77,7 +77,9 @@ extension HandStatus:HandStatusProtocol{
         return state
     }
  
-    
+    func checkCardPairType(pairType:HandState) -> Bool{
+        return hand.hasEqualRank.values.contains(where: {$0 == pairType})
+    }
     
     func checkFlushStatus(_ cards:[Card.Rank])->HandState{
         

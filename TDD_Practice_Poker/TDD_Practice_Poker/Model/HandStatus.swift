@@ -28,102 +28,67 @@ struct HandStatus{
         var state:HandState = .nothing
         
         if hand.hasEqualSuit == [] &&
-            hand.hasEqualRank == [] &&
+            hand.hasEqualRank == [:] &&
             hand.hasContinuousRank == []{
             
             state = .highCard
             
         } else {
             
-            if hand.hasEqualRank.contains(where: {$0.count == 2}){
-                
-                if hand.hasEqualRank.count == 1 && hand.hasEqualRank.filter({$0.count == 2}).count == 1{
+            if hand.hasEqualSuit != []{
+                if hand.hasContinuousRank == []{
                     
-                    state = .onePair
-                } else if hand.hasEqualRank.count == 2 && hand.hasEqualRank.filter({$0.count == 2}).count == 2{
-                    // twoPair => OK
-                    state = .twoPair
-                } else if hand.hasEqualRank.count == 2 && hand.hasEqualRank.filter({$0.count == 3}).count == 1{
+                    state = .flush
+                    
+                } else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {
+                    
+                    let continuousCards = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
+                    for cards in continuousCards {
+                        // checkFlushStatus()
+                        state = checkFlushStatus(cards)
+                    }
+                }
+            } else if hand.hasEqualRank.values.contains(where: {$0 == HandState.onePair}){
+                
+                if hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
                     
                     state = .fullHouse
+                } else {
+                    
+                    state = .onePair
                 }
                 
-            } else if hand.hasEqualRank.contains(where: {$0.count == 3}){
+            }  else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.twoPair}){
+                
+                
+                state = .twoPair
+                
+                
+            }  else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
                 
                 
                 state = .threeCard
                 
                 
-            } else if hand.hasEqualSuit.contains(where: {$0.count == 5}){
-                                
-                if hand.hasContinuousRank == []{
-                    
-//                    print("から :",hand.hasContinuousRank)
-                    state = .flush
-                    
-                } else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {
-                    
-                    let i = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
-                    for j in i {
-                        
-                        if j.contains(where: {$0 == .four}) && j.contains(where: {$0 == .three}) && j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}){
-                            
-                            state = .flush
-                            
-                        } else if j.contains(where: {$0 == .three}) && j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}) && j.contains(where: {$0 == .queen}){
-                            
-                            state = .flush
-                            
-                        } else if j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}) && j.contains(where: {$0 == .queen}) && j.contains(where: {$0 == .jack}){
-                            
-                            state = .flush
-                            
-                        } else if j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}) && j.contains(where: {$0 == .queen}) && j.contains(where: {$0 == .jack}) && j.contains(where: {$0 == .ten}){
-                            
-                            state = .royalFlush
-                            
-                        } else {
-                            
-                            state = .straightFlush
-                        
-                        }
-                    }
-                }
-
-                
-            } else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {
-                
-//                print("なかみ",hand.hasContinuousRank)
-                let i = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
-                for j in i {
-                    if j.contains(where: {$0 == .four}) && j.contains(where: {$0 == .three}) && j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}){
-                        
-                        state = .highCard
-                        
-                    } else if j.contains(where: {$0 == .three}) && j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}) && j.contains(where: {$0 == .queen}){
-                        
-                        state = .highCard
-                        
-                    } else if j.contains(where: {$0 == .two}) && j.contains(where: {$0 == .ace}) && j.contains(where: {$0 == .king}) && j.contains(where: {$0 == .queen}) && j.contains(where: {$0 == .jack}){
-                        
-                        state = .highCard
-                        
-                    } else {
-                       
-                        state = .straight
-                                            
-                    }
-                }
-                
-            } else if hand.hasEqualRank.contains(where: {$0.count == 4}){
+            } else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.fourCard}){
                 
                 
                 state = .fourCard
                 
                 
+            }  else if hand.hasContinuousRank.contains(where: {$0.count == 5}) {
+                
+//                print("なかみ",hand.hasContinuousRank)
+                let continuousCards = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
+                
+                for cards in continuousCards {
+                        // checkFlushStatus()
+                    state = checkStraightStatus(cards)
+                }
+                
+                
             } else {
                 
-            
                 state = .highCard
                 
             }
@@ -134,4 +99,57 @@ struct HandStatus{
         return state
     }
     
+    func checkFlushStatus(_ cards:[Card.Rank])->HandState{
+        
+        var state:HandState = .flush
+        
+        if cards.contains(where: {$0 == .four}) && cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}){
+            
+            state = .flush
+            
+        } else if cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}){
+            
+            state = .flush
+            
+        } else if cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}) && cards.contains(where: {$0 == .jack}){
+            
+            state = .flush
+            
+        } else if cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}) && cards.contains(where: {$0 == .jack}) && cards.contains(where: {$0 == .ten}){
+            
+            state = .royalFlush
+            
+        } else {
+            
+            state = .straightFlush
+        }
+        return state
+    }
+    
+    func checkStraightStatus(_ cards:[Card.Rank])->HandState{
+        
+        var state:HandState = .highCard
+        
+        if cards.contains(where: {$0 == .four}) && cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}){
+            
+            state = .highCard
+            
+        } else if cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}){
+            
+            state = .highCard
+            
+        } else if cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}) && cards.contains(where: {$0 == .jack}){
+            
+            state = .highCard
+            
+        } else {
+           
+            state = .straight
+                                
+        }
+        
+        return state
+    }
+    
 }
+

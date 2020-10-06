@@ -66,24 +66,25 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         var hand_2:Hand
         var handStatus_2:HandStatus
         
-        // 3: まけ
-        card_1 = Card(suit: .heart, rank: .four)
-        card_2 = Card(suit: .heart, rank: .three)
-        card_3 = Card(suit: .heart, rank: .two)
-        card_4 = Card(suit: .heart, rank: .five)
-        card_5 = Card(suit: .heart, rank: .ace)
+        // flush　5: まけ
+        card_1 = Card(suit: .heart, rank: .nine)
+        card_2 = Card(suit: .heart, rank: .ten)
+        card_3 = Card(suit: .spade, rank: .eight)
+        card_4 = Card(suit: .club, rank: .seven)
+        card_5 = Card(suit: .heart, rank: .jack)
         hand_1 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
         handStatus_1 = HandStatus(hand:hand_1)
+//        XCTAssertTrue(handStatus_1.hand.hasEqualSuit == [] , "中身は : \(handStatus_1.hand.hasEqualSuit)")
         
         let player_me = Player(playerType:.me,handStatus:handStatus_1)
         XCTAssertEqual(player_me.handStatus.handState, HandState.flush)
         
-        // K
+        // flush K
         card_1 = Card(suit: .club, rank: .nine)
-        card_2 = Card(suit: .club, rank: .jack)
-        card_3 = Card(suit: .club, rank: .ten)
-        card_4 = Card(suit: .club, rank: .king)
-        card_5 = Card(suit: .club, rank: .queen)
+        card_2 = Card(suit: .club, rank: .ten)
+        card_3 = Card(suit: .club, rank: .eight)
+        card_4 = Card(suit: .club, rank: .seven)
+        card_5 = Card(suit: .club, rank: .king)
         hand_2 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
         handStatus_2 = HandStatus(hand:hand_2)
         

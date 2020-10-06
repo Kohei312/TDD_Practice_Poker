@@ -110,30 +110,19 @@ extension PlayerStatus{
             }
             
             state = self.compareCardRanks(myCardRank: myRank, otherCardRank: otherRank)
-            
+        
+            #warning("リファクタリング中")
         case .fullHouse:
-            guard let myThreeCards = myHandStatus.hand.hasEqualRank.filter({$0.value == .threeCard}).compactMap({$0}).last,
-                  let otherThreeCards = otherHandStatus.hand.hasEqualRank.filter({$0.value == .threeCard}).compactMap({$0}).last else{
-                return .draw
-            }
-            
-            let myStrongThreeRank = myThreeCards.key
-            let otherStrongThreeRank = otherThreeCards.key
-            
-            state = self.compareCardRanks(myCardRank: myStrongThreeRank, otherCardRank: otherStrongThreeRank)
+            // MARK:- 2回目： threePairを比較
+            state = self.compareCardRanks(
+                myCardRank: checkFullHausePairs(myHandStatus,returnPairType:.threeCard),
+                otherCardRank: checkFullHausePairs(otherHandStatus,returnPairType:.threeCard))
             
             if state == .draw{
-                
-                // MARK:- 2回目： 弱いペアを比較
-                guard let myPairCards = myHandStatus.hand.hasEqualRank.filter({$0.value == .onePair}).compactMap({$0}).last,
-                      let otherPairCards = otherHandStatus.hand.hasEqualRank.filter({$0.value == .onePair}).compactMap({$0}).last else{
-                    return .draw
-                }
-                
-                let myStrongPairRank = myPairCards.key
-                let otherStrongPairRank = otherPairCards.key
-                
-                state = self.compareCardRanks(myCardRank: myStrongPairRank, otherCardRank: otherStrongPairRank)
+                // MARK:- 2回目： onePairを比較
+                state = self.compareCardRanks(
+                    myCardRank: checkFullHausePairs(myHandStatus,returnPairType:.onePair),
+                    otherCardRank: checkFullHausePairs(otherHandStatus,returnPairType:.onePair))
             }
         case .royalFlush:
             state = .draw
@@ -222,8 +211,26 @@ extension PlayerStatus{
         return rank
     }
     
-    func checkFullHausePairs(){
+    func checkFullHausePairs(_ handStatus:HandStatus,returnPairType:HandState)->Card.Rank{
         
+        var rank:Card.Rank = .two
+        
+        switch returnPairType{
+        
+        case .threeCard:
+            if let myThreeCards = handStatus.hand.hasEqualRank.filter({$0.value == .threeCard}).compactMap({$0}).last {
+                rank = myThreeCards.key
+            }
+        case .onePair:
+            if let myOnePair = handStatus.hand.hasEqualRank.filter({$0.value == .onePair}).compactMap({$0}).last {
+                rank = myOnePair.key
+            }
+        default:
+            break
+        }
+        
+        
+        return rank
     }
     
     func checkStraightStrongRank(_ handStatus:HandStatus)->Card.Rank{

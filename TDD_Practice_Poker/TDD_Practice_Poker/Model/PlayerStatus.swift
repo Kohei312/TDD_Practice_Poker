@@ -23,10 +23,16 @@ enum RankStrength:Comparable,CaseIterable{
 }
 
 protocol PlayerStatusProtocol{
+    
     func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState
-    func compareCardRanks(myCardRank:Card.Rank?,otherCardRank:Card.Rank?)->PlayerState
+    func compareCardRanks(myCardRank:Card.Rank,otherCardRank:Card.Rank)->PlayerState
+    
+    func makeLestCardRanks(_ handStatus:HandStatus,reduceRanks:[Card.Rank])->[Card.Rank]
     func checkLestRank(_ lestRanks:[Card.Rank],returnStrength:RankStrength)->Card.Rank
+    
+    func checkTwoPairRank(_ handStatus:HandStatus,returnStrength:RankStrength)->Card.Rank
     func checkStraightStrongRank(_ handStatus:HandStatus)->Card.Rank
+    func checkFullHousePairs(_ handStatus:HandStatus,returnPairType:HandState)->Card.Rank
 }
 
 // 仮実装OK

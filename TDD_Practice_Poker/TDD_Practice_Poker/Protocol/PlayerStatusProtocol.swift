@@ -26,7 +26,6 @@ extension PlayerStatus{
             var strengthCase = 0
             let rankStrength = RankStrength.allCases[strengthCase]
             
-            
             state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength))
             
             while state == .draw{
@@ -36,6 +35,7 @@ extension PlayerStatus{
                 }
                 state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength))
             }
+            
         case .onePair,.threeCard,.fourCard:
             // MARK:- 1回目： ペアを比較
             guard let myPairCards = myHandStatus.hand.hasEqualRank.keys.max(),

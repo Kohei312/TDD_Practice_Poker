@@ -31,15 +31,7 @@ protocol PlayerStatusProtocol{
 
 // 仮実装OK
 struct PlayerStatus:PlayerStatusProtocol{
-    
-//    var players:[Player]
-//    var myPlayer:[Player]{
-//        players.filter({$0.playerType == PlayerType.me})
-//    }
-//    var otherPlayers:[Player]{
-//        players.filter({$0.playerType == PlayerType.other})
-//    }
-    
+        
     var myPlayer:Player
     var otherPlayers:[Player]
     

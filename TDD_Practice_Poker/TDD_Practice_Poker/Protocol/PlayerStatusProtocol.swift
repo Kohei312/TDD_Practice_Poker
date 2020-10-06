@@ -212,13 +212,7 @@ extension PlayerStatus{
         var rank:Card.Rank = .five
         
         let contnuousRanks = handStatus.hand.hasContinuousRank
-        
-        if contnuousRanks.contains(where: {$0 == .five}) &&
-            contnuousRanks.contains(where: {$0 == .four}) &&
-            contnuousRanks.contains(where: {$0 == .three}) &&
-            contnuousRanks.contains(where: {$0 == .two}) &&
-            contnuousRanks.contains(where: {$0 == .ace}){
-            
+        if contnuousRanks == [.two,.three,.four,.five,.ace]{
             rank = .five
         } else {
             if let maxRank = contnuousRanks.max(){

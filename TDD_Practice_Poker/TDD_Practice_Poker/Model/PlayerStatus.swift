@@ -14,39 +14,44 @@ enum PlayerState{
     case lose
 }
 
-
 // 仮実装OK
 struct PlayerStatus{
     
-    var players:[Player]
-    var myPlayer:[Player]{
-        players.filter({$0.playerType == PlayerType.me})
-    }
-    var otherPlayers:[Player]{
-        players.filter({$0.playerType == PlayerType.other})
-    }
+//    var players:[Player]
+//    var myPlayer:[Player]{
+//        players.filter({$0.playerType == PlayerType.me})
+//    }
+//    var otherPlayers:[Player]{
+//        players.filter({$0.playerType == PlayerType.other})
+//    }
+    
+    var myPlayer:Player
+    var otherPlayers:[Player]
     
     var PlayerState:PlayerState{
         
-        var state:PlayerState = .draw
+        let myHandStatus = myPlayer.handStatus
         
+        var playerState:PlayerState = .draw
         for otherPlayer in otherPlayers{
             
-            let myHandStatus = myPlayer[0].handStatus
             let otherHandStatus = otherPlayer.handStatus
             
             if myHandStatus.handState < otherHandStatus.handState{
-                state = .lose
+                
+                playerState = .lose
+                
             } else if myHandStatus.handState > otherHandStatus.handState{
-                print("かち")
-                state = .win
+               
+                playerState = .win
+                
             } else if myHandStatus.handState == otherHandStatus.handState{
-                print("ひきわけ")
-                state = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
+                
+                playerState = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
             }
         }
         
-        return state
+        return playerState
     }
     
     // 仮実装OK

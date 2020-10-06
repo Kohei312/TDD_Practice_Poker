@@ -12,65 +12,69 @@ extension PlayerStatus{
     // 仮実装OK
     func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState{
         
-        let handState = myHandStatus.handState
+        let myHandState = myHandStatus.handState
         let myCards = myHandStatus.hand.cards.compactMap({$0.rank}).sorted()
         let otherCards = otherHandStatus.hand.cards.compactMap({$0.rank}).sorted()
         
         var state:PlayerState = .inPlaying
         
-        switch handState{
+        // MARK:- checkLestRankの引数用
+        // royalFlush以外で使用するため, switch外に配置
+        var strengthCase = 0
+        var rankStrength = RankStrength.allCases
+        
+        switch myHandState{
         case .nothing:
             break
         case .highCard,.flush:
             
-            var strengthCase = 0
-            let rankStrength = RankStrength.allCases[strengthCase]
-            
-            state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength))
+            state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength[strengthCase]), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength[strengthCase]))
             
             while state == .draw{
                 strengthCase += 1
                 if strengthCase == 5{
+                    strengthCase = 0
                     break
                 }
-                state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength))
+                state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength[strengthCase]), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength[strengthCase]))
             }
             
         case .onePair,.threeCard,.fourCard:
             // MARK:- 1回目： ペアを比較
-            guard let myPairCards = myHandStatus.hand.hasEqualRank.keys.max(),
-                  let myStrongPairRank = Card.Rank(rawValue: myPairCards.rawValue) else{
-                return .draw
-            }
-            guard let otherPairCards = otherHandStatus.hand.hasEqualRank.keys.max(),
-                  let otherStrongPairRank = Card.Rank(rawValue: otherPairCards.rawValue) else{
-                return .draw
-            }
+            guard
+                let myPairCards = myHandStatus.hand.hasEqualRank.keys.max(),
+                let myStrongPairRank = Card.Rank(rawValue: myPairCards.rawValue),
+                let otherPairCards = otherHandStatus.hand.hasEqualRank.keys.max(),
+                let otherStrongPairRank = Card.Rank(rawValue: otherPairCards.rawValue)
+            else { return .draw }
             
             state = self.compareCardRanks(myCardRank: myStrongPairRank, otherCardRank: otherStrongPairRank)
-            
+   
             if state == .draw{
                 
                 // MARK:- 以降： ペア以外を比較
-                // MARK:- 2回目： 最強ランクを比較
-                let myLestCards = myHandStatus.hand.cards.filter({$0.rank != myStrongPairRank}).compactMap({$0.rank})
-                let otherLestCards = otherHandStatus.hand.cards.filter({$0.rank != otherStrongPairRank}).compactMap({$0.rank})
+                // MARK:- 2回目： 最強ランクを比較(必ずsortして、昇順にしておくこと)
+                let myLestCards = myHandStatus.hand.cards.filter({$0.rank != myStrongPairRank}).compactMap({$0.rank}).sorted()
+                let otherLestCards = otherHandStatus.hand.cards.filter({$0.rank != otherStrongPairRank}).compactMap({$0.rank}).sorted()
                 
-                state = self.compareCardRanks(myCardRank: checkLestRank(myLestCards, returnStrength: .Strongest), otherCardRank: checkLestRank(otherLestCards, returnStrength: .Strongest))
-                
-                if state == .draw && handState == .fourCard{
-                    break
-                } else if state == .draw && (handState == .onePair || handState == .threeCard){
-                    // MARK:- 3回目： 中間のカードを比較
-                    state = self.compareCardRanks(myCardRank: checkLestRank(myLestCards, returnStrength: .Middle), otherCardRank: checkLestRank(otherLestCards, returnStrength: .Middle))
+                // refactored
+                while state == .draw{
+                    // ここはOK
+                    state = self.compareCardRanks(myCardRank: checkLestRank(myLestCards, returnStrength: rankStrength[strengthCase]), otherCardRank: checkLestRank(otherLestCards, returnStrength: rankStrength[strengthCase]))
                     
-                    if state == .draw && handState == .onePair{
-                        // MARK:- 4回目： 最弱のカードを比較
-                        state = self.compareCardRanks(myCardRank: checkLestRank(myLestCards, returnStrength: .Weakest), otherCardRank: checkLestRank(otherLestCards, returnStrength: .Weakest))
+                    if (strengthCase == 0 && myHandState == .fourCard) ||
+                        (strengthCase == 2 && myHandState == .threeCard) ||
+                        (strengthCase == 4 && myHandState == .onePair){
+                        // ここはOK
+                        strengthCase = 0
+                        break
                     }
+                    strengthCase += 2
                     
                 }
             }
+         
+          #warning("リファクタリング対象")
         case .twoPair:
             // MARK:- 1回目： 強いペアを比較
             guard let myPairCards = myHandStatus.hand.hasEqualRank.keys.max(),
@@ -188,19 +192,20 @@ extension PlayerStatus{
         
         switch returnStrength{
         case .Strongest:
-            if let strongRank = lestRanks.min(){
+            if let strongRank = lestRanks.max(){
                 rank = strongRank
             }
         case .Stronger:
             // ハイカード・フラッシュで使用
             return lestRanks[1]
         case .Middle:
+            print("rank :\(lestRanks[(lestRanks.count-1)/2]) ,  lestRanks :\(lestRanks)")
             return lestRanks[(lestRanks.count-1)/2]
         case .Weaker:
             // ハイカード・フラッシュで使用
             return lestRanks[3]
         case .Weakest:
-            if let weakestRank = lestRanks.max(){
+            if let weakestRank = lestRanks.min(){
                 rank =  weakestRank
             }
         }

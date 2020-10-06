@@ -66,21 +66,25 @@ extension Hand:HandProtocol{
                 
                 
                 if  willSortCards[z].rank == .two || willSortCards[z].rank == .five{
+                    
                     if  willSortCards.contains(where: {$0.rank == .ace}){
                         // Aceとtwoが共存する場合はOK
                         count += 1
                         if count == willSortCards.count-1{
                             continuousCards.append(willSortCards)
                         }
+                        
                     } else {
+                        
                         if willSortCards[z].isContinuousRank(willSortCards[y]){
-                            // z番目とz+1番目が連続している場合もOK
                             count += 1
                             if count == willSortCards.count-1{
                                 continuousCards.append(willSortCards)
                             }
                         }
+                        
                     }
+                    
                 } else if willSortCards[z].isContinuousRank(willSortCards[y]){
                     // z番目とz+1番目が連続している場合もOK
                     count += 1

@@ -22,19 +22,16 @@ extension HandStatus:HandStatusProtocol{
         } else {
             
             if hand.hasAllEqualSuit != []{
-                // 5つ全て連続しているか?
+   
                 if hand.hasContinuousRank == []{
                     
                     state = .flush
                     
                 } else if hand.hasContinuousRank.count == 5 {
                     
-//                    let continuousCards = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
-//                    for continuousRank in hand.hasContinuousRank {
-                        // checkFlushStatus()
                         state = checkFlushStatus(hand.hasContinuousRank)
-//                    }
                 }
+                
             } else if hand.hasEqualRank.values.contains(where: {$0 == HandState.onePair}){
                 
                 if hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
@@ -67,14 +64,7 @@ extension HandStatus:HandStatusProtocol{
                 
             }  else if hand.hasContinuousRank.count == 5 {
                 
-//                print("なかみ",hand.hasContinuousRank)
-//                let continuousCards = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
-//                
-//                for cards in continuousCards {
-                    
-                    state = checkStraightStatus(hand.hasContinuousRank)
-//                }
-                
+                state = checkStraightStatus(hand.hasContinuousRank)
                 
             } else {
                 
@@ -93,19 +83,19 @@ extension HandStatus:HandStatusProtocol{
         
         var state:HandState = .flush
         
-        if cards.contains(where: {$0 == .four}) && cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}){
+        if cards == [.two,.three,.four,.king,.ace]{
             
             state = .flush
             
-        } else if cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}){
+        } else if cards == [.two,.three,.queen,.king,.ace]{
             
             state = .flush
             
-        } else if cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}) && cards.contains(where: {$0 == .jack}){
+        } else if cards == [.two,.jack,.queen,.king,.ace]{
             
             state = .flush
             
-        } else if cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}) && cards.contains(where: {$0 == .jack}) && cards.contains(where: {$0 == .ten}){
+        } else if cards == [.ten,.jack,.queen,.king,.ace]{
             
             state = .royalFlush
             
@@ -120,15 +110,15 @@ extension HandStatus:HandStatusProtocol{
         
         var state:HandState = .highCard
         
-        if cards.contains(where: {$0 == .four}) && cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}){
+        if cards == [.two,.three,.four,.king,.ace]{
             
             state = .highCard
             
-        } else if cards.contains(where: {$0 == .three}) && cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}){
+        } else if cards == [.two,.three,.queen,.king,.ace] {
             
             state = .highCard
             
-        } else if cards.contains(where: {$0 == .two}) && cards.contains(where: {$0 == .ace}) && cards.contains(where: {$0 == .king}) && cards.contains(where: {$0 == .queen}) && cards.contains(where: {$0 == .jack}){
+        }  else if cards == [.two,.jack,.queen,.king,.ace]{
             
             state = .highCard
             

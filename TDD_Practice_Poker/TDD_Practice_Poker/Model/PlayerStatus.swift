@@ -100,7 +100,7 @@ struct PlayerStatus{
                 let otherLestCards = otherHandStatus.hand.cards.filter({$0.rank != otherStrongPairRank}).compactMap({$0.rank})
                 
                 state = self.compareCardRanks(myCardRank: checkLestRank(myLestCards, returnStrength: .Strongest), otherCardRank: checkLestRank(otherLestCards, returnStrength: .Strongest))
-               
+                
                 if state == .draw && handState == .fourCard{
                     break
                 } else if state == .draw && (handState == .onePair || handState == .threeCard){
@@ -149,8 +149,8 @@ struct PlayerStatus{
                     state = self.compareCardRanks(myCardRank: checkLestRank(myLestCards, returnStrength: .Strongest), otherCardRank: checkLestRank(otherLestCards, returnStrength: .Strongest))
                 }
             }
-
-
+            
+            
         case .straight,.straightFlush:
             
             var myRank:Card.Rank{
@@ -225,7 +225,7 @@ struct PlayerStatus{
 }
 
 extension PlayerStatus{
-
+    
     // ハイカード・ワンペア・フラッシュで使用
     // 引数のlestRankには、Pairを取り除いた配列を入れる
     func checkLestRank(_ lestRanks:[Card.Rank],returnStrength:RankStrength)->Card.Rank{
@@ -257,10 +257,7 @@ extension PlayerStatus{
         
         var rank:Card.Rank = .five
         
-        guard let contnuousRanks = handStatus.hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank})}).last else {
-            return rank
-        }
-        
+        let contnuousRanks = handStatus.hand.hasContinuousRank
         
         if contnuousRanks.contains(where: {$0 == .five}) &&
             contnuousRanks.contains(where: {$0 == .four}) &&

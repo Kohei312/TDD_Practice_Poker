@@ -80,10 +80,10 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         XCTAssertEqual(player_me.handStatus.handState, HandState.flush)
         
         // flush K
-        card_1 = Card(suit: .club, rank: .two)
-        card_2 = Card(suit: .diamond, rank: .four)
-        card_3 = Card(suit: .spade, rank: .five)
-        card_4 = Card(suit: .spade, rank: .three)
+        card_1 = Card(suit: .club, rank: .ten)
+        card_2 = Card(suit: .diamond, rank: .king)
+        card_3 = Card(suit: .spade, rank: .queen)
+        card_4 = Card(suit: .spade, rank: .jack)
         card_5 = Card(suit: .diamond, rank: .ace)
         hand_2 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
         handStatus_2 = HandStatus(hand:hand_2)

@@ -114,6 +114,14 @@ struct Card:Equatable,Hashable{
         
         if (self.rank.index+1) == nextCard.rank.index{
             isContinue = true
+        } else if self.rank == .two && nextCard.rank == .jack{
+            isContinue = true
+        } else if self.rank == .three && nextCard.rank == .queen{
+            isContinue = true
+        } else if self.rank == .four && nextCard.rank == .king{
+            isContinue = true
+        } else if self.rank == .five && nextCard.rank == .ace{
+            isContinue = true
         }
         
         return isContinue

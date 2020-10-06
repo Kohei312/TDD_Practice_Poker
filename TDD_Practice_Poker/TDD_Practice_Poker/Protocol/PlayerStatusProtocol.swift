@@ -222,6 +222,10 @@ extension PlayerStatus{
         return rank
     }
     
+    func checkFullHausePairs(){
+        
+    }
+    
     func checkStraightStrongRank(_ handStatus:HandStatus)->Card.Rank{
         
         var rank:Card.Rank = .five

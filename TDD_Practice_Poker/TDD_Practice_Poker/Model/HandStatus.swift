@@ -53,18 +53,21 @@ struct HandStatus{
                 if hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
                     
                     state = .fullHouse
-                } else {
                     
-                    state = .onePair
+                } else {
+                   
+                    if hand.hasEqualRank.filter({$0.value == .onePair}).count == 2{
+                        
+                        state = .twoPair
+                        
+                    } else {
+                    
+                        print(hand.hasEqualRank.filter({$0.value == .onePair}).count)
+                        state = .onePair
+                    }
                 }
                 
-            }  else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.twoPair}){
-                
-                
-                state = .twoPair
-                
-                
-            }  else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
+            } else if  hand.hasEqualRank.values.contains(where: {$0 == HandState.threeCard}){
                 
                 
                 state = .threeCard
@@ -82,7 +85,7 @@ struct HandStatus{
                 let continuousCards = hand.hasContinuousRank.compactMap({$0.compactMap({$0.rank })})
                 
                 for cards in continuousCards {
-                        // checkFlushStatus()
+                    
                     state = checkStraightStatus(cards)
                 }
                 

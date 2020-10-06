@@ -28,10 +28,20 @@ extension Hand:HandProtocol{
         allRanks.forEach({ rankDic in
             if rankDic.value.count == 2 {
                 let key = rankDic.key
-                equalRankDics = [key:HandState.onePair]
+                if equalRankDics.isEmpty{
+                    equalRankDics = [key:HandState.onePair]
+                } else {
+                    equalRankDics[key] = HandState.onePair
+                }
+
             } else if rankDic.value.count == 3 {
                 let key = rankDic.key
-                equalRankDics = [key:HandState.threeCard]
+                if equalRankDics.isEmpty{
+                    equalRankDics = [key:HandState.threeCard]
+                } else {
+                    equalRankDics[key] = HandState.threeCard
+                }
+
             } else if rankDic.value.count == 4 {
                 let key = rankDic.key
                 equalRankDics = [key:HandState.fourCard]

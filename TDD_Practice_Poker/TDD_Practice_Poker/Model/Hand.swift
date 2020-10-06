@@ -18,9 +18,6 @@ struct Hand{
     #warning("ただし、手札が0,または1枚のときに必ずクラッシュする")
     var cards:[Card]
     
-//    var hasEqualSuit:[ [Card] ]{
-//        checkEqual(type: CardType.Suit)
-//    }
     var hasEqualSuit:[ Card.Suit ]{
         checkAllEqualSuit()
     }

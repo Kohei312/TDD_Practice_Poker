@@ -18,13 +18,13 @@ struct Hand{
     #warning("ただし、手札が0,または1枚のときに必ずクラッシュする")
     var cards:[Card]
     
-    var hasEqualSuit:[ Card.Suit ]{
+    var hasAllEqualSuit:[ Card.Suit ]{
         checkAllEqualSuit()
     }
     var hasEqualRank:[ Card.Rank:HandState ]{
         checkEqualRanks()
     }
-    var hasContinuousRank:[ [Card] ]{
-        checkContinuious()
+    var hasContinuousRank:[ Card.Rank ]{
+        checkContinuiousRank()
     }
 }

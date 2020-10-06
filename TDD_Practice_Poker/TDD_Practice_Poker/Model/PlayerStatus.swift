@@ -31,7 +31,8 @@ protocol PlayerStatusProtocol{
 
 // 仮実装OK
 struct PlayerStatus:PlayerStatusProtocol{
-        
+    
+    
     var myPlayer:Player
     var otherPlayers:[Player]
     

@@ -157,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
+				7C0024C7252861FD0031FAC9 /* Hand.swift */,
 				7C0024E7252957C50031FAC9 /* Player.swift */,
 			);
 			path = Entity;
@@ -165,7 +166,6 @@
 		7C0024C6252861F00031FAC9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C0024C7252861FD0031FAC9 /* Hand.swift */,
 				7C0024D425287CD00031FAC9 /* HandStatus.swift */,
 				7C0024EF252960580031FAC9 /* PlayerStatus.swift */,
 			);

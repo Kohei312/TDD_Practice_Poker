@@ -21,6 +21,10 @@ enum HandState:Comparable{
     case royalFlush
 }
 
+protocol HandStatusProtocol{
+    
+}
+
 struct HandStatus{
     
     var hand:Hand

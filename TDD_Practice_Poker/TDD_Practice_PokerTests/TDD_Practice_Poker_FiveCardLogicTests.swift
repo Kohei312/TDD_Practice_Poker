@@ -67,11 +67,11 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         var handStatus_2:HandStatus
         
         // flush　5: まけ
-        card_1 = Card(suit: .diamond, rank: .eight)
-        card_2 = Card(suit: .heart, rank: .jack)
-        card_3 = Card(suit: .spade, rank: .ten)
-        card_4 = Card(suit: .club, rank: .nine)
-        card_5 = Card(suit: .heart, rank: .seven)
+        card_1 = Card(suit: .diamond, rank: .queen)
+        card_2 = Card(suit: .diamond, rank: .jack)
+        card_3 = Card(suit: .diamond, rank: .ten)
+        card_4 = Card(suit: .diamond, rank: .king)
+        card_5 = Card(suit: .diamond, rank: .eight)
         hand_1 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
         handStatus_1 = HandStatus(hand:hand_1)
 //        XCTAssertTrue(handStatus_1.hand.hasEqualSuit == [] , "中身は : \(handStatus_1.hand.hasEqualSuit)")
@@ -81,10 +81,10 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         
         // flush K
         card_1 = Card(suit: .club, rank: .ten)
-        card_2 = Card(suit: .diamond, rank: .king)
-        card_3 = Card(suit: .spade, rank: .queen)
-        card_4 = Card(suit: .spade, rank: .jack)
-        card_5 = Card(suit: .diamond, rank: .ace)
+        card_2 = Card(suit: .club, rank: .king)
+        card_3 = Card(suit: .club, rank: .queen)
+        card_4 = Card(suit: .club, rank: .jack)
+        card_5 = Card(suit: .club, rank: .eight)
         hand_2 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
         handStatus_2 = HandStatus(hand:hand_2)
         
@@ -92,7 +92,7 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         XCTAssertEqual(player_2.handStatus.handState, HandState.flush)
         XCTAssertTrue(player_me.handStatus.handState == player_2.handStatus.handState)
         
-        let playerStatus = PlayerStatus(players:[player_me,player_2])
+        let playerStatus = PlayerStatus(myPlayer: player_me, otherPlayers: [player_2])
         XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)
         
     }

@@ -14,6 +14,14 @@ enum PlayerState{
     case lose
 }
 
+enum RankStrength:Comparable,CaseIterable{
+    case Strongest
+    case Stronger
+    case Middle
+    case Weaker
+    case Weakest
+}
+
 protocol PlayerStatusProtocol{
     func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState
     func compareCardRanks(myCardRank:Card.Rank?,otherCardRank:Card.Rank?)->PlayerState

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension PlayerStatus:PlayerStatusProtocol{
+extension PlayerStatus{
     
     // 仮実装OK
     func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState{
@@ -23,21 +23,18 @@ extension PlayerStatus:PlayerStatusProtocol{
             break
         case .highCard,.flush:
             
-            state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: .Strongest), otherCardRank: checkLestRank(otherCards, returnStrength: .Strongest))
+            var strengthCase = 0
+            let rankStrength = RankStrength.allCases[strengthCase]
             
-            if state == .draw{
-                
-                state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: .Stronger), otherCardRank: checkLestRank(otherCards, returnStrength: .Stronger))
-                
-                if state == .draw{
-                    state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: .Middle), otherCardRank: checkLestRank(otherCards, returnStrength: .Middle))
-                    if state == .draw{
-                        state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: .Weaker), otherCardRank: checkLestRank(otherCards, returnStrength: .Weaker))
-                        if state == .draw{
-                            state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: .Weakest), otherCardRank: checkLestRank(otherCards, returnStrength: .Weakest))
-                        }
-                    }
+            
+            state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength))
+            
+            while state == .draw{
+                strengthCase += 1
+                if strengthCase == 5{
+                    break
                 }
+                state = self.compareCardRanks(myCardRank: checkLestRank(myCards, returnStrength: rankStrength), otherCardRank: checkLestRank(otherCards, returnStrength: rankStrength))
             }
         case .onePair,.threeCard,.fourCard:
             // MARK:- 1回目： ペアを比較

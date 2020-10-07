@@ -7,8 +7,65 @@
 
 import Foundation
 
-//enum JudgeState{
+//#warning("以下のPlayerStateは、JugdeStateへ")
+//enum PlayerState{
+//    case inPlaying
 //    case win
 //    case draw
 //    case lose
+//}
+//
+//#warning("これはJudgementへ")
+//protocol PlayerStatusProtocol{
+//    
+//    func compareCards(_ myHandStatus:Hand, otherHandStatus:Hand)->PlayerState
+//    func compareCardRanks(myCardRank:Card.Rank,otherCardRank:Card.Rank)->PlayerState
+//    
+//    func makeLestCardRanks(_ handStatus:Hand,reduceRanks:[Card.Rank])->[Card.Rank]
+//    func checkLestRank(_ lestRanks:[Card.Rank],returnStrength:RankStrength)->Card.Rank
+//    
+//    func checkTwoPairRank(_ handStatus:Hand,returnStrength:RankStrength)->Card.Rank
+//    func checkStraightStrongRank(_ handStatus:Hand)->Card.Rank
+//    func checkFullHousePairs(_ handStatus:Hand,returnPairType:HandState)->Card.Rank
+//}
+//
+//
+////enum JudgeState{
+////    case win
+////    case draw
+////    case lose
+////}
+//
+//struct Judgement{
+//    
+//    // [Player変数]が必要
+//    var players:[Player]
+//    
+//    // ここのロジックはJudgementクラスへ
+//    #warning("以下のロジックは、JugdeStateへ")
+//    var PlayerState:PlayerState{
+//        
+//        let myHandStatus = myPlayer.hand
+//        
+//        var playerState:PlayerState = .draw
+//        for otherPlayer in otherPlayers{
+//            
+//            let otherHandStatus = otherPlayer.hand
+//            
+//            if myHandStatus.handState < otherHandStatus.handState{
+//                
+//                playerState = .lose
+//                
+//            } else if myHandStatus.handState > otherHandStatus.handState{
+//               
+//                playerState = .win
+//                
+//            } else if myHandStatus.handState == otherHandStatus.handState{
+//                
+//                playerState = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
+//            }
+//        }
+//        
+//        return playerState
+//    }
 //}

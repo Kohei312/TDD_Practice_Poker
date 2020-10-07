@@ -71,8 +71,9 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         card_2 = Card(suit: .heart, rank: .three)
         card_3 = Card(suit: .club, rank: .king)
         card_4 = Card(suit: .spade, rank: .king)
-        card_5 = Card(suit: .diamond, rank: .queen)
-        hand_1 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
+        card_5 = Card(suit: .diamond, rank: .ace)
+        hand_1 = Hand([card_1,card_2,card_3,card_4,card_5])
+        
 //        handStatus_1 = HandStatus(hand:hand_1)
 //        XCTAssertTrue(handStatus_1.hand.hasEqualSuit == [] , "中身は : \(handStatus_1.hand.hasEqualSuit)")
         
@@ -86,7 +87,7 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         card_3 = Card(suit: .diamond, rank: .king)
         card_4 = Card(suit: .spade, rank: .king)
         card_5 = Card(suit: .club, rank: .queen)
-        hand_2 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
+        hand_2 = Hand([card_1,card_2,card_3,card_4,card_5])
 //        handStatus_2 = HandStatus(hand:hand_2)
         
         let player_2 = Player(playerType:.other,hand:hand_2)
@@ -94,6 +95,10 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         XCTAssertTrue(player_me.hand.handState == player_2.hand.handState)
         
         let playerStatus = PlayerStatus(myPlayer: player_me, otherPlayers: [player_2])
+        XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)
+                
+
+        hand_1.changeCard(Card(suit: .diamond, rank: .ace))
         XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)
         
     }

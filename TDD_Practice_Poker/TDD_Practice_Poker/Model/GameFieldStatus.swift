@@ -19,7 +19,9 @@ protocol GameFieldStatusProtocol{
 // MARK:- プレーヤーがJugdeに進むか否かを監視する
 struct GameFieldStatus:GameFieldStatusProtocol{
     
-    var players:[Player]
+    // Player変数を各モデルで持つと、それぞれ独立したiteratorが発生し状態を共有できない
+//    var players:[Player]
+    
     /*
     var gameField:GameField = .notStartJudgement{
         didSet{

@@ -17,8 +17,6 @@ enum PlayerType{
 struct Player{
     
     var playerType:PlayerType
-    
-    // HandStatusはいらない
     var hand:Hand
     /*
      // ToolBarの「勝負する」ボタンを押す, または

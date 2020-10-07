@@ -172,6 +172,7 @@
 			children = (
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
 				7C0024C7252861FD0031FAC9 /* Hand.swift */,
+				7C0024D425287CD00031FAC9 /* HandStatus.swift */,
 				7C0024E7252957C50031FAC9 /* Player.swift */,
 				7CAC4581252D5F6C004008A5 /* GameSide.swift */,
 				7CAC459A252D73AB004008A5 /* GameField.swift */,
@@ -183,7 +184,6 @@
 		7C0024C6252861F00031FAC9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C0024D425287CD00031FAC9 /* HandStatus.swift */,
 				7C0024EF252960580031FAC9 /* PlayerStatus.swift */,
 				7CAC45A5252D7626004008A5 /* GameFieldStatus.swift */,
 				7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */,

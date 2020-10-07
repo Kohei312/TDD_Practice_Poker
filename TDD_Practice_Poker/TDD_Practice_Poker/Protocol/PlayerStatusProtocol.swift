@@ -11,11 +11,11 @@ import Foundation
 extension PlayerStatus{
     
     // 仮実装OK
-    func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState{
+    func compareCards(_ myHandStatus:Hand, otherHandStatus:Hand)->PlayerState{
         
         let myHandState = myHandStatus.handState
-        let myCards = myHandStatus.hand.cards.compactMap({$0.rank}).sorted()
-        let otherCards = otherHandStatus.hand.cards.compactMap({$0.rank}).sorted()
+        let myCards = myHandStatus.cards.compactMap({$0.rank}).sorted()
+        let otherCards = otherHandStatus.cards.compactMap({$0.rank}).sorted()
         
         var state:PlayerState = .inPlaying
         
@@ -42,8 +42,8 @@ extension PlayerStatus{
             
         case .onePair,.threeCard,.fourCard:
             // MARK:- 1回目： ペアを比較
-            let myStrongPairRank = checkLestRank(myHandStatus.hand.hasEqualRank.keys.prefix(1).map{$0}, returnStrength: .Strongest)
-            let otherStrongPairRank = checkLestRank(otherHandStatus.hand.hasEqualRank.keys.prefix(1).map{$0}, returnStrength: .Strongest)
+            let myStrongPairRank = checkLestRank(myHandStatus.hasEqualRank.keys.prefix(1).map{$0}, returnStrength: .Strongest)
+            let otherStrongPairRank = checkLestRank(otherHandStatus.hasEqualRank.keys.prefix(1).map{$0}, returnStrength: .Strongest)
             
             state = self.compareCardRanks(myCardRank: myStrongPairRank, otherCardRank: otherStrongPairRank)
             
@@ -149,11 +149,11 @@ extension PlayerStatus{
         return currentState
     }
     
-    func makeLestCardRanks(_ handStatus:HandStatus,reduceRanks:[Card.Rank])->[Card.Rank]{
+    func makeLestCardRanks(_ handStatus:Hand,reduceRanks:[Card.Rank])->[Card.Rank]{
         
         var lestCardRanks:[Card.Rank] = []
         for reduceRank in reduceRanks{
-            lestCardRanks = handStatus.hand.cards.filter({$0.rank != reduceRank}).compactMap({$0.rank})
+            lestCardRanks = handStatus.cards.filter({$0.rank != reduceRank}).compactMap({$0.rank})
         }
         return lestCardRanks
     }
@@ -186,20 +186,20 @@ extension PlayerStatus{
         return rank
     }
     
-    func checkTwoPairRank(_ handStatus:HandStatus,returnStrength:RankStrength)->Card.Rank{
+    func checkTwoPairRank(_ handStatus:Hand,returnStrength:RankStrength)->Card.Rank{
         
         var rank:Card.Rank = .two
         
         switch returnStrength{
         case .Strongest:
-            if let strongPair = handStatus.hand.hasEqualRank.keys.max(),
+            if let strongPair = handStatus.hasEqualRank.keys.max(),
                let strongPairRank = Card.Rank(rawValue: strongPair.rawValue){
                 rank = strongPairRank
             }
         case .Stronger,.Middle,.Weaker:
             break
         case .Weakest:
-            if let weakPair = handStatus.hand.hasEqualRank.keys.min(),
+            if let weakPair = handStatus.hasEqualRank.keys.min(),
                let weakPairRank = Card.Rank(rawValue: weakPair.rawValue){
                 rank = weakPairRank
             }
@@ -208,11 +208,11 @@ extension PlayerStatus{
         return rank
     }
     
-    func checkStraightStrongRank(_ handStatus:HandStatus)->Card.Rank{
+    func checkStraightStrongRank(_ handStatus:Hand)->Card.Rank{
         
         var rank:Card.Rank = .five
         
-        let contnuousRanks = handStatus.hand.hasContinuousRank
+        let contnuousRanks = handStatus.hasContinuousRank
         if contnuousRanks == [.two,.three,.four,.five,.ace]{
             rank = .five
         } else {
@@ -223,18 +223,18 @@ extension PlayerStatus{
         return rank
     }
 
-    func checkFullHousePairs(_ handStatus:HandStatus,returnPairType:HandState)->Card.Rank{
+    func checkFullHousePairs(_ handStatus:Hand,returnPairType:HandState)->Card.Rank{
         
         var rank:Card.Rank = .two
         
         switch returnPairType{
         
         case .threeCard:
-            if let myThreeCards = handStatus.hand.hasEqualRank.filter({$0.value == .threeCard}).compactMap({$0}).last {
+            if let myThreeCards = handStatus.hasEqualRank.filter({$0.value == .threeCard}).compactMap({$0}).last {
                 rank = myThreeCards.key
             }
         case .onePair:
-            if let myOnePair = handStatus.hand.hasEqualRank.filter({$0.value == .onePair}).compactMap({$0}).last {
+            if let myOnePair = handStatus.hasEqualRank.filter({$0.value == .onePair}).compactMap({$0}).last {
                 rank = myOnePair.key
             }
         default:

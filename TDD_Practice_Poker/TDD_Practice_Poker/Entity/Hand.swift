@@ -38,4 +38,8 @@ struct Hand:HandProtocol{
         checkContinuiousRank()
     }
     
+    var handState:HandState{
+        manageHandState()
+    }
+    
 }

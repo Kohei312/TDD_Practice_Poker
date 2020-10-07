@@ -28,15 +28,15 @@ enum PlayerState{
 #warning("これはJudgementへ")
 protocol PlayerStatusProtocol{
     
-    func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState
+    func compareCards(_ myHandStatus:Hand, otherHandStatus:Hand)->PlayerState
     func compareCardRanks(myCardRank:Card.Rank,otherCardRank:Card.Rank)->PlayerState
     
-    func makeLestCardRanks(_ handStatus:HandStatus,reduceRanks:[Card.Rank])->[Card.Rank]
+    func makeLestCardRanks(_ handStatus:Hand,reduceRanks:[Card.Rank])->[Card.Rank]
     func checkLestRank(_ lestRanks:[Card.Rank],returnStrength:RankStrength)->Card.Rank
     
-    func checkTwoPairRank(_ handStatus:HandStatus,returnStrength:RankStrength)->Card.Rank
-    func checkStraightStrongRank(_ handStatus:HandStatus)->Card.Rank
-    func checkFullHousePairs(_ handStatus:HandStatus,returnPairType:HandState)->Card.Rank
+    func checkTwoPairRank(_ handStatus:Hand,returnStrength:RankStrength)->Card.Rank
+    func checkStraightStrongRank(_ handStatus:Hand)->Card.Rank
+    func checkFullHousePairs(_ handStatus:Hand,returnPairType:HandState)->Card.Rank
 }
 
 enum ReadyButtleState{
@@ -74,12 +74,12 @@ struct PlayerStatus:PlayerStatusProtocol{
     #warning("以下のロジックは、JugdeStateへ")
     var PlayerState:PlayerState{
         
-        let myHandStatus = myPlayer.handStatus
+        let myHandStatus = myPlayer.hand
         
         var playerState:PlayerState = .draw
         for otherPlayer in otherPlayers{
             
-            let otherHandStatus = otherPlayer.handStatus
+            let otherHandStatus = otherPlayer.hand
             
             if myHandStatus.handState < otherHandStatus.handState{
                 

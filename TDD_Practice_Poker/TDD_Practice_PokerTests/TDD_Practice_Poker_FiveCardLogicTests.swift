@@ -61,10 +61,10 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         var card_5:Card
         
         var hand_1:Hand
-        var handStatus_1:HandStatus
+//        var handStatus_1:HandStatus
         
         var hand_2:Hand
-        var handStatus_2:HandStatus
+//        var handStatus_2:HandStatus
         
         // わんペア　8
         card_1 = Card(suit: .diamond, rank: .two)
@@ -73,11 +73,12 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         card_4 = Card(suit: .spade, rank: .king)
         card_5 = Card(suit: .diamond, rank: .queen)
         hand_1 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
-        handStatus_1 = HandStatus(hand:hand_1)
+//        handStatus_1 = HandStatus(hand:hand_1)
 //        XCTAssertTrue(handStatus_1.hand.hasEqualSuit == [] , "中身は : \(handStatus_1.hand.hasEqualSuit)")
         
-        let player_me = Player(playerType:.me,handStatus:handStatus_1)
-        XCTAssertEqual(player_me.handStatus.handState, HandState.flush)
+//        let player_me = Player(playerType:.me,handStatus:handStatus_1)
+        let player_me = Player(playerType:.me,hand:hand_1)
+        XCTAssertEqual(player_me.hand.handState, HandState.flush)
         
         // わんペア 8
         card_1 = Card(suit: .club, rank: .two)
@@ -86,11 +87,11 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         card_4 = Card(suit: .spade, rank: .king)
         card_5 = Card(suit: .club, rank: .queen)
         hand_2 = Hand(cards:[card_1,card_2,card_3,card_4,card_5])
-        handStatus_2 = HandStatus(hand:hand_2)
+//        handStatus_2 = HandStatus(hand:hand_2)
         
-        let player_2 = Player(playerType:.other,handStatus:handStatus_2)
-        XCTAssertEqual(player_2.handStatus.handState, HandState.flush)
-        XCTAssertTrue(player_me.handStatus.handState == player_2.handStatus.handState)
+        let player_2 = Player(playerType:.other,hand:hand_2)
+        XCTAssertEqual(player_2.hand.handState, HandState.flush)
+        XCTAssertTrue(player_me.hand.handState == player_2.hand.handState)
         
         let playerStatus = PlayerStatus(myPlayer: player_me, otherPlayers: [player_2])
         XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)

@@ -19,7 +19,7 @@ struct Player{
     var playerType:PlayerType
     
     // HandStatusはいらない
-    var handStatus:HandStatus
+    var hand:Hand
     /*
      // ToolBarの「勝負する」ボタンを押す, または
      // 3回交換したら (交換カウントが0になったら) 変更される

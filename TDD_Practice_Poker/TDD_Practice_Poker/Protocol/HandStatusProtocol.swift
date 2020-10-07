@@ -7,29 +7,29 @@
 
 import Foundation
 
-extension HandStatus:HandStatusProtocol{
+extension Hand:HandStatusProtocol{
     
     func manageHandState()->HandState{
     
         var state:HandState = .nothing
         
-        if hand.hasAllEqualSuit == [] &&
-            hand.hasEqualRank == [:] &&
-            hand.hasContinuousRank == []{
+        if self.hasAllEqualSuit == [] &&
+            self.hasEqualRank == [:] &&
+            self.hasContinuousRank == []{
             
             state = .highCard
             
         } else {
             
-            if hand.hasAllEqualSuit != []{
+            if self.hasAllEqualSuit != []{
    
-                if hand.hasContinuousRank == []{
+                if self.hasContinuousRank == []{
                     
                     state = .flush
                     
-                } else if hand.hasContinuousRank.count == 5 {
+                } else if self.hasContinuousRank.count == 5 {
                     
-                        state = checkFlushStatus(hand.hasContinuousRank)
+                        state = checkFlushStatus(self.hasContinuousRank)
                 }
                 
             } else if checkCardPairType(pairType: .onePair){
@@ -40,7 +40,7 @@ extension HandStatus:HandStatusProtocol{
                     
                 } else {
                    
-                    if hand.hasEqualRank.filter({$0.value == .onePair}).count == 2{
+                    if self.hasEqualRank.filter({$0.value == .onePair}).count == 2{
                         
                         state = .twoPair
                         
@@ -62,9 +62,9 @@ extension HandStatus:HandStatusProtocol{
                 state = .fourCard
                 
                 
-            }  else if hand.hasContinuousRank.count == 5 {
+            }  else if self.hasContinuousRank.count == 5 {
                 
-                state = checkStraightStatus(hand.hasContinuousRank)
+                state = checkStraightStatus(self.hasContinuousRank)
                 
             } else {
                 
@@ -78,7 +78,7 @@ extension HandStatus:HandStatusProtocol{
     }
  
     func checkCardPairType(pairType:HandState) -> Bool{
-        return hand.hasEqualRank.values.contains(where: {$0 == pairType})
+        return self.hasEqualRank.values.contains(where: {$0 == pairType})
     }
     
     func checkFlushStatus(_ cards:[Card.Rank])->HandState{

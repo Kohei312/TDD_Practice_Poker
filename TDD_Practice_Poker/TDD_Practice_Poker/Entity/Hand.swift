@@ -53,7 +53,6 @@ class Hand:HandProtocol,HandStatusProtocol{
         guard let i = self.cards.firstIndex(of: willChangeCard) else {return}
         
         cards[i] = drawCard()
-        print("cards[i] :",cards[i])
     }
     
 }

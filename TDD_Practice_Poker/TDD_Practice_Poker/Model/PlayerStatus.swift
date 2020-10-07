@@ -39,10 +39,10 @@ protocol PlayerStatusProtocol{
     func checkFullHousePairs(_ handStatus:Hand,returnPairType:HandState)->Card.Rank
 }
 
-enum ReadyButtleState{
-    case none
-    case readyButtle
-}
+//enum ReadyButtleState{
+//    case none
+//    case readyButtle
+//}
 
 // 仮実装OK
 // MARK:- プレーヤーが対決準備ができたか否かを監視する

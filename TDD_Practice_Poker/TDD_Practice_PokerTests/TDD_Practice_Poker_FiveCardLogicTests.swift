@@ -78,8 +78,10 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
 //        XCTAssertTrue(handStatus_1.hand.hasEqualSuit == [] , "中身は : \(handStatus_1.hand.hasEqualSuit)")
         
 //        let player_me = Player(playerType:.me,handStatus:handStatus_1)
-        let player_me = Player(playerType:.me,hand:hand_1)
+        var player_me = Player(playerType:.me,hand:hand_1)
         XCTAssertEqual(player_me.hand.handState, HandState.flush)
+//        let i = player_me.isReadyButtle()
+//        XCTAssertEqual(player_me.readyButtle, ReadyButtleState.readyButtle)
         
         // わんペア 8
         card_1 = Card(suit: .club, rank: .two)

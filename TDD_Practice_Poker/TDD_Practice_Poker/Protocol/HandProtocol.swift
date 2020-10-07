@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol HandProtocol{
+    func checkAllEqualSuit()->[Card.Suit]
+    func checkEqualRanks()->[ Card.Rank:HandState ]
+    func checkContinuious()->[[Card]]
+}
+
 extension Hand{
     
     func checkAllEqualSuit()->[Card.Suit]{

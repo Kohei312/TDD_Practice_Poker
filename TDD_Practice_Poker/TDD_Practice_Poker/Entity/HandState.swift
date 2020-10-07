@@ -22,10 +22,4 @@ enum HandState:Comparable{
     case royalFlush
 }
 
-protocol HandStatusProtocol{
-    func manageHandState() -> HandState
-    func checkCardPairType(pairType:HandState) -> Bool
-    func checkFlushStatus(_ cards:[Card.Rank]) -> HandState
-    func checkStraightStatus(_ cards:[Card.Rank]) -> HandState
-}
 

@@ -7,7 +7,14 @@
 
 import Foundation
 
-extension Hand:HandStatusProtocol{
+protocol HandStatusProtocol{
+    func manageHandState() -> HandState
+    func checkCardPairType(pairType:HandState) -> Bool
+    func checkFlushStatus(_ cards:[Card.Rank]) -> HandState
+    func checkStraightStatus(_ cards:[Card.Rank]) -> HandState
+}
+
+extension Hand{
     
     func manageHandState()->HandState{
     

@@ -7,13 +7,7 @@
 
 import Foundation
 
-protocol HandProtocol{
-    func checkAllEqualSuit()->[Card.Suit]
-    func checkEqualRanks()->[ Card.Rank:HandState ]
-    func checkContinuious()->[[Card]]
-}
-
-struct Hand:HandProtocol{
+struct Hand:HandProtocol,HandStatusProtocol{
     
     #warning("ただし、手札が0,または1枚のときに必ずクラッシュする")
     var cards:[Card]

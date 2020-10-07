@@ -33,6 +33,7 @@
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
 		7CAC45FC252DC8AC004008A5 /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45FB252DC8AC004008A5 /* PlayerList.swift */; };
 		7CAC4601252DCB4E004008A5 /* CardStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4600252DCB4E004008A5 /* CardStub.swift */; };
+		7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
 		7CAC45FB252DC8AC004008A5 /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
 		7CAC4600252DCB4E004008A5 /* CardStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStub.swift; sourceTree = "<group>"; };
+		7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		7C0024BA252849160031FAC9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				7CAC4600252DCB4E004008A5 /* CardStub.swift */,
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
 				7C0024C7252861FD0031FAC9 /* Hand.swift */,
 				7C0024D425287CD00031FAC9 /* HandState.swift */,
@@ -182,7 +185,6 @@
 				7CAC4581252D5F6C004008A5 /* GameSide.swift */,
 				7CAC459A252D73AB004008A5 /* GameField.swift */,
 				7CAC4589252D60FC004008A5 /* Judgement.swift */,
-				7CAC4600252DCB4E004008A5 /* CardStub.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
 				7C002521252C63760031FAC9 /* HandStatusProtocol.swift */,
 				7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */,
+				7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				7C0024F0252960580031FAC9 /* PlayerStatus.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
 				7CAC459B252D73AB004008A5 /* GameField.swift in Sources */,
+				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

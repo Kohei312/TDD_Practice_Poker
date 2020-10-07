@@ -106,20 +106,39 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
 //    }
 //
     
-    func testInitializePlayerList(){
-
-        let playerList = PlayerList()
+//    func testInitializePlayerList(){
+//
+//        let playerList = PlayerList()
+//        XCTAssertEqual(playerList.player_me.hand.handState, HandState.onePair)
+//
+//        XCTAssertEqual(playerList.player_other.hand.handState, HandState.onePair)
+//        XCTAssertTrue(playerList.player_me.hand.handState == playerList.player_other.hand.handState)
+//
+//        let playerStatus = Judgement()
+//        XCTAssertEqual(playerStatus.playerState,JudgeState.draw)
+//
+//
+//        playerList.player_me.hand.changeCard(Card(suit: .diamond, rank: .ace))
+//        XCTAssertEqual(playerStatus.playerState,JudgeState.draw)
+//
+//    }
+//
+    
+    func testJudgement(){
+        
+        var judgement = JudgementStatus()
+        let playerList = judgement.players
         XCTAssertEqual(playerList.player_me.hand.handState, HandState.onePair)
 
         XCTAssertEqual(playerList.player_other.hand.handState, HandState.onePair)
         XCTAssertTrue(playerList.player_me.hand.handState == playerList.player_other.hand.handState)
         
-        let playerStatus = PlayerStatus(myPlayer: playerList.player_me, otherPlayers: [playerList.player_other])
-        XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)
+        
+        XCTAssertEqual(judgement.hoge(),JudgementState.draw)
                 
 
         playerList.player_me.hand.changeCard(Card(suit: .diamond, rank: .ace))
-        XCTAssertEqual(playerStatus.PlayerState,PlayerState.draw)
+        XCTAssertEqual(judgement.hoge(),JudgementState.lose)
         
     }
     

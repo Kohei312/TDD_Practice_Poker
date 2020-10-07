@@ -6,21 +6,22 @@
 //
 
 import Foundation
-
-struct Hand:HandProtocol,HandStatusProtocol{
+// Playerと状態を共有するため、ここはclass化
+class Hand:HandProtocol,HandStatusProtocol{
     
     #warning("ただし、手札が0,または1枚のときに必ずクラッシュする")
-    var cards:[Card]
-    
-// カードにsuit・rankとも同じカードがないように初期化したい
-//    init(){
-//        cards = (1..<5).enumerated().map {_ in
-//            let suit = Card.Suit.allCases.randomElement()!
-//            let rank = Card.Rank.allCases.randomElement()!
-//
-//            return Card(suit: suit, rank: rank)
-//        }
+    var cards:[Card] = []
+    // スタブ 用
+//    init(_ cards:[Card]){
+//        self.cards = cards
 //    }
+// カードにsuit・rankとも同じカードがないように初期化したい
+    init(){
+        cards = CardStub().cards
+//        cards = (1..<5).enumerated().map {_ in
+//            drawCard()
+//        }
+    }
     
     var hasAllEqualSuit:[ Card.Suit ]{
         checkAllEqualSuit()
@@ -34,6 +35,26 @@ struct Hand:HandProtocol,HandStatusProtocol{
     
     var handState:HandState{
         manageHandState()
+    }
+    
+    // カードプロパティは、ここで取得する
+    func getCards()->[Card]{
+        return cards
+    }
+    
+    func drawCard()->Card{
+        let suit = Card.Suit.allCases.randomElement()!
+        let rank = Card.Rank.allCases.randomElement()!
+        
+        return Card(suit: suit, rank: rank)
+    }
+    
+    // ハッシュ値をつかって更新する
+    func changeCard(_ willChangeCard:Card){
+        guard let i = self.cards.firstIndex(of: willChangeCard) else {return}
+        
+        cards[i] = drawCard()
+        print("card[i] :",cards[i])
     }
     
 }

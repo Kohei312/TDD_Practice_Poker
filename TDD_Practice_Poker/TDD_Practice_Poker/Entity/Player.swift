@@ -12,27 +12,28 @@ enum PlayerType{
     case me
     case other
 }
-
+enum ReadyButtleState{
+    case none
+    case readyButtle
+}
 
 struct Player{
     
     var playerType:PlayerType
-    
-    // HandStatusはいらない
     var hand:Hand
-    /*
      // ToolBarの「勝負する」ボタンを押す, または
      // 3回交換したら (交換カウントが0になったら) 変更される
      // ↑を管理するクラスのProtocolをそれぞれココにDIし、UI更新を図る
-     var readyButtle:ReadyButtle = .none
+    // 仮実装OK
+    var readyButtle:ReadyButtleState = .none
      
-     func isReadyButtle(){
-        if tapped ButtleBtn == true ||
-        changeNumberOfCard == 0{
+    mutating func isReadyButtle(){
+//        if tapped ButtleBtn == true ||
+//        changeNumberOfCard == 0{
             readyButtle = .readyButtle
-     }
+//        }
+    }
      
-    */
     
     
 }

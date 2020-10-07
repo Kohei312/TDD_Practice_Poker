@@ -28,24 +28,41 @@ import Foundation
 //    func checkStraightStrongRank(_ handStatus:Hand)->Card.Rank
 //    func checkFullHousePairs(_ handStatus:Hand,returnPairType:HandState)->Card.Rank
 //}
-//
-//
-////enum JudgeState{
-////    case win
-////    case draw
-////    case lose
-////}
-//
-//struct Judgement{
-//    
-//    // [Player変数]が必要
-//    var players:[Player]
-//    
-//    // ここのロジックはJudgementクラスへ
-//    #warning("以下のロジックは、JugdeStateへ")
-//    var PlayerState:PlayerState{
+
+
+enum JudgeState{
+    case win
+    case draw
+    case lose
+}
+
+// ここはContainerでまとめて初期化する
+struct Judgement{
+    
+    // [Player変数]が必要
+    var players = PlayerList()
+    
+    // ここのロジックはJudgementクラスへ
+    #warning("以下のロジックは、JugdeStateへ")
+    var PlayerState:JudgeState = .draw{
+        didSet{
+            dependency?.notifyResult()
+        }
+    }
+    
+     var dependency:JudgementStatusProtocol?
+
+     init(dependency:JudgementStatusProtocol){
+        self.dependency = dependency
+     }
+    
+    
+    
+//    func hoge(){
 //        
-//        let myHandStatus = myPlayer.hand
+//        if let myHandStatus = players.filter({$0.playerType == .me}).last?.hand{
+//            
+//        }
 //        
 //        var playerState:PlayerState = .draw
 //        for otherPlayer in otherPlayers{
@@ -68,4 +85,4 @@ import Foundation
 //        
 //        return playerState
 //    }
-//}
+}

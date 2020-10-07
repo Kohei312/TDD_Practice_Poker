@@ -10,17 +10,18 @@ import Foundation
 class Hand:HandProtocol,HandStatusProtocol{
     
     #warning("ただし、手札が0,または1枚のときに必ずクラッシュする")
-    var cards:[Card]
+    var cards:[Card] = []
     // スタブ 用
-    init(_ cards:[Card]){
-        self.cards = cards
-    }
+//    init(_ cards:[Card]){
+//        self.cards = cards
+//    }
 // カードにsuit・rankとも同じカードがないように初期化したい
-//    init(){
+    init(){
+        cards = CardStub().cards
 //        cards = (1..<5).enumerated().map {_ in
 //            drawCard()
 //        }
-//    }
+    }
     
     var hasAllEqualSuit:[ Card.Suit ]{
         checkAllEqualSuit()
@@ -53,6 +54,7 @@ class Hand:HandProtocol,HandStatusProtocol{
         guard let i = self.cards.firstIndex(of: willChangeCard) else {return}
         
         cards[i] = drawCard()
+        print("card[i] :",cards[i])
     }
     
 }

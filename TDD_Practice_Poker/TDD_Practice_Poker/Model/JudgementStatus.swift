@@ -18,12 +18,16 @@ struct JudgementStatus:JudgementStatusProtocol{
     #warning("ここにUIの状態管理を行うPresenterのprotocolをDI")
     /*
      var dependency:PresenterClass?
+
+     // これは別途、Containerにまとめていく予定
+     // let judgement = Judgement(
      
      init(dependency:){
         self.dependency = dependency
      }
      */
     
+
     
     func willStartJudge() {
         

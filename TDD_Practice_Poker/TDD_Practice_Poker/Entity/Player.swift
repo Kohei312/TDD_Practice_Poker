@@ -25,7 +25,7 @@ struct Player{
      // 3回交換したら (交換カウントが0になったら) 変更される
      // ↑を管理するクラスのProtocolをそれぞれココにDIし、UI更新を図る
     // 仮実装OK
-    private var readyButtle:ReadyButtleState = .none
+    var readyButtle:ReadyButtleState = .none
      
     mutating func isReadyButtle(){
 //        if tapped ButtleBtn == true ||

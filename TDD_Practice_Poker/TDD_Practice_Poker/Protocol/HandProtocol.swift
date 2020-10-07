@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Hand:HandProtocol{
+extension Hand{
     
     func checkAllEqualSuit()->[Card.Suit]{
         
@@ -50,89 +50,6 @@ extension Hand:HandProtocol{
         
         return equalRankDics
     }
-    
-    // ストレートか否かを知りたい
-    // -> 昇順ソートして、5つ全てが連続していることがわかればOK
-    // -> 昇順ソートした[Card.Rank]が返ればOK
-//    func checkContinuiousRank()->[Card.Rank]{
-    
-//    func checkContinuious()->[[Card]]{
-//
-//        // 対象となるのは、hasEqualRankではない[Card]
-//        var continuousCards:[[Card] ] = []
-//        // ここで昇順ソートしておく
-//        let willSortCards:[Card] = self.cards.sorted(by: {$0.rank < $1.rank})
-//        var count = 0
-//
-//        for z in 0..<willSortCards.count-1{
-//            // MARK:- 比較する配列インデックス
-//            var y = z + 1
-//
-//            if willSortCards.indices.contains(y){
-//                if  willSortCards[z].rank == .two || willSortCards[z].rank == .five{
-//
-//                    if  willSortCards.contains(where: {$0.rank == .ace}){
-//                        // Aceとtwoが共存する場合はOK
-//                        count += 1
-//                        if count == willSortCards.count-1{
-//                            continuousCards.append(willSortCards)
-//                        }
-//
-//                    } else {
-//
-//                        if willSortCards[z].isContinuousRank(willSortCards[y]){
-//                            count += 1
-//                            if count == willSortCards.count-1{
-//                                continuousCards.append(willSortCards)
-//                            }
-//                        }
-//
-//                    }
-//
-//                } else if willSortCards[z].isContinuousRank(willSortCards[y]){
-//                    // z番目とz+1番目が連続している場合もOK
-//                    count += 1
-//                    if count == willSortCards.count-1{
-//                        continuousCards.append(willSortCards)
-//                    }
-//                }
-//            } else {
-//
-//                y = 0
-//
-//                if  willSortCards[z].rank == .two || willSortCards[z].rank == .five{
-//
-//                    if  willSortCards.contains(where: {$0.rank == .ace}){
-//                        // Aceとtwoが共存する場合はOK
-//                        count += 1
-//                        if count == willSortCards.count-1{
-//                            continuousCards.append(willSortCards)
-//                        }
-//
-//                    } else {
-//
-//                        if willSortCards[z].isContinuousRank(willSortCards[y]){
-//                            count += 1
-//                            if count == willSortCards.count-1{
-//                                continuousCards.append(willSortCards)
-//                            }
-//                        }
-//
-//                    }
-//
-//                } else if willSortCards[z].isContinuousRank(willSortCards[y]){
-//                    // z番目とz+1番目が連続している場合もOK
-//                    count += 1
-//                    if count == willSortCards.count-1{
-//                        continuousCards.append(willSortCards)
-//                    }
-//                }
-//            }
-//        }
-//
-//        return continuousCards
-//    }
-    
     
     func checkContinuious()->[[Card]]{
         

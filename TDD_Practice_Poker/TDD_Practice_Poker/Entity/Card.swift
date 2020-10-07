@@ -7,13 +7,21 @@
 
 import Foundation
 
+enum RankStrength:Comparable,CaseIterable{
+    case Strongest
+    case Stronger
+    case Middle
+    case Weaker
+    case Weakest
+}
+
 enum CardType{
     case Suit
     case Rank
 }
 
 extension Card{
-    enum Suit: String{
+    enum Suit: String,CaseIterable{
         case spade = "♠︎"
         case heart = "❤︎"
         case club = "♣︎"

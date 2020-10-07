@@ -26,6 +26,11 @@
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
 		7C002522252C63760031FAC9 /* HandStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002521252C63760031FAC9 /* HandStatusProtocol.swift */; };
 		7CAC4568252C84DE004008A5 /* PlayerStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */; };
+		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
+		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
+		7CAC459B252D73AB004008A5 /* GameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC459A252D73AB004008A5 /* GameField.swift */; };
+		7CAC45A6252D7626004008A5 /* GameFieldStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45A5252D7626004008A5 /* GameFieldStatus.swift */; };
+		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
 		7C002521252C63760031FAC9 /* HandStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandStatusProtocol.swift; sourceTree = "<group>"; };
 		7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusProtocol.swift; sourceTree = "<group>"; };
+		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
+		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
+		7CAC459A252D73AB004008A5 /* GameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameField.swift; sourceTree = "<group>"; };
+		7CAC45A5252D7626004008A5 /* GameFieldStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldStatus.swift; sourceTree = "<group>"; };
+		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +173,9 @@
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
 				7C0024C7252861FD0031FAC9 /* Hand.swift */,
 				7C0024E7252957C50031FAC9 /* Player.swift */,
+				7CAC4581252D5F6C004008A5 /* GameSide.swift */,
+				7CAC459A252D73AB004008A5 /* GameField.swift */,
+				7CAC4589252D60FC004008A5 /* Judgement.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -172,6 +185,8 @@
 			children = (
 				7C0024D425287CD00031FAC9 /* HandStatus.swift */,
 				7C0024EF252960580031FAC9 /* PlayerStatus.swift */,
+				7CAC45A5252D7626004008A5 /* GameFieldStatus.swift */,
+				7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,16 +338,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */,
 				7C002480252847120031FAC9 /* ViewController.swift in Sources */,
 				7CAC4568252C84DE004008A5 /* PlayerStatusProtocol.swift in Sources */,
 				7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */,
 				7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */,
+				7CAC45A6252D7626004008A5 /* GameFieldStatus.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
+				7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */,
+				7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */,
 				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C002522252C63760031FAC9 /* HandStatusProtocol.swift in Sources */,
 				7C0024F0252960580031FAC9 /* PlayerStatus.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
+				7CAC459B252D73AB004008A5 /* GameField.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

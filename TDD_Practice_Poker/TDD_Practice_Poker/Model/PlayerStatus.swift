@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+#warning("以下のPlayerStateは、JugdeStateへ")
 enum PlayerState{
     case inPlaying
     case win
@@ -14,14 +16,16 @@ enum PlayerState{
     case lose
 }
 
-enum RankStrength:Comparable,CaseIterable{
-    case Strongest
-    case Stronger
-    case Middle
-    case Weaker
-    case Weakest
-}
+// Cardへ移動
+//enum RankStrength:Comparable,CaseIterable{
+//    case Strongest
+//    case Stronger
+//    case Middle
+//    case Weaker
+//    case Weakest
+//}
 
+#warning("これはJudgementへ")
 protocol PlayerStatusProtocol{
     
     func compareCards(_ myHandStatus:HandStatus, otherHandStatus:HandStatus)->PlayerState
@@ -35,13 +39,38 @@ protocol PlayerStatusProtocol{
     func checkFullHousePairs(_ handStatus:HandStatus,returnPairType:HandState)->Card.Rank
 }
 
+enum ReadyButtleState{
+    case none
+    case readyButtle
+}
+
 // 仮実装OK
 struct PlayerStatus:PlayerStatusProtocol{
+    
+    /*
+     var player: Player
+     // ToolBarの「勝負する」ボタンを押す, または
+     // 3回交換したら (交換カウントが0になったら) 変更される
+     // ↑を管理するクラスのProtocolをそれぞれココにDIし、UI更新を図る
+     var readyButtleState:ReadyButtleState = .none
+     
+     func isReadyButtle(){
+        if tapped ButtleBtn == true ||
+        changeNumberOfCard == 0{
+        readyButtleState = .readyButtle
+        GameFieldStatusProtocol?.changeGameFieldStatus()
+
+     }
+     
+    */
+    
     
     
     var myPlayer:Player
     var otherPlayers:[Player]
     
+    // ここのロジックはJudgementクラスへ
+    #warning("以下のロジックは、JugdeStateへ")
     var PlayerState:PlayerState{
         
         let myHandStatus = myPlayer.handStatus

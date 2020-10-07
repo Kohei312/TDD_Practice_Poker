@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+#warning("これはJudgementへ")
 extension PlayerStatus{
     
     // 仮実装OK

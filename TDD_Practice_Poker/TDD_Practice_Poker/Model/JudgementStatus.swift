@@ -8,7 +8,7 @@
 import Foundation
 
 protocol JudgementStatusProtocol {
-    func willStartJudge()
+    func judge()
 }
 
 // MARK:- プレーヤー同士の役を比べて勝敗をつける
@@ -32,11 +32,7 @@ struct JudgementStatus:JudgementStatusProtocol{
     
 
     
-    func willStartJudge() {
-        
-    }
-        
-    mutating func judge(){
+    func judge(){
         
         var judgeState:Judgement = .draw
         

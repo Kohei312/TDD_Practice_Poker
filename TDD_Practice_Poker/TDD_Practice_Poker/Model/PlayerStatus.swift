@@ -39,7 +39,7 @@ struct PlayerStatus{
 
         #warning("ここでGameFieldStatusProtocol.willChangeGameFieldStatus()をコール")
         if player_me.readyButtle == .readyButtle && player_other.readyButtle == .readyButtle{
-            //        dependency?.willStartJudge()
+            //        dependency?.judge()
             // 仮実装OK
 //            print("いざ、尋常に勝負!!")
         }

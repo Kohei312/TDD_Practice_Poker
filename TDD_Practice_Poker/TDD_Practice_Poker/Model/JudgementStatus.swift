@@ -9,7 +9,6 @@ import Foundation
 
 protocol JudgementStatusProtocol {
     func willStartJudge()
-    func notifyResult()
 }
 
 // MARK:- プレーヤー同士の役を比べて勝敗をつける
@@ -22,13 +21,11 @@ struct JudgementStatus:JudgementStatusProtocol{
     
     #warning("ここにUIの状態管理を行うPresenterのprotocolをDI")
     /*
-     var dependency:PresenterClass?
+
+     var players:PlayerStatus
 
      // これは別途、Containerにまとめていく予定
-     // let judgement = Judgement(
-     
-     init(dependency:PresenterClass,players:PlayerList){
-        self.dependency = dependency
+     init(players:PlayerList){
         self.players = players
      }
      */
@@ -38,13 +35,8 @@ struct JudgementStatus:JudgementStatusProtocol{
     func willStartJudge() {
         
     }
-    
-    func notifyResult() {
-        #warning("DIしたPresenterへ結果を返却")
-//        dependency?.hogehoge()
-    }
-    
-    mutating func judge()->Judgement{
+        
+    mutating func judge(){
         
         var judgeState:Judgement = .draw
         
@@ -65,7 +57,7 @@ struct JudgementStatus:JudgementStatusProtocol{
                 judgeState = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
             }
 
-        return judgeState
+        players.notifyResult(judgeState)
     }
     
 }

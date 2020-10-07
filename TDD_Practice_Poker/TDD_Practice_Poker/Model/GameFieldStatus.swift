@@ -13,16 +13,24 @@ import Foundation
 //}
 
 protocol GameFieldStatusProtocol{
-    func changeGameFieldStatus()
+    func willChangeGameFieldStatus()
 }
 
 // MARK:- プレーヤーがJugdeに進むか否かを監視する
 struct GameFieldStatus:GameFieldStatusProtocol{
+        
     
-    // Player変数を各モデルで持つと、それぞれ独立したiteratorが発生し状態を共有できない
-//    var players:[Player]
-    
+    #warning("以下に統一する")
     /*
+     var dependency:PresenterClass?
+
+     // これは別途、Containerにまとめていく予定
+     // let judgement = Judgement(
+     
+     init(dependency:PresenterClass){
+        self.dependency = dependency
+     }
+     
     var gameField:GameField = .notStartJudgement{
         didSet{
             JudgementStatusProtocol?.willStartJudge()
@@ -32,13 +40,12 @@ struct GameFieldStatus:GameFieldStatusProtocol{
      
     // 各PlayerのreadyButtleを監視しておく
      // -> PlayerStatusからGameFieldStatusへ状態変化を伝える処理が必要
-     
-    func changeGameFieldStatus(){
+    func willChangeGameFieldStatus(){
      if players.readyButtleState == .readyButtle{
         gameField = .readyStartJudgement
      }
      */
-    func changeGameFieldStatus() {
+    func willChangeGameFieldStatus() {
         print("changeGameFieldStatus")
     }
 }

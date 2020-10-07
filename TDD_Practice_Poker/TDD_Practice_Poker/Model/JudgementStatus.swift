@@ -18,7 +18,7 @@ struct JudgementStatus:JudgementStatusProtocol{
     
     
     // スタブ 用 ->OK
-    var players = PlayerList()
+    var players = PlayerStatus()
     
     #warning("ここにUIの状態管理を行うPresenterのprotocolをDI")
     /*

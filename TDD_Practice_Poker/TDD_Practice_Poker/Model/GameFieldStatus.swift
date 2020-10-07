@@ -16,6 +16,7 @@ protocol GameFieldStatusProtocol{
     func changeGameFieldStatus()
 }
 
+// MARK:- プレーヤーがJugdeに進むか否かを監視する
 struct GameFieldStatus:GameFieldStatusProtocol{
     
     var players:[Player]

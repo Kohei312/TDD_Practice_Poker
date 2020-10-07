@@ -28,6 +28,7 @@ protocol HandStatusProtocol{
     func checkStraightStatus(_ cards:[Card.Rank]) -> HandState
 }
 
+// MARK:- 手札の役の状態を監視する
 struct HandStatus{
     
     var hand:Hand

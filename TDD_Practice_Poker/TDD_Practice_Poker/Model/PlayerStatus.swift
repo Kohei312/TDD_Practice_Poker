@@ -45,6 +45,7 @@ enum ReadyButtleState{
 }
 
 // 仮実装OK
+// MARK:- プレーヤーが対決準備ができたか否かを監視する
 struct PlayerStatus:PlayerStatusProtocol{
     
     /*

@@ -12,6 +12,7 @@ protocol JudgementStatusProtocol {
     func notifyResult()
 }
 
+// MARK:- プレーヤー同士の役を比べて勝敗をつける
 struct JudgementStatus:JudgementStatusProtocol{
     
     #warning("ここにUIの状態管理を行うPresenterのprotocolをDI")

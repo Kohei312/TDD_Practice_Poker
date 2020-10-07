@@ -20,7 +20,6 @@
 		7C0024D525287CD00031FAC9 /* HandState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024D425287CD00031FAC9 /* HandState.swift */; };
 		7C0024E0252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */; };
 		7C0024E8252957C50031FAC9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024E7252957C50031FAC9 /* Player.swift */; };
-		7C0024F0252960580031FAC9 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024EF252960580031FAC9 /* PlayerStatus.swift */; };
 		7C0024F525298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */; };
 		7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */; };
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
@@ -73,7 +72,6 @@
 		7C0024D425287CD00031FAC9 /* HandState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandState.swift; sourceTree = "<group>"; };
 		7C0024DF252951810031FAC9 /* TDD_Practice_Poker_LogicTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_LogicTest.swift; sourceTree = "<group>"; };
 		7C0024E7252957C50031FAC9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		7C0024EF252960580031FAC9 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_ThreeCardLogicTests.swift; sourceTree = "<group>"; };
 		7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandProtocol.swift; sourceTree = "<group>"; };
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				7C0024C7252861FD0031FAC9 /* Hand.swift */,
 				7C0024D425287CD00031FAC9 /* HandState.swift */,
 				7C0024E7252957C50031FAC9 /* Player.swift */,
-				7CAC45FB252DC8AC004008A5 /* PlayerList.swift */,
 				7CAC4581252D5F6C004008A5 /* GameSide.swift */,
 				7CAC459A252D73AB004008A5 /* GameField.swift */,
 				7CAC4589252D60FC004008A5 /* Judgement.swift */,
@@ -192,7 +189,7 @@
 		7C0024C6252861F00031FAC9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C0024EF252960580031FAC9 /* PlayerStatus.swift */,
+				7CAC45FB252DC8AC004008A5 /* PlayerList.swift */,
 				7CAC45A5252D7626004008A5 /* GameFieldStatus.swift */,
 				7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */,
 			);
@@ -361,7 +358,6 @@
 				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C002522252C63760031FAC9 /* HandStatusProtocol.swift in Sources */,
-				7C0024F0252960580031FAC9 /* PlayerStatus.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
 				7CAC459B252D73AB004008A5 /* GameField.swift in Sources */,
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,

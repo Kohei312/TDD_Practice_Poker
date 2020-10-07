@@ -134,11 +134,11 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         XCTAssertTrue(playerList.player_me.hand.handState == playerList.player_other.hand.handState)
         
         
-        XCTAssertEqual(judgement.hoge(),JudgementState.draw)
+        XCTAssertEqual(judgement.judge(),Judgement.draw)
                 
 
         playerList.player_me.hand.changeCard(Card(suit: .diamond, rank: .ace))
-        XCTAssertEqual(judgement.hoge(),JudgementState.lose)
+        XCTAssertEqual(judgement.judge(),Judgement.lose)
         
     }
     

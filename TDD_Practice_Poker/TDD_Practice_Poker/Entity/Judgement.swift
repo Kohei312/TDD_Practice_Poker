@@ -7,7 +7,6 @@
 
 import Foundation
 
-#warning("これはJudgementへ")
 protocol JudgementProtocol{
     
     func compareCards(_ myHandStatus:Hand, otherHandStatus:Hand)->Judgement

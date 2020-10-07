@@ -44,13 +44,11 @@ struct JudgementStatus:JudgementStatusProtocol{
 //        dependency?.hogehoge()
     }
     
-    mutating func hoge()->Judgement{
+    mutating func judge()->Judgement{
         
         var judgeState:Judgement = .draw
         
         let myHandStatus = players.player_me.hand
-        
-//        for otherPlayer in otherPlayers{
             
         let otherHandStatus = players.player_other.hand
             
@@ -66,7 +64,7 @@ struct JudgementStatus:JudgementStatusProtocol{
                 
                 judgeState = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
             }
-//        }
+
         return judgeState
     }
     

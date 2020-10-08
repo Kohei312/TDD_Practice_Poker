@@ -20,7 +20,6 @@ enum ReadyButtleState{
 struct Player{
     
     var playerType:PlayerType
-    var hand:Hand = Hand()
     var isReadyButtle:ReadyButtleState = .none
     var changeCount = 3
 }

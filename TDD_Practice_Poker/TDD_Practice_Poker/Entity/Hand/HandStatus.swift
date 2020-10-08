@@ -35,16 +35,14 @@ struct HandStatus:HandOutputProtocol{
     //  - PlayerごとのHandインスタンスに[Card]を入れる
     var myPlayerHand:Hand
     var otherPlayerHand:Hand
-    var appearedCards:[Card] = []
-    
-    
-    init(myPlayerType:PlayerType,otherPlayerType:PlayerType){
-        self.myPlayerHand = Hand(myPlayerType)
-        self.otherPlayerHand = Hand(otherPlayerType)
         
-        self.appearedCards = drawCard(10)
-        self.myPlayerHand.cards = Array(appearedCards.prefix(5))
-        self.otherPlayerHand.cards = Array(appearedCards.suffix(5))
+    
+    init(myCards:[Card],otherCards:[Card]){
+//        let myCards = Array(cardDeck.getCards(5))
+//        let otherCards = Array(cardDeck.getCards(5))
+        
+        self.myPlayerHand = Hand(.me,cards:myCards)
+        self.otherPlayerHand = Hand(.other,cards:otherCards)
     }
     
     

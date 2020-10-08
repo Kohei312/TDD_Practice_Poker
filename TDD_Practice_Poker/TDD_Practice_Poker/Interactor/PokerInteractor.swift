@@ -17,6 +17,8 @@ struct PokerInteractor{
 //    }
 //
 //
+    #warning("PokerInteratorで初期化し、HandStatusの初期化引数に[Card]を入れる")
+    var cardDeck = CardDeck()
     
     
     

@@ -7,11 +7,14 @@
 
 import Foundation
 
+// MARK:- 他でプロパティをいじられたくない.
+// CardDeckは唯一のインスタンスをHandStateに
 struct CardDeck{
     
-    var cardDeck:[Card]
+    private var unAppearCards:[Card]
+    private var appearedCards:[Card] = []
     init(){
-        cardDeck = CardDeck.makeCardDeck()
+        unAppearCards = CardDeck.makeCardDeck()
     }
     
     static func makeCardDeck()->[Card]{
@@ -25,10 +28,27 @@ struct CardDeck{
                 cards.append(Card(suit: suit, rank: rank))
             }
         }
+        return cards.shuffled()
+    }
+    
+    mutating func getCards(_ takeNumber:Int)->[Card]{
+        
+        let cards = Array(unAppearCards[0...takeNumber])
+        throwAwayCard(takeNumber)
         return cards
     }
     
-//    func drawCard(_ takeNumber:Int)->[Card]{
-//    
-//    }
+    mutating func takeCardFromUnAppearCards(_ takeNumber:Int){
+        for i in 0...takeNumber{
+            appearedCards.append(self.unAppearCards[i])
+            self.unAppearCards.remove(at: i)
+        }
+    }
+    
+    mutating func throwAwayCard(_ takeNumber:Int){
+        for i in 0...takeNumber{
+            appearedCards.append(self.unAppearCards[i])
+            self.unAppearCards.remove(at: i)
+        }
+    }
 }

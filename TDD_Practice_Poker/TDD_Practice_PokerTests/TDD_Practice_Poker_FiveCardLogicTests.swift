@@ -180,14 +180,16 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
 //        XCTAssertEqual(judgement.judge(),Judgement.lose)
         
     }
-    
-    func testCardDeck(){
-    
-        let deck = CardDeck()
-
-        XCTAssertEqual(deck.cardDeck.count, 0)
-
-        
-    }
+    // MARK:- スタブでは動作確認ok
+//    func testCardDeck(){
+//
+//        var pokerInteractor = PokerInteractor()
+//        XCTAssertEqual(pokerInteractor.handStatus.myPlayerHand.cards, [])
+//        let i = pokerInteractor.drawCard(takeNumber:2,playerType:.me,removeCardIndex:[1,3])
+//        XCTAssertEqual(i, [])
+//        XCTAssertEqual(pokerInteractor.handStatus.myPlayerHand.cards, [])
+//
+//
+//    }
 
 }

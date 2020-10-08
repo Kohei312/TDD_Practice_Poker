@@ -22,61 +22,45 @@ enum HandState:Comparable{
     case royalFlush
 }
 
-protocol HandOutputProtocol{
-    mutating func willAddAppearedCards(_ cards:[Card])
-}
+
 
 // MARK:- PokerInteractorへOutputするProtocolをDIする
 // MARK:- 役割は、各プレイヤーの手札を一元管理すること
-struct HandStatus:HandOutputProtocol{
+struct HandStatus{
     // カードにsuit・rankとも同じカードがないように初期化したい
     // TODO:
     //  - まず初期化時は、分配する10枚のCardインスタンスをランダムに作成する(引数はPlayerTypeのみ)
     //  - PlayerごとのHandインスタンスに[Card]を入れる
+    var cardDeck = CardDeck()
+    
     var myPlayerHand:Hand
     var otherPlayerHand:Hand
-        
     
-    init(myCards:[Card],otherCards:[Card]){
-//        let myCards = Array(cardDeck.getCards(5))
-//        let otherCards = Array(cardDeck.getCards(5))
-        
-        self.myPlayerHand = Hand(.me,cards:myCards)
-        self.otherPlayerHand = Hand(.other,cards:otherCards)
+    init(){
+        self.myPlayerHand = Hand(.me,cards:Array(cardDeck.changeCards(5)))
+        self.otherPlayerHand = Hand(.other,cards:Array(cardDeck.changeCards(5)))
     }
     
     
-    func drawCard(_ takeNumber:Int)->[Card]{
+    #warning("Cardインスタンスの消去方法は検討.")
+    mutating func drawCard(takeNumber:Int,playerType:PlayerType,removeCardIndex:[Int]){
         
-        var cards:[Card] = []
+        let changeCards = cardDeck.changeCards(takeNumber)
+        var removeCount = 0
         
-        for i in 0...takeNumber{
-            if cards.contains(makeCardInstance()) ||
-                appearedCards.contains(makeCardInstance()){
-                    
+        for card in changeCards{
+            switch playerType{
+            case .me:
+                myPlayerHand.cards[ removeCardIndex[removeCount] ] = card
+            case .other:
+                otherPlayerHand.cards[ removeCardIndex[removeCount] ] = card
             }
-            
+            removeCount += 1
+            if changeCards.count == removeCount{
+                removeCount = 0
+            }
         }
-        return cards
-    }
-    
-    func makeCardInstance()->Card{
-        let suit = Card.Suit.allCases.randomElement()!
-        let rank = Card.Rank.allCases.randomElement()!
-        return Card(suit: suit, rank: rank)
-    }
-    
-//    // ハッシュ値をつかって更新する
-//    func changeCard(_ index:Int){
-//        cards[index] = drawCard()
-//        print("card[index] :",cards[index])
-//    }
-    
-    
-    mutating func willAddAppearedCards(_ cards: [Card]) {
-        for card in cards {
-            appearedCards.append(card)
-        }
+        #warning("ここでprotocolを介してInteratorに状態変更を伝達、UI更新を促す")
     }
 }
 

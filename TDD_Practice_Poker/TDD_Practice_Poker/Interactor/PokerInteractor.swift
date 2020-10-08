@@ -17,8 +17,15 @@ struct PokerInteractor{
 //    }
 //
 //
-    #warning("PokerInteratorで初期化し、HandStatusの初期化引数に[Card]を入れる")
-    var cardDeck = CardDeck()
+    
+    // MARK:- HandStatus
+    var handStatus = HandStatus()
+    // スタブ OK
+    mutating func drawCard(takeNumber:Int,playerType:PlayerType,removeCardIndex:[Int]){
+        handStatus.drawCard(takeNumber: takeNumber, playerType: playerType, removeCardIndex: removeCardIndex)
+    }
+    
+    // MARK:- GameFieldState
     
     
     

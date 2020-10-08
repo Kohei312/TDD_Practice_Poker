@@ -14,7 +14,7 @@ struct Hand:CardManagementProtocol,HandStatementProtocol{
     var playerType:PlayerType
     var cards:[Card]
     // MARK:- HandStatusで[Card]を作成して渡すこと
-    init(_ PlayerType:PlayerType, cards:[Card]){
+    init(_ playerType:PlayerType, cards:[Card]){
         self.playerType = playerType
         self.cards = cards
     }

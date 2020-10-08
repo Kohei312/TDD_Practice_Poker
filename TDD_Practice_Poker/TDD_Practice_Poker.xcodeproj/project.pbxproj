@@ -179,10 +179,10 @@
 		7C0024BA252849160031FAC9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				7CAC4636252EEF2B004008A5 /* Card */,
 				7CAC4654252F4180004008A5 /* Hand */,
 				7CAC463A252EEF99004008A5 /* Judgement */,
 				7CAC4639252EEF73004008A5 /* GameField */,
-				7CAC4636252EEF2B004008A5 /* Card */,
 				7CAC4638252EEF4A004008A5 /* Player */,
 			);
 			path = Entity;

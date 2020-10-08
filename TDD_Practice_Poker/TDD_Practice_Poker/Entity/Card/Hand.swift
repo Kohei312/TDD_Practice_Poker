@@ -50,11 +50,9 @@ class Hand:HandProtocol,HandStatusProtocol{
     }
     
     // ハッシュ値をつかって更新する
-    func changeCard(_ willChangeCard:Card){
-        guard let i = self.cards.firstIndex(of: willChangeCard) else {return}
-        
-        cards[i] = drawCard()
-        print("card[i] :",cards[i])
+    func changeCard(_ index:Int){
+        cards[index] = drawCard()
+        print("card[index] :",cards[index])
     }
     
 }

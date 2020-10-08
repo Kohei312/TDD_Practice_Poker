@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokerViewController.swift
 //  TDD_Practice_Poker
 //
 //  Created by kohei yoshida on 2020/10/03.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

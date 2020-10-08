@@ -143,24 +143,51 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
 //    }
     
     
-    func testJudgement(){
+//    func testJudgement(){
+//
+//        var playerList = PlayerStatus()
+//
+//        XCTAssertTrue(playerList.player_me.readyButtle == playerList.player_other.readyButtle)
+//        playerList.isReadyButtle(.me)
+//        playerList.isReadyButtle(.other)
+//        XCTAssertTrue(playerList.player_me.readyButtle == playerList.player_other.readyButtle)
+////        XCTAssertEqual(playerList.player_me.hand.handState, HandState.onePair)
+////        XCTAssertEqual(playerList.player_other.hand.handState, HandState.onePair)
+////        XCTAssertTrue(playerList.player_me.hand.handState == playerList.player_other.hand.handState)
+////
+////        XCTAssertEqual(judgement.judge(),Judgement.draw)
+////
+////
+////        playerList.player_me.hand.changeCard(Card(suit: .diamond, rank: .ace))
+////        XCTAssertEqual(judgement.judge(),Judgement.lose)
+//
+//    }
+    func testhandStatus(){
     
-        var playerList = PlayerStatus()
-        
-        XCTAssertTrue(playerList.player_me.readyButtle == playerList.player_other.readyButtle)
-        playerList.isReadyButtle(.me)
-        playerList.isReadyButtle(.other)
-        XCTAssertTrue(playerList.player_me.readyButtle == playerList.player_other.readyButtle)
+//        var playerList = HandStatus(myPlayerType: .me, otherPlayerType: .other)
+//
+//        XCTAssertEqual(playerList.myPlayerHand.cards, [Card(suit: .club, rank: .ace)])
+//        XCTAssertEqual(playerList.otherPlayerHand.cards,[Card(suit: .club, rank: .ace)])
+//        XCTAssertEqual(playerList.appearedCards,[Card(suit: .club, rank: .ace)])
 //        XCTAssertEqual(playerList.player_me.hand.handState, HandState.onePair)
 //        XCTAssertEqual(playerList.player_other.hand.handState, HandState.onePair)
 //        XCTAssertTrue(playerList.player_me.hand.handState == playerList.player_other.hand.handState)
-//        
+//
 //        XCTAssertEqual(judgement.judge(),Judgement.draw)
-//                
+//
 //
 //        playerList.player_me.hand.changeCard(Card(suit: .diamond, rank: .ace))
 //        XCTAssertEqual(judgement.judge(),Judgement.lose)
         
     }
     
+    func testCardDeck(){
+    
+        let deck = CardDeck()
+
+        XCTAssertEqual(deck.cardDeck.count, 0)
+
+        
+    }
+
 }

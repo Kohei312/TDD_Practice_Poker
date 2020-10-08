@@ -39,23 +39,4 @@ struct Hand:CardManagementProtocol,HandStatementProtocol{
     var handState:HandState{
         manageHandState()
     }
-    
-    // カードプロパティは、ここで取得する
-    func getCards()->[Card]{
-        return cards
-    }
-    
-    func drawCard()->Card{
-        let suit = Card.Suit.allCases.randomElement()!
-        let rank = Card.Rank.allCases.randomElement()!
-        
-        return Card(suit: suit, rank: rank)
-    }
-    
-    // ハッシュ値をつかって更新する
-    func changeCard(_ index:Int){
-        cards[index] = drawCard()
-        print("card[index] :",cards[index])
-    }
-    
 }

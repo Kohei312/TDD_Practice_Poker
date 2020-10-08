@@ -34,6 +34,7 @@
 		7CAC4626252DF230004008A5 /* GameFieldStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4625252DF230004008A5 /* GameFieldStatus.swift */; };
 		7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC462B252EE86E004008A5 /* PokerPresenter.swift */; };
 		7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC463B252EEFBA004008A5 /* PokerInteractor.swift */; };
+		7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC464C252F28E5004008A5 /* CardDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		7CAC4625252DF230004008A5 /* GameFieldStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldStatus.swift; sourceTree = "<group>"; };
 		7CAC462B252EE86E004008A5 /* PokerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerPresenter.swift; sourceTree = "<group>"; };
 		7CAC463B252EEFBA004008A5 /* PokerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerInteractor.swift; sourceTree = "<group>"; };
+		7CAC464C252F28E5004008A5 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			children = (
 				7CAC4600252DCB4E004008A5 /* CardStub.swift */,
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
+				7CAC464C252F28E5004008A5 /* CardDeck.swift */,
 				7C0024C7252861FD0031FAC9 /* Hand.swift */,
 				7C0024D425287CD00031FAC9 /* HandStatus.swift */,
 			);
@@ -400,6 +403,7 @@
 				7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */,
 				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
 				7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */,
+				7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
 				7CAC4626252DF230004008A5 /* GameFieldStatus.swift in Sources */,

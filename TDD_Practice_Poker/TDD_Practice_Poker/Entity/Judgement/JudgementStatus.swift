@@ -22,7 +22,7 @@ struct JudgementStatus:JudgementStatusProtocol{
     
     
     // スタブ 用 ->OK ここで直接初期化しない
-    private var players = PlayerStatus()
+    private var players = PlayerStatus(playerType: .me)
     
     #warning("ここにUIの状態管理を行うPresenterのprotocolをDI")
     /*
@@ -37,25 +37,25 @@ struct JudgementStatus:JudgementStatusProtocol{
      */
     
     func judge(){
-        
-        var judgeState:Judgement = .draw
-        
-        let myHandStatus = players.getPlayer(.me).hand
-            
-        let otherHandStatus = players.getPlayer(.other).hand
-            
-            if myHandStatus.handState < otherHandStatus.handState{
-                
-                judgeState = .lose
-                
-            } else if myHandStatus.handState > otherHandStatus.handState{
-               
-                judgeState = .win
-                
-            } else if myHandStatus.handState == otherHandStatus.handState{
-                
-                judgeState = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
-            }
+//        
+//        var judgeState:Judgement = .draw
+//        
+//        let myHandStatus = players.getPlayer(.me).hand
+//            
+//        let otherHandStatus = players.getPlayer(.other).hand
+//            
+//            if myHandStatus.handState < otherHandStatus.handState{
+//                
+//                judgeState = .lose
+//                
+//            } else if myHandStatus.handState > otherHandStatus.handState{
+//               
+//                judgeState = .win
+//                
+//            } else if myHandStatus.handState == otherHandStatus.handState{
+//                
+//                judgeState = self.compareCards(myHandStatus,otherHandStatus:otherHandStatus)
+//            }
 
 //        dependency?.notifyResult(judgeState)
     }

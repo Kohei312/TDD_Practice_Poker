@@ -11,22 +11,18 @@ import Foundation
 // MARK:- GameFieldの状態を管理する
 struct GameFieldStatus{
     
-    // JudgementStatusProtocolをDI
-//    var judgementStatusProtocol:JudgementStatusProtocol?
-
+    
+    var interactorInputProtocol:InteractorInputProtocol?
+    
     // ここでオーガナイズ
-    var gameSide:GameSide
-    var gameField:GameField{
+    var gameSide:GameSide{
         didSet{
-//            JudgementStatusProtocol?.judge()
+            interactorInputProtocol?.notify(gameSide,judgeStatus: nil)
         }
     }
     
     init(){
-//  init(output:JudgementStatusProtocol){
-//        self.judgementStatusProtocol = output
-        self.gameSide = .me
-        self.gameField = .notStartJugdement
+        self.gameSide = .playerType(.me)
     }
     
     

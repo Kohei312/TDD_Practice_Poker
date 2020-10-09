@@ -21,7 +21,7 @@ protocol JudgementProtocol{
 }
 
 
-enum Judgement{
+enum Judgement:Equatable{
     case win
     case draw
     case lose

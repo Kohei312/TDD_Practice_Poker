@@ -11,18 +11,10 @@ import Foundation
 struct PlayerStatus{
     
     var player:Player
+    var interactorInputProtocol:InteractorInputProtocol?
     
     init(playerType:PlayerType){
         self.player = Player(playerType: playerType)
-    }
-  
-    func changePlayerCard(_ playerType:PlayerType,index:Int){
-        
-//        if player.changeCount == 0{
-//            return
-//        } else if player.changeCount > 0 {
-//            player.hand.changeCard(index)
-//        }
     }
     
     mutating func changePlayerStatement(_ playerStatement:PlayerStatement){

@@ -193,21 +193,52 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
     //    }
     
     
-    func testPass(){
-        
-        var pokerInteractor = PokerInteractor()
-        XCTAssertEqual(pokerInteractor.player_me.player.changeCount, 0)
-        XCTAssertEqual(pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
-        XCTAssertEqual(pokerInteractor.gameFieldStatus.gameSide, .other)
-        pokerInteractor.chosePass(.me)
-        XCTAssertEqual(pokerInteractor.player_me.player.changeCount, 0)
-        XCTAssertEqual(pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
-        XCTAssertEqual(pokerInteractor.gameFieldStatus.gameSide, .me)
-        
-//        XCTAssertEqual(pokerInteractor.handStatus.myPlayerHand.cards, [])
-        
-        
-    }
+//    func testPass(){
+//
+//        var pokerInteractor = PokerInteractor()
+//        XCTAssertEqual(pokerInteractor.player_me.player.changeCount, 0)
+//
+//        XCTAssertEqual(pokerInteractor.gameFieldStatus.gameSide, .other)
+//        pokerInteractor.chosePass(.me)
+//        XCTAssertEqual(pokerInteractor.player_me.player.changeCount, 0)
+//        XCTAssertEqual(pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
+//        XCTAssertEqual(pokerInteractor.gameFieldStatus.gameSide, .me)
+//
+////        XCTAssertEqual(pokerInteractor.handStatus.myPlayerHand.cards, [])
+//
+//
+//    }
+    
+//    func testViewController(){
+//        
+//        let vc = PokerViewController()
+//        vc.view.layoutIfNeeded()
+//        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_me.player.changeCount, 0)
+//        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.handStatus.myPlayerHand.handState,.royalFlush)
+//        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.handStatus.otherPlayerHand.handState,.royalFlush)
+//       
+////        vc.pokerPresenter!.pokerInteractor.player_me.player.playerStatement = .isReadyButtle
+//        vc.pokerPresenter!.pokerInteractor.isReadyButtle(.me)
+//        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
+////        vc.pokerPresenter!.pokerInteractor.player_me.player.playerStatement
+//        
+//        vc.pokerPresenter!.pokerInteractor.isReadyButtle(.other)
+//        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_other.player.playerStatement, .isReadyButtle)
+//        
+////        vc.pokerPresenter!.pokerInteractor.hoge()
+//        XCTAssertEqual(vc.result, .win)
+//        
+////        vc.pokerPresenter!.pokerInteractor.drawCard(playerType:.me,takeNumber:1,removeCardIndex:[1])
+////        vc.pokerPresenter!.pokerInteractor.drawCard(playerType:.other,takeNumber:1,removeCardIndex:[1])
+////
+////        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.handStatus.myPlayerHand.cards,[])
+////        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.handStatus.otherPlayerHand.cards,[])
+////
+////        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_me.player.changeCount, 0)
+////        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_other.player.changeCount, 0)
+////
+//    }
+
     
     
 }

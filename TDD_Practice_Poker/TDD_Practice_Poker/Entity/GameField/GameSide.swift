@@ -11,8 +11,7 @@ import Foundation
 
 #warning("カード交換アニメーションを制御 .completeで、PlayerTypeとPlayerStatementの状態が変わる")
 
-enum GameSide{
-    case me
-    case other
-    case judging
+enum GameSide:Equatable{
+    case playerType(PlayerType)
+    case result
 }

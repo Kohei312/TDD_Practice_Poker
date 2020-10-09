@@ -27,6 +27,7 @@ enum HandState:Comparable{
 // MARK:- PokerInteractorへOutputするProtocolをDIする
 // MARK:- 役割は、各プレイヤーの手札を一元管理すること
 struct HandStatus{
+    
     // カードにsuit・rankとも同じカードがないように初期化したい
     // TODO:
     //  - まず初期化時は、分配する10枚のCardインスタンスをランダムに作成する(引数はPlayerTypeのみ)
@@ -43,7 +44,7 @@ struct HandStatus{
     
     
     #warning("Cardインスタンスの消去方法は検討.")
-    mutating func drawCard(takeNumber:Int,playerType:PlayerType,removeCardIndex:[Int]){
+    mutating func drawCard(playerType:PlayerType,takeNumber:Int,removeCardIndex:[Int]){
         
         let changeCards = cardDeck.changeCards(takeNumber)
         var removeCount = 0
@@ -60,7 +61,6 @@ struct HandStatus{
                 removeCount = 0
             }
         }
-        #warning("ここでprotocolを介してInteratorに状態変更を伝達、UI更新を促す")
     }
 }
 

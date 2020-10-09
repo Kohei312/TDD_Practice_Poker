@@ -25,6 +25,10 @@ struct PlayerStatus{
 //        }
     }
     
+    mutating func changePlayerStatement(_ playerStatement:PlayerStatement){
+        player.playerStatement = playerStatement
+    }
+    
     mutating func decrementChangeCount()->Int{
         player.changeCount -= 1
         return player.changeCount

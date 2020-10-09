@@ -24,7 +24,7 @@ enum PlayerStatement:Equatable{
 struct Player{
     
     var playerType:PlayerType
-    var playerStatement:PlayerStatement = .waiting
+    var playerStatement:PlayerStatement = .thinking
     var changeCount = 3
 }
 

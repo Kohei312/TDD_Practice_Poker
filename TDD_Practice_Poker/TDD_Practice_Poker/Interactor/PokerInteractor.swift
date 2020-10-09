@@ -33,8 +33,8 @@ struct PokerInteractor{
     // PlayerTypeによってUI操作をコントロールする
     var gameFieldStatus = GameFieldStatus()
     
-    mutating func changeGameSide(){
-        gameFieldStatus.gameSide = .me
+    mutating func changeGameSide(nextGameSide:GameSide){
+        gameFieldStatus.gameSide = nextGameSide
     }
     
     mutating func changeToJudgementStatus(){
@@ -51,6 +51,7 @@ struct PokerInteractor{
             player_other.player.playerStatement = .action(.pass)
         }
         // カード交換回数デクリメント
+        decrementChangeCounter(playerType)
     }
     
     
@@ -59,6 +60,20 @@ struct PokerInteractor{
     var player_me = PlayerStatus(playerType: .me)
     var player_other = PlayerStatus(playerType: .other)
     
+    mutating func changePlayerStatement(_ playerType:PlayerType, playerStatement:PlayerStatement){
+        switch playerType{
+        case .me:
+            player_me.changePlayerStatement(playerStatement)
+            
+            player_other.changePlayerStatement(.thinking)
+            changeGameSide(nextGameSide:.other)
+        case .other:
+            player_other.changePlayerStatement(playerStatement)
+            
+            player_me.changePlayerStatement(.thinking)
+            changeGameSide(nextGameSide:.me)
+        }
+    }
 
     
     // カードを交換した回数を更新するメソッド欲しい
@@ -100,6 +115,9 @@ struct PokerInteractor{
             
             changeToJudgementStatus()
         
+        } else {
+            
+            changePlayerStatement(playerType, playerStatement: .waiting)
         }
 
     }

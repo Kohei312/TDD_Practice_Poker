@@ -193,10 +193,16 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
     //    }
     
     
-    func testCardDeck(){
+    func testPass(){
         
         var pokerInteractor = PokerInteractor()
-        XCTAssertEqual(pokerInteractor.decrementChangeCounter(.me), 0)
+        XCTAssertEqual(pokerInteractor.player_me.player.changeCount, 0)
+        XCTAssertEqual(pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
+        XCTAssertEqual(pokerInteractor.gameFieldStatus.gameSide, .other)
+        pokerInteractor.chosePass(.me)
+        XCTAssertEqual(pokerInteractor.player_me.player.changeCount, 0)
+        XCTAssertEqual(pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
+        XCTAssertEqual(pokerInteractor.gameFieldStatus.gameSide, .me)
         
 //        XCTAssertEqual(pokerInteractor.handStatus.myPlayerHand.cards, [])
         

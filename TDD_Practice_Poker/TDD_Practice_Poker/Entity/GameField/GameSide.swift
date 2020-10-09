@@ -20,4 +20,5 @@ enum CardChanging{
 enum GameSide{
     case me
     case other
+    case judging
 }

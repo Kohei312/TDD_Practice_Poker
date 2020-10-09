@@ -18,12 +18,26 @@ struct PokerInteractor{
 //
 //
     
+    // MARK:- HandStatus
+    var handStatus = HandStatus()
+    
+    // Hand内にあるカードのSuit・RankをPresenterに返したい（特に初期化時）
+    
+    // スタブ OK
+    mutating func drawCard(takeNumber:Int,playerType:PlayerType,removeCardIndex:[Int]){
+        handStatus.drawCard(takeNumber: takeNumber, playerType: playerType, removeCardIndex: removeCardIndex)
+    }
+    
+    // MARK:- GameFieldState
+    
     
     
     
     // MARK:- PlayerState　ひとまずベタ書き
     var player_me = PlayerStatus(playerType: .me)
     var player_other = PlayerStatus(playerType: .other)
+    
+    // カードを交換した回数を更新するメソッド欲しい
     
     mutating func isReadyButtle(_ playerType:PlayerType){
         //        if tapped ButtleBtn == true ||

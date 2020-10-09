@@ -19,6 +19,10 @@ struct Hand:CardManagementProtocol,HandStatementProtocol{
         self.cards = cards
     }
 
+    var handState:HandState{
+        manageHandState()
+    }
+    
     var hasAllEqualSuit:[ Card.Suit ]{
         checkAllEqualSuit()
     }
@@ -27,9 +31,5 @@ struct Hand:CardManagementProtocol,HandStatementProtocol{
     }
     var hasContinuousRank:[ Card.Rank ]{
         checkContinuiousRank()
-    }
-    
-    var handState:HandState{
-        manageHandState()
     }
 }

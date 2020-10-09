@@ -23,10 +23,8 @@
 		7C0024F525298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */; };
 		7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */; };
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
-		7CAC4568252C84DE004008A5 /* PlayerStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
-		7CAC459B252D73AB004008A5 /* GameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC459A252D73AB004008A5 /* GameField.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
 		7CAC45FC252DC8AC004008A5 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45FB252DC8AC004008A5 /* PlayerStatus.swift */; };
 		7CAC4601252DCB4E004008A5 /* CardStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4600252DCB4E004008A5 /* CardStub.swift */; };
@@ -35,6 +33,9 @@
 		7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC462B252EE86E004008A5 /* PokerPresenter.swift */; };
 		7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC463B252EEFBA004008A5 /* PokerInteractor.swift */; };
 		7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC464C252F28E5004008A5 /* CardDeck.swift */; };
+		7CAC466225300E09004008A5 /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC466125300E09004008A5 /* PlayerType.swift */; };
+		7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */; };
+		7CAC46792530736E004008A5 /* PokerInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +78,8 @@
 		7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_ThreeCardLogicTests.swift; sourceTree = "<group>"; };
 		7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandProtocol.swift; sourceTree = "<group>"; };
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
-		7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusProtocol.swift; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
-		7CAC459A252D73AB004008A5 /* GameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameField.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
 		7CAC45FB252DC8AC004008A5 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		7CAC4600252DCB4E004008A5 /* CardStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStub.swift; sourceTree = "<group>"; };
@@ -89,6 +88,9 @@
 		7CAC462B252EE86E004008A5 /* PokerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerPresenter.swift; sourceTree = "<group>"; };
 		7CAC463B252EEFBA004008A5 /* PokerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerInteractor.swift; sourceTree = "<group>"; };
 		7CAC464C252F28E5004008A5 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		7CAC466125300E09004008A5 /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
+		7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerViewControllerBuilder.swift; sourceTree = "<group>"; };
+		7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerInteractorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +143,12 @@
 			children = (
 				7C002506252AA4B70031FAC9 /* Extension */,
 				7C0024FA2529DAC30031FAC9 /* Protocol */,
+				7CAC46662530541B004008A5 /* ViewController */,
 				7CAC462A252EE82C004008A5 /* Presenter */,
 				7C0024C6252861F00031FAC9 /* Interactor */,
 				7C0024BA252849160031FAC9 /* Entity */,
 				7C00247B252847120031FAC9 /* AppDelegate.swift */,
 				7C00247D252847120031FAC9 /* SceneDelegate.swift */,
-				7C00247F252847120031FAC9 /* PokerViewController.swift */,
 				7C002481252847120031FAC9 /* Main.storyboard */,
 				7C002484252847140031FAC9 /* Assets.xcassets */,
 				7C002486252847140031FAC9 /* LaunchScreen.storyboard */,
@@ -200,8 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
-				7CAC4567252C84DE004008A5 /* PlayerStatusProtocol.swift */,
 				7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */,
+				7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				7C0024E7252957C50031FAC9 /* Player.swift */,
+				7CAC466125300E09004008A5 /* PlayerType.swift */,
 				7CAC45FB252DC8AC004008A5 /* PlayerStatus.swift */,
 			);
 			path = Player;
@@ -243,9 +246,8 @@
 		7CAC4639252EEF73004008A5 /* GameField */ = {
 			isa = PBXGroup;
 			children = (
-				7CAC4625252DF230004008A5 /* GameFieldStatus.swift */,
 				7CAC4581252D5F6C004008A5 /* GameSide.swift */,
-				7CAC459A252D73AB004008A5 /* GameField.swift */,
+				7CAC4625252DF230004008A5 /* GameFieldStatus.swift */,
 			);
 			path = GameField;
 			sourceTree = "<group>";
@@ -253,8 +255,8 @@
 		7CAC463A252EEF99004008A5 /* Judgement */ = {
 			isa = PBXGroup;
 			children = (
-				7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */,
 				7CAC4589252D60FC004008A5 /* Judgement.swift */,
+				7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */,
 			);
 			path = Judgement;
 			sourceTree = "<group>";
@@ -266,6 +268,15 @@
 				7C0024D425287CD00031FAC9 /* HandStatus.swift */,
 			);
 			path = Hand;
+			sourceTree = "<group>";
+		};
+		7CAC46662530541B004008A5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C00247F252847120031FAC9 /* PokerViewController.swift */,
+				7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,22 +411,23 @@
 			files = (
 				7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */,
 				7CAC4601252DCB4E004008A5 /* CardStub.swift in Sources */,
+				7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */,
 				7C002480252847120031FAC9 /* PokerViewController.swift in Sources */,
-				7CAC4568252C84DE004008A5 /* PlayerStatusProtocol.swift in Sources */,
 				7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */,
 				7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */,
 				7CAC45FC252DC8AC004008A5 /* PlayerStatus.swift in Sources */,
 				7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
 				7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */,
+				7CAC46792530736E004008A5 /* PokerInteractorProtocol.swift in Sources */,
 				7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */,
 				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
 				7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */,
 				7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
+				7CAC466225300E09004008A5 /* PlayerType.swift in Sources */,
 				7CAC4626252DF230004008A5 /* GameFieldStatus.swift in Sources */,
-				7CAC459B252D73AB004008A5 /* GameField.swift in Sources */,
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
 			);

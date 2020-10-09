@@ -7,7 +7,6 @@
 
 import Foundation
 
-#warning("これはJudgementへ")
 extension JudgementStatus{
     
     // 仮実装OK

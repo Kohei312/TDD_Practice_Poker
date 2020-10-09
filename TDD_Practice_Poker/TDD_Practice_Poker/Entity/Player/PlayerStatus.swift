@@ -11,21 +11,23 @@ import Foundation
 struct PlayerStatus{
     
     var player:Player
+    var interactorInputProtocol:InteractorInputProtocol?
     
     init(playerType:PlayerType){
         self.player = Player(playerType: playerType)
     }
-  
-    func changePlayerCard(_ playerType:PlayerType,index:Int){
-        
-//        if player.changeCount == 0{
-//            return
-//        } else if player.changeCount > 0 {
-//            player.hand.changeCard(index)
-//        }
+    
+    mutating func changePlayerStatement(_ playerStatement:PlayerStatement){
+        player.playerStatement = playerStatement
+    }
+    
+    mutating func decrementChangeCount()->Int{
+        player.changeCount -= 1
+        return player.changeCount
     }
     
     mutating func callReadyButtle(){
-        player.isReadyButtle = .yup
+        player.playerStatement = .isReadyButtle
+        player.changeCount = 0
     }
 }

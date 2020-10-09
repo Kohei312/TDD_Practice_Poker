@@ -162,7 +162,7 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
     ////        XCTAssertEqual(judgement.judge(),Judgement.lose)
     //
     //    }
-    func testhandStatus(){
+//    func testhandStatus(){
         
         //        var playerList = HandStatus(myPlayerType: .me, otherPlayerType: .other)
         //
@@ -179,7 +179,7 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
         //        playerList.player_me.hand.changeCard(Card(suit: .diamond, rank: .ace))
         //        XCTAssertEqual(judgement.judge(),Judgement.lose)
         
-    }
+//    }
     // MARK:- スタブでは動作確認ok
     //    func testCardDeck(){
     //
@@ -210,24 +210,24 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
 //    }
     
 //    func testViewController(){
-//        
+//
 //        let vc = PokerViewController()
 //        vc.view.layoutIfNeeded()
 //        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_me.player.changeCount, 0)
 //        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.handStatus.myPlayerHand.handState,.royalFlush)
 //        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.handStatus.otherPlayerHand.handState,.royalFlush)
-//       
+//
 ////        vc.pokerPresenter!.pokerInteractor.player_me.player.playerStatement = .isReadyButtle
 //        vc.pokerPresenter!.pokerInteractor.isReadyButtle(.me)
 //        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_me.player.playerStatement, .isReadyButtle)
 ////        vc.pokerPresenter!.pokerInteractor.player_me.player.playerStatement
-//        
+//
 //        vc.pokerPresenter!.pokerInteractor.isReadyButtle(.other)
 //        XCTAssertEqual(vc.pokerPresenter!.pokerInteractor.player_other.player.playerStatement, .isReadyButtle)
-//        
+//
 ////        vc.pokerPresenter!.pokerInteractor.hoge()
 //        XCTAssertEqual(vc.result, .win)
-//        
+//
 ////        vc.pokerPresenter!.pokerInteractor.drawCard(playerType:.me,takeNumber:1,removeCardIndex:[1])
 ////        vc.pokerPresenter!.pokerInteractor.drawCard(playerType:.other,takeNumber:1,removeCardIndex:[1])
 ////

@@ -7,34 +7,15 @@
 
 import Foundation
 
-protocol InteractorInputProtocol{
-    mutating func notify(_ gameSide:GameSide,judgeStatus:Judgement?)
-}
-protocol InteractorOutputProtocol{
-    mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?)
-}
-
-
+// MARK:- Protocolの具体的な実装は,PokerInteractorProtocol.swiftに記載.
 struct PokerInteractor:InteractorInputProtocol{
-    
-    mutating func notify(_ gameSide:GameSide,judgeStatus:Judgement?) {
-        switch gameSide{
-        case .playerType(.me),.playerType(.other):
-            print("ここで他プレイヤーに移行、UI更新などを伝達")
-            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus: nil)
-        case .result:
-            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus: judgeStatus)
-        }
-    }
-    
-//    func hoge(){
-////        print(" judgementStatus.notifyJudgementResultProtocol :", judgementStatus.notifyJudgementResultProtocol!)
-//        judge()
-//    }
-    
-    #warning("ViewController起動時にまとめてDIする")
     // MARK:- Output先のprotocolをDI
     var interactorOutputProtocol:InteractorOutputProtocol?
+    var handStatus:HandStatus
+    var gameFieldStatus:GameFieldStatus
+    var player_me:PlayerStatus
+    var player_other:PlayerStatus
+    var judgementStatus:JudgementStatus
     
     init(handStatus:HandStatus, gameFieldStatus:GameFieldStatus,playerStatus_me:PlayerStatus,playerStatus_other:PlayerStatus, judgementStatus:JudgementStatus){
        
@@ -48,39 +29,32 @@ struct PokerInteractor:InteractorInputProtocol{
     mutating func inject(interactorOutputProtocol:InteractorOutputProtocol){
         
         self.interactorOutputProtocol = interactorOutputProtocol
-//        handStatus.interactorInputProtocol = self
+
         gameFieldStatus.interactorInputProtocol = self
         player_me.interactorInputProtocol = self
         player_other.interactorInputProtocol = self
         judgementStatus.interactorInputProtocol = self
     }
-    // Hand内にあるカードのSuit・RankをPresenterに返したい（特に初期化時）
+}
+
+extension PokerInteractor{
     // MARK:- HandStatus
-    var handStatus:HandStatus
-    // スタブ OK
     mutating func drawCard(playerType:PlayerType,takeNumber:Int,removeCardIndex:[Int]){
         handStatus.drawCard(playerType: playerType, takeNumber: takeNumber, removeCardIndex: removeCardIndex)
         decrementChangeCounter(playerType)
     }
     
     // MARK:- JudgementStatus
-    var judgementStatus:JudgementStatus
     mutating func judge(){
         judgementStatus.judge(handStatus: handStatus)
     }
     
-    
-    
     // MARK:- GameFieldState
-    // PlayerTypeによってUI操作をコントロールする
-//    var gameFieldStatus = GameFieldStatus()
-    var gameFieldStatus:GameFieldStatus
-    
+    // 攻守交代
     mutating func changeGameSide(nextGameSide:GameSide){
         gameFieldStatus.gameSide = nextGameSide
     }
    
-    
     // パスしたとき
     mutating func chosePass(_ playerType:PlayerType){
         switch playerType{
@@ -111,12 +85,7 @@ struct PokerInteractor:InteractorInputProtocol{
     
     
     
-    // MARK:- PlayerState　ひとまずベタ書き
-//    var player_me = PlayerStatus(playerType: .me)
-//    var player_other = PlayerStatus(playerType: .other)
-    var player_me:PlayerStatus
-    var player_other:PlayerStatus
-    
+    // MARK:- PlayerState
     mutating func changePlayerStatement(_ playerType:PlayerType, playerStatement:PlayerStatement){
         switch playerType{
         case .me:
@@ -132,8 +101,7 @@ struct PokerInteractor:InteractorInputProtocol{
         }
     }
 
-    
-    // カードを交換した回数を更新するメソッド欲しい
+
     mutating func decrementChangeCounter(_ playerType:PlayerType){
         var count = 0
         switch playerType{
@@ -161,7 +129,6 @@ struct PokerInteractor:InteractorInputProtocol{
             player_other.callReadyButtle()
         }
 
-        #warning("ここでGameFieldStatusProtocol.willChangeGameFieldStatus()をコール")
         changeGameStatement(playerType,noChangeCount: true)
     }
     

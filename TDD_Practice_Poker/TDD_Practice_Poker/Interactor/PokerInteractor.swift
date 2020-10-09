@@ -37,9 +37,20 @@ struct PokerInteractor{
         gameFieldStatus.gameSide = .me
     }
     
-    mutating func changeToJudgementStaus(){
+    mutating func changeToJudgementStatus(){
         gameFieldStatus.gameSide = .judging
         gameFieldStatus.gameField = .readyStartJudgement
+    }
+    
+    // パスしたとき
+    mutating func chosePass(_ playerType:PlayerType){
+        switch playerType{
+        case .me:
+            player_me.player.playerStatement = .action(.pass)
+        case .other:
+            player_other.player.playerStatement = .action(.pass)
+        }
+        // カード交換回数デクリメント
     }
     
     
@@ -48,7 +59,25 @@ struct PokerInteractor{
     var player_me = PlayerStatus(playerType: .me)
     var player_other = PlayerStatus(playerType: .other)
     
+
+    
     // カードを交換した回数を更新するメソッド欲しい
+    mutating func decrementChangeCounter(_ playerType:PlayerType){
+        var count = 0
+        switch playerType{
+        case .me:
+            count = player_me.decrementChangeCount()
+        case .other:
+            count = player_other.decrementChangeCount()
+        }
+        
+        if count == 0{
+            isReadyButtle(playerType)
+        } else {
+            changeGameStatement(playerType,noChangeCount: false)
+        }
+
+    }
     
     mutating func isReadyButtle(_ playerType:PlayerType){
         //        if tapped ButtleBtn == true ||
@@ -61,14 +90,15 @@ struct PokerInteractor{
         }
 
         #warning("ここでGameFieldStatusProtocol.willChangeGameFieldStatus()をコール")
-        isStartJudgement(playerType)
+        changeGameStatement(playerType,noChangeCount: true)
     }
     
-    mutating func isStartJudgement(_ playerType:PlayerType){
+    mutating func changeGameStatement(_ playerType:PlayerType, noChangeCount:Bool){
+        
         if player_me.player.playerStatement == .isReadyButtle &&
             player_other.player.playerStatement == .isReadyButtle{
             
-            changeToJudgementStaus()
+            changeToJudgementStatus()
         
         }
 

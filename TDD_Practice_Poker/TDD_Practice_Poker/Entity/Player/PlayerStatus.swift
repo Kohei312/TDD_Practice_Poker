@@ -25,6 +25,11 @@ struct PlayerStatus{
 //        }
     }
     
+    mutating func decrementChangeCount()->Int{
+        player.changeCount -= 1
+        return player.changeCount
+    }
+    
     mutating func callReadyButtle(){
         player.playerStatement = .isReadyButtle
         player.changeCount = 0

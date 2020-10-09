@@ -7,9 +7,16 @@
 
 import Foundation
 
-enum PlayerStatement{
+enum PlayerAction:Equatable{
+    case choosing // 相手ターンの状態、選択前
+    case pass
+    case change
+    case complete // カードの交換が終了した
+}
+
+enum PlayerStatement:Equatable{
     case thinking
-    case changeTurn
+    case action(PlayerAction)
     case waiting
     case isReadyButtle
 }

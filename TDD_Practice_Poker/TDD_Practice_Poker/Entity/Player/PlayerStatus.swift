@@ -26,6 +26,7 @@ struct PlayerStatus{
     }
     
     mutating func callReadyButtle(){
-        player.isReadyButtle = .yup
+        player.playerStatement = .isReadyButtle
+        player.changeCount = 0
     }
 }

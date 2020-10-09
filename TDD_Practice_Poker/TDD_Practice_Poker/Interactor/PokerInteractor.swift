@@ -29,7 +29,16 @@ struct PokerInteractor{
     }
     
     // MARK:- GameFieldState
+    // PlayerTypeによってUI操作をコントロールする
+    var gameFieldSide = GameFieldStatus()
     
+    mutating func changeGameSide(){
+        gameFieldSide.gameSide = .me
+    }
+    
+    mutating func changeToJudgementStaus(){
+        gameFieldSide.gameField = .readyStartJudgement
+    }
     
     
     
@@ -50,13 +59,16 @@ struct PokerInteractor{
         }
 
         #warning("ここでGameFieldStatusProtocol.willChangeGameFieldStatus()をコール")
-        if player_me.player.isReadyButtle == .yup &&
-            player_other.player.isReadyButtle == .yup{
-            //        JudgementStatusProtocol?.judge()
-            // 仮実装OK
-//            print("いざ、尋常に勝負!!")
-        }
+        isStartJudgement(playerType)
+    }
+    
+    mutating func isStartJudgement(_ playerType:PlayerType){
+        if player_me.player.playerStatement == .isReadyButtle &&
+            player_other.player.playerStatement == .isReadyButtle{
+            
+            changeToJudgementStaus()
+        
+        } 
 
-        //        }
     }
 }

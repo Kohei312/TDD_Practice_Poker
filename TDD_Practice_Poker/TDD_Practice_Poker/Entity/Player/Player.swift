@@ -7,19 +7,17 @@
 
 import Foundation
 
-#warning("ターンのコントロール時に必要")
-enum PlayerType{
-    case me
-    case other
-}
-enum ReadyButtleState{
-    case none
-    case yup
+enum PlayerStatement{
+    case thinking
+    case changeTurn
+    case waiting
+    case isReadyButtle
 }
 
 struct Player{
     
     var playerType:PlayerType
-    var isReadyButtle:ReadyButtleState = .none
+    var playerStatement:PlayerStatement = .waiting
     var changeCount = 3
 }
+

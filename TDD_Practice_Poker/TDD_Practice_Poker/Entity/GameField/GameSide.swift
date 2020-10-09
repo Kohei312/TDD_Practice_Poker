@@ -7,25 +7,17 @@
 
 import Foundation
 
-
-enum GameSide{
-    case inPlaying
-    case changeTurn(Player,CardChanging,PlayerStatement)
-    case finished
-}
+// PlayerType, PlayerStatement, Sideが必要
 
 #warning("カード交換アニメーションを制御 .completeで、PlayerTypeとPlayerStatementの状態が変わる")
 enum CardChanging{
-    case none
+    case choosing // 相手ターンの状態、選択前
     case pass
-    case changing
-    case complete
+    case change
+    case complete // カードの交換が終了した
 }
 
-#warning("PlayerStateを以下に差し替え")
-enum PlayerStatement{
-
-    case thinking
-    case changeTurn
-
+enum GameSide{
+    case me
+    case other
 }

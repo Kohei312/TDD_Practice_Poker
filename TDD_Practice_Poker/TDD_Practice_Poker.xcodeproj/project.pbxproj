@@ -35,6 +35,7 @@
 		7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC462B252EE86E004008A5 /* PokerPresenter.swift */; };
 		7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC463B252EEFBA004008A5 /* PokerInteractor.swift */; };
 		7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC464C252F28E5004008A5 /* CardDeck.swift */; };
+		7CAC466225300E09004008A5 /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC466125300E09004008A5 /* PlayerType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		7CAC462B252EE86E004008A5 /* PokerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerPresenter.swift; sourceTree = "<group>"; };
 		7CAC463B252EEFBA004008A5 /* PokerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerInteractor.swift; sourceTree = "<group>"; };
 		7CAC464C252F28E5004008A5 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		7CAC466125300E09004008A5 /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				7C0024E7252957C50031FAC9 /* Player.swift */,
+				7CAC466125300E09004008A5 /* PlayerType.swift */,
 				7CAC45FB252DC8AC004008A5 /* PlayerStatus.swift */,
 			);
 			path = Player;
@@ -414,6 +417,7 @@
 				7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
+				7CAC466225300E09004008A5 /* PlayerType.swift in Sources */,
 				7CAC4626252DF230004008A5 /* GameFieldStatus.swift in Sources */,
 				7CAC459B252D73AB004008A5 /* GameField.swift in Sources */,
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,

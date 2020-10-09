@@ -20,6 +20,7 @@ struct PokerInteractor{
     
     // MARK:- HandStatus
     var handStatus = HandStatus()
+    // var handStatus = HandStatus(output:JudgementStatusProtocol)
     
     // Hand内にあるカードのSuit・RankをPresenterに返したい（特に初期化時）
     
@@ -30,14 +31,15 @@ struct PokerInteractor{
     
     // MARK:- GameFieldState
     // PlayerTypeによってUI操作をコントロールする
-    var gameFieldSide = GameFieldStatus()
+    var gameFieldStatus = GameFieldStatus()
     
     mutating func changeGameSide(){
-        gameFieldSide.gameSide = .me
+        gameFieldStatus.gameSide = .me
     }
     
     mutating func changeToJudgementStaus(){
-        gameFieldSide.gameField = .readyStartJudgement
+        gameFieldStatus.gameSide = .judging
+        gameFieldStatus.gameField = .readyStartJudgement
     }
     
     
@@ -68,7 +70,7 @@ struct PokerInteractor{
             
             changeToJudgementStaus()
         
-        } 
+        }
 
     }
 }

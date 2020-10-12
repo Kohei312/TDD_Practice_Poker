@@ -11,8 +11,8 @@ import Foundation
 // CardDeckは唯一のインスタンスをHandStateに
 struct CardDeck{
     
-    private var unAppearCards:[Card]
-    private var appearedCards:[Card] = []
+    var unAppearCards:[Card]
+    var appearedCards:[Card] = []
     init(){
         unAppearCards = CardDeck.makeCardDeck()
     }

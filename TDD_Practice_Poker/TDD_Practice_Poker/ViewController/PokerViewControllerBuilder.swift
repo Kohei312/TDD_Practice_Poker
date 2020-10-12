@@ -23,9 +23,28 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         
         self.pokerPresenter = presenter
         print("初期化")
+    }
+    
+    func setupCollectionViews(){
+        playerCardCollectionView.registerCell(PlayerCardCollectionViewCell.self)
+        playerCardCollectionView.registerLayout(layout: PlayerCardCollectionViewLayout())
+        playerCardCollectionView.delegate = self
+        playerCardCollectionView.dataSource = self
+        playerCardCollectionView.dropDelegate = self
+        playerCardCollectionView.dragDelegate = self
+        playerCardCollectionView.dragInteractionEnabled = true
         
+        throwoutCardCollectionView.registerCell(ThrowoutCardCollectionViewCell.self)
+        throwoutCardCollectionView.registerLayout(layout: ThrowOutCardsCollectionViewLayout())
+        throwoutCardCollectionView.delegate = self
+        throwoutCardCollectionView.dataSource = self
+        throwoutCardCollectionView.dropDelegate = self
+        throwoutCardCollectionView.dragInteractionEnabled = true
         
-        
+        cpuCardCollectionView.registerCell(CPUCardCollectionViewCell.self)
+        cpuCardCollectionView.registerLayout(layout: CPUCardsCollectionViewLayout())
+        cpuCardCollectionView.delegate = self
+        cpuCardCollectionView.dataSource = self
     }
     
 }

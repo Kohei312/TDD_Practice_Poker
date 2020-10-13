@@ -38,8 +38,8 @@ struct HandStatus{
     var otherPlayerHand:Hand
     
     init(){
-        self.myPlayerHand = Hand(.me,cards:Array(cardDeck.unAppearCards[0..<5]))
-        self.otherPlayerHand = Hand(.other,cards:Array(cardDeck.unAppearCards[6..<10]))
+        self.myPlayerHand = Hand(.me,cards:Array(cardDeck.unAppearCards[5..<10]))
+        self.otherPlayerHand = Hand(.other,cards:Array(cardDeck.unAppearCards[0..<5]))
         cardDeck.throwAwayCard(10)
     }
     

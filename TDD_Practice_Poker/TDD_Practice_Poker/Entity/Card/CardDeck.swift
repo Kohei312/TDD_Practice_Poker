@@ -40,8 +40,9 @@ struct CardDeck{
   
     mutating func throwAwayCard(_ takeNumber:Int){
         for i in 0..<takeNumber{
-            appearedCards.append(self.unAppearCards[i])
-            self.unAppearCards.remove(at: i)
+            print("i :",i)
+            appearedCards.append(self.unAppearCards[0])
+            self.unAppearCards.remove(at: 0)
         }
     }
 }

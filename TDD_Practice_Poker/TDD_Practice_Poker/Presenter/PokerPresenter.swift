@@ -35,4 +35,19 @@ public struct PokerPresenter:InteractorOutputProtocol{
     }
     
     // MARK:- ViewControllerからの入力を受け,PokerInteractorに伝達
+    mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:IndexPath,willReplaceIndex:IndexPath){
+        pokerInteractor.changeCardIndex(playerType:playerType,willMoveIndex:willMoveIndex,willReplaceIndex:willReplaceIndex)
+    }
+    
+    mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+        pokerInteractor.choseChange(playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
+    }
+    
+    mutating func addCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+        pokerInteractor.addCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex:willRemoveIndex)
+    }
+    
+    mutating func finishChangeCard(_ playerType:PlayerType){
+        pokerInteractor.decrementChangeCounter(playerType)
+    }
 }

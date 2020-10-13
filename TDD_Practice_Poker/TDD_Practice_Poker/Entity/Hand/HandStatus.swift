@@ -44,25 +44,55 @@ struct HandStatus{
     }
     
     
-//    #warning("Cardインスタンスの消去方法は検討.")
-//    mutating func drawCard(playerType:PlayerType,takeNumber:Int,removeCardIndex:[Int]){
     mutating func drawCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+        //        let changeCards = cardDeck.changeCards(takeNumber)
+        var removeCount = 0
+        cardDeck.throwAwayCard(takeNumber)
+        //        for card in changeCards{
+        switch playerType{
+        case .me:
+            myPlayerHand.cards.remove(at: willRemoveIndex.row)
+        //                myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
+        case .other:
+            break
+        //                otherPlayerHand.cards.insert(card, at: otherPlayerHand.cards.count)
+        }
+        removeCount += 1
+        if takeNumber == removeCount{
+            removeCount = 0
+        }
+        //            if changeCards.count == removeCount{
+        //                removeCount = 0
+        //            }
+        //        }
+    }
+    
+    mutating func addCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+        let changeCards = cardDeck.changeCards(takeNumber)
+
+        cardDeck.throwAwayCard(takeNumber)
+        for i in 0..<takeNumber {
+        switch playerType{
+        case .me:
+            myPlayerHand.cards.insert(changeCards[i], at: myPlayerHand.cards.count)
+        case .other:
+            break
+        }
+        }
+    }
+    
+    mutating func drawCardForCPU(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+        
         let changeCards = cardDeck.changeCards(takeNumber)
         var removeCount = 0
         
         for card in changeCards{
             switch playerType{
             case .me:
-                // outof Range
-                myPlayerHand.cards.remove(at: willRemoveIndex.row)
-                // 一番最後に挿入する
-                myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
-//                myPlayerHand.cards[ removeCardIndex[removeCount] ] = card
+                break
             case .other:
                 otherPlayerHand.cards.remove(at: willRemoveIndex.row)
-                // 一番最後に挿入する
                 otherPlayerHand.cards.insert(card, at: otherPlayerHand.cards.count)
-//                otherPlayerHand.cards[ removeCardIndex[removeCount] ] = card
             }
             removeCount += 1
             if changeCards.count == removeCount{
@@ -73,20 +103,18 @@ struct HandStatus{
     
     // OK
     mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:IndexPath,willReplaceIndex:IndexPath){
-                
-            let changeCard = myPlayerHand.cards[willMoveIndex.row]
         
-
-            switch playerType{
-            case .me:
-                // outof Range
-//                myPlayerHand.cards[ willReplaceIndex.row ] = changeCard
-                myPlayerHand.cards.remove(at: willMoveIndex.row)
-                myPlayerHand.cards.insert(changeCard, at: willReplaceIndex.row)
-            case .other:
-                otherPlayerHand.cards.remove(at: willMoveIndex.row)
-                otherPlayerHand.cards.insert(changeCard, at: willReplaceIndex.row)
-            }
+        let changeCard = myPlayerHand.cards[willMoveIndex.row]
+        
+        
+        switch playerType{
+        case .me:
+            myPlayerHand.cards.remove(at: willMoveIndex.row)
+            myPlayerHand.cards.insert(changeCard, at: willReplaceIndex.row)
+        case .other:
+            otherPlayerHand.cards.remove(at: willMoveIndex.row)
+            otherPlayerHand.cards.insert(changeCard, at: willReplaceIndex.row)
+        }
     }
 }
 

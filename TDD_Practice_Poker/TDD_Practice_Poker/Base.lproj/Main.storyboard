@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -60,6 +61,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAs-8z-jcV">
+                                <rect key="frame" x="250" y="698" width="100" height="100"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="M6v-ip-7LF"/>
+                                    <constraint firstAttribute="width" constant="100" id="kGw-MI-hoy"/>
+                                </constraints>
+                                <state key="normal" title="change">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zcP-OY-6Vq">
                                 <rect key="frame" x="0.0" y="318.5" width="414" height="255.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,6 +99,8 @@
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="width" secondItem="zcP-OY-6Vq" secondAttribute="height" multiplier="1.618:1" id="5u5-VO-Pz6"/>
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Yg-CQ-2xP"/>
                             <constraint firstItem="gXt-ba-mSu" firstAttribute="width" secondItem="gXt-ba-mSu" secondAttribute="height" multiplier="1.618:1" id="Hfs-bb-sT3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xAs-8z-jcV" secondAttribute="bottom" constant="64" id="KBw-J7-Lcj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xAs-8z-jcV" secondAttribute="trailing" constant="64" id="Ksd-wo-PZu"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M8n-AV-IyM"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PgX-Nr-kyJ"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="top" secondItem="zcP-OY-6Vq" secondAttribute="bottom" constant="16" id="Zvf-6R-J0Q"/>
@@ -99,6 +113,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="g0b-d1-7gp"/>
                     <connections>
+                        <outlet property="changeCardButton" destination="xAs-8z-jcV" id="bM5-tM-KF2"/>
                         <outlet property="cpuCardCollectionView" destination="gXt-ba-mSu" id="lxN-8h-IiE"/>
                         <outlet property="playerCardCollectionView" destination="m6x-d4-0Rc" id="0JQ-2H-Dnu"/>
                         <outlet property="throwoutCardCollectionView" destination="zcP-OY-6Vq" id="rG2-5S-2IH"/>
@@ -110,6 +125,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

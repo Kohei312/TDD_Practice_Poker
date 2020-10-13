@@ -54,6 +54,7 @@
 		7CDE9DE725346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DE625346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift */; };
 		7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */; };
 		7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */; };
+		7CDE9DFF2535634600898855 /* CardChangeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DFE2535634600898855 /* CardChangeEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		7CDE9DE625346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowoutCardCollectionViewLayoutProperty.swift.swift; sourceTree = "<group>"; };
 		7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewLayoutProperty.swift.swift; sourceTree = "<group>"; };
 		7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerCollectionViewControllersBuilder.swift; sourceTree = "<group>"; };
+		7CDE9DFE2535634600898855 /* CardChangeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChangeEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 		7CAC4636252EEF2B004008A5 /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				7CDE9DFE2535634600898855 /* CardChangeEntity.swift */,
 				7CAC4600252DCB4E004008A5 /* CardStub.swift */,
 				7C0024BB2528491F0031FAC9 /* Card.swift */,
 				7CAC464C252F28E5004008A5 /* CardDeck.swift */,
@@ -534,6 +537,7 @@
 				7CAC4626252DF230004008A5 /* GameFieldStatus.swift in Sources */,
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
+				7CDE9DFF2535634600898855 /* CardChangeEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

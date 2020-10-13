@@ -18,7 +18,7 @@ struct PokerInteractor:InteractorInputProtocol{
     var judgementStatus:JudgementStatus
     
     init(handStatus:HandStatus, gameFieldStatus:GameFieldStatus,playerStatus_me:PlayerStatus,playerStatus_other:PlayerStatus, judgementStatus:JudgementStatus){
-       
+
         self.handStatus = handStatus
         self.gameFieldStatus = gameFieldStatus
         self.player_me = playerStatus_me
@@ -41,6 +41,10 @@ extension PokerInteractor{
     // MARK:- HandStatus
     mutating func drawCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
         handStatus.drawCard(playerType: playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
+    }
+    
+    mutating func addCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+        handStatus.addCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex:willRemoveIndex)
         decrementChangeCounter(playerType)
     }
     

@@ -23,5 +23,15 @@ extension UICollectionView{
         self.collectionViewLayout = layout
     }
     
+    func cellForItem<T:UICollectionViewCell>(with cell:T.Type, indexPath:IndexPath)->T{
+        return dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as! T
+        
+    }
+    
+    func visibleCells<T:UICollectionViewCell>(with cell:T.Type)->[T]{
+        return self.visibleCells as! [T]
+        
+    }
+    
 }
 

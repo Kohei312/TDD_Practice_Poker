@@ -62,11 +62,11 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAs-8z-jcV">
-                                <rect key="frame" x="250" y="698" width="100" height="100"/>
+                                <rect key="frame" x="280" y="728" width="70" height="70"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="M6v-ip-7LF"/>
-                                    <constraint firstAttribute="width" constant="100" id="kGw-MI-hoy"/>
+                                    <constraint firstAttribute="height" constant="70" id="M6v-ip-7LF"/>
+                                    <constraint firstAttribute="width" constant="70" id="kGw-MI-hoy"/>
                                 </constraints>
                                 <state key="normal" title="change">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,12 +11,12 @@ protocol PokerPresenterOutputProtocol{
     func updateJudgementUI(judgement:Judgement)
     func updateGameStateUI()
     func updateChangeCardButtonUI(_ changeState:Bool)
-    func updatePlayerUI()
+//    func updatePlayerUI()
 }
 
 extension PokerPresenter:InteractorOutputProtocol{
     func callUpdatePlayerUI() {
-        pokerPresenterOutputProtocol?.updatePlayerUI()
+//        pokerPresenterOutputProtocol?.updatePlayerUI()
     }
     
     
@@ -37,7 +37,7 @@ public struct PokerPresenter{
     var result:Judgement = .draw
     var cardButtonStatus:ChangeCardButtonStatus
     
-    init(pokerInteractor:PokerInteractor,removeIndexPath:RemoveIndexPathProperty){
+    init(pokerInteractor:PokerInteractor){
         self.pokerInteractor = pokerInteractor
         self.cardButtonStatus = ChangeCardButtonStatus()
 //        self.removeIndexPath = removeIndexPath
@@ -61,7 +61,7 @@ public struct PokerPresenter{
         pokerInteractor.changeCardIndex(playerType:playerType,willMoveIndex:willMoveIndex,willReplaceIndex:willReplaceIndex)
     }
     
-    mutating func throwCard(playerType:PlayerType,takeNumber:Int,willRemoveIndexPath:IndexPath){
+    mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndexPath:IndexPath){
         let willRemoveIndex = willRemoveIndexPath.row
         pokerInteractor.throwCard(playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
         

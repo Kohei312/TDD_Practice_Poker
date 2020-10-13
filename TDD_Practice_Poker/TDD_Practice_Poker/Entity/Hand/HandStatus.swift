@@ -40,15 +40,15 @@ struct HandStatus{
     }
     
     
-    mutating func throwCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
-        //        let changeCards = cardDeck.changeCards(takeNumber)
+    mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+        let changeCards = cardDeck.changeCards(takeNumber)
         var removeCount = 0
         cardDeck.throwAwayCard(takeNumber)
-        //        for card in changeCards{
+                for card in changeCards{
         switch playerType{
         case .me:
             myPlayerHand.cards.remove(at: willRemoveIndex)
-        //                myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
+                        myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
         case .other:
             break
         //                otherPlayerHand.cards.insert(card, at: otherPlayerHand.cards.count)
@@ -60,7 +60,7 @@ struct HandStatus{
         //            if changeCards.count == removeCount{
         //                removeCount = 0
         //            }
-        //        }
+                }
     }
     
     mutating func addCard(playerType:PlayerType,takeNumber:Int){

@@ -55,6 +55,7 @@
 		7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */; };
 		7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */; };
 		7CDE9DFF2535634600898855 /* RemoveIndexPathProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DFE2535634600898855 /* RemoveIndexPathProperty.swift */; };
+		7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewLayoutProperty.swift.swift; sourceTree = "<group>"; };
 		7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerCollectionViewControllersBuilder.swift; sourceTree = "<group>"; };
 		7CDE9DFE2535634600898855 /* RemoveIndexPathProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveIndexPathProperty.swift; sourceTree = "<group>"; };
+		7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardButtonStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 		7CAC462A252EE82C004008A5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */,
 				7CAC462B252EE86E004008A5 /* PokerPresenter.swift */,
 			);
 			path = Presenter;
@@ -538,6 +541,7 @@
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
 				7CDE9DFF2535634600898855 /* RemoveIndexPathProperty.swift in Sources */,
+				7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

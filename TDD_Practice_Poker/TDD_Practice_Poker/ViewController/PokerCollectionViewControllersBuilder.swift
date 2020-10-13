@@ -17,6 +17,17 @@ enum CollectionViewType{
 
 extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDropDelegate,UICollectionViewDragDelegate{
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == playerCardCollectionView{
+            
+            print(indexPath)
+            self.removeIndexPath.removeIndexPaths.append(indexPath)
+            
+        } else {
+            return
+        }
+    }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -91,15 +102,18 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
                 self.updateCardUI(coordinator: coordinator, sourceDragItem: sourceDragItem, destinationIndexPath: destinationIndexPath)
             })
             
+            self.removeIndexPath.removeIndexPaths = []
+            
         // ここでremovedIndexPathを空にする
      
         // MARK:- カードを交換する
         case .copy:
-            self.pokerPresenter?.changeCard(playerType: .me, takeNumber: 1,willRemoveIndexPath: removedIndexPath)
-
+            guard let indexPath = self.removeIndexPath.removeIndexPaths.last else {return}
+            self.pokerPresenter?.throwCard(playerType: .me, takeNumber: 1,willRemoveIndexPath: indexPath)
+    
             // indexPathを作成して返却する
             self.playerCardCollectionView.performBatchUpdates({
-                self.playerCardCollectionView.deleteItems(at: [removedIndexPath])
+                self.playerCardCollectionView.deleteItems(at: [indexPath])
             })
         
             if let itemitem = self.pokerPresenter?.pokerInteractor.handStatus.cardDeck.appearedCards.count{
@@ -127,11 +141,9 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
         guard
-            let pokerPresenter = self.pokerPresenter else {return []}
-        let id = pokerPresenter.pokerInteractor.handStatus.myPlayerHand.cards[indexPath.item].id
+            let id = self.pokerPresenter?.pokerInteractor.handStatus.myPlayerHand.cards[indexPath.item].id else {return []}
         let itemProvider = NSItemProvider(object: id.rawValue)
-        removedIndexPath = indexPath
-        print(removedIndexPath)
+        self.removeIndexPath.removeIndexPaths.append(indexPath)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         return [dragItem]
     }

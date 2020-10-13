@@ -40,7 +40,7 @@ struct HandStatus{
     }
     
     
-    mutating func drawCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+    mutating func throwCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
         //        let changeCards = cardDeck.changeCards(takeNumber)
         var removeCount = 0
         cardDeck.throwAwayCard(takeNumber)

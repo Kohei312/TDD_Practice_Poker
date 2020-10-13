@@ -33,6 +33,7 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         playerCardCollectionView.dropDelegate = self
         playerCardCollectionView.dragDelegate = self
         playerCardCollectionView.dragInteractionEnabled = true
+        playerCardCollectionView.allowsMultipleSelection = false
         
         throwoutCardCollectionView.registerCell(ThrowoutCardCollectionViewCell.self)
         throwoutCardCollectionView.registerLayout(layout: ThrowOutCardsCollectionViewLayout())

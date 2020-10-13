@@ -56,8 +56,8 @@ struct PokerInteractor{
 
 extension PokerInteractor{
     // MARK:- HandStatus
-    mutating func drawCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
-        handStatus.drawCard(playerType: playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
+    mutating func throwCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+        handStatus.throwCard(playerType: playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
     }
     
     mutating func addCard(playerType:PlayerType,takeNumber:Int){
@@ -92,15 +92,15 @@ extension PokerInteractor{
     }
     
     // カードを交換したとき
-    mutating func choseChange(_ playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+    mutating func throwCard(_ playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
         
         switch playerType{
         case .me:
             player_me.player.playerStatement = .action(.change)
-            drawCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
+            throwCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
         case .other:
             player_other.player.playerStatement = .action(.change)
-            drawCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
+            throwCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
         }
         // カード交換回数デクリメント
         // ここでは呼ばず, CollectionViewのアニメーションが終了したあと,

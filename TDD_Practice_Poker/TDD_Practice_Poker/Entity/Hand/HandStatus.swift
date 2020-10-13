@@ -28,23 +28,56 @@ enum HandState:Comparable{
 // MARK:- 役割は、各プレイヤーの手札を一元管理すること
 struct HandStatus{
     
-    // カードにsuit・rankとも同じカードがないように初期化したい
-    // TODO:
-    //  - まず初期化時は、分配する10枚のCardインスタンスをランダムに作成する(引数はPlayerTypeのみ)
-    //  - PlayerごとのHandインスタンスに[Card]を入れる
     var cardDeck = CardDeck()
-    
     var myPlayerHand:Hand
     var otherPlayerHand:Hand
+    var interactorInputProtocol:InteractorInputProtocol?
     
     init(){
-        self.myPlayerHand = Hand(.me,cards:Array(cardDeck.changeCards(5)))
-        self.otherPlayerHand = Hand(.other,cards:Array(cardDeck.changeCards(5)))
+        self.myPlayerHand = Hand(.me,cards:Array(cardDeck.unAppearCards[5..<10]))
+        self.otherPlayerHand = Hand(.other,cards:Array(cardDeck.unAppearCards[0..<5]))
+        cardDeck.throwAwayCard(10)
     }
     
     
-    #warning("Cardインスタンスの消去方法は検討.")
-    mutating func drawCard(playerType:PlayerType,takeNumber:Int,removeCardIndex:[Int]){
+    mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+        let changeCards = cardDeck.changeCards(takeNumber)
+        var removeCount = 0
+        cardDeck.throwAwayCard(takeNumber)
+                for card in changeCards{
+        switch playerType{
+        case .me:
+            myPlayerHand.cards.remove(at: willRemoveIndex)
+                        myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
+        case .other:
+            break
+        //                otherPlayerHand.cards.insert(card, at: otherPlayerHand.cards.count)
+        }
+        removeCount += 1
+        if takeNumber == removeCount{
+            removeCount = 0
+        }
+        //            if changeCards.count == removeCount{
+        //                removeCount = 0
+        //            }
+                }
+    }
+    
+    mutating func addCard(playerType:PlayerType,takeNumber:Int){
+        let changeCards = cardDeck.changeCards(takeNumber)
+
+        for i in 0..<takeNumber {
+        switch playerType{
+        case .me:
+            myPlayerHand.cards.insert(changeCards[i], at: myPlayerHand.cards.count)
+            interactorInputProtocol?.notifyUpdatePlayerUI()
+        case .other:
+            break
+        }
+        }
+    }
+    
+    mutating func drawCardForCPU(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
         
         let changeCards = cardDeck.changeCards(takeNumber)
         var removeCount = 0
@@ -52,14 +85,31 @@ struct HandStatus{
         for card in changeCards{
             switch playerType{
             case .me:
-                myPlayerHand.cards[ removeCardIndex[removeCount] ] = card
+                break
             case .other:
-                otherPlayerHand.cards[ removeCardIndex[removeCount] ] = card
+                otherPlayerHand.cards.remove(at: willRemoveIndex.row)
+                otherPlayerHand.cards.insert(card, at: otherPlayerHand.cards.count)
             }
             removeCount += 1
             if changeCards.count == removeCount{
                 removeCount = 0
             }
+        }
+    }
+    
+    // OK
+    mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:Int,willReplaceIndex:Int){
+        
+        let changeCard = myPlayerHand.cards[willMoveIndex]
+        
+        
+        switch playerType{
+        case .me:
+            myPlayerHand.cards.remove(at: willMoveIndex)
+            myPlayerHand.cards.insert(changeCard, at: willReplaceIndex)
+        case .other:
+            otherPlayerHand.cards.remove(at: willMoveIndex)
+            otherPlayerHand.cards.insert(changeCard, at: willReplaceIndex)
         }
     }
 }

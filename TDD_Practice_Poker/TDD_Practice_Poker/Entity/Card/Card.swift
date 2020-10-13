@@ -54,11 +54,19 @@ extension Card{
     }
 }
 
-struct Card:Equatable,Hashable{
+struct Card:Equatable,Hashable,IdentifiableType{
+    typealias IdentifierRawValueType = NSString
     
+    var id: Identifier<Card, NSString>
+
     let suit:Suit
     let rank:Rank
-    
+
+    init(suit:Suit,rank:Rank){
+        self.suit = suit
+        self.rank = rank
+        self.id = Identifier(NSString(string:String(describing: UUID())))
+    }
     // tips: ここがなくても動く...
     //    static func ==(lhs: Card, rhs: Card) -> Bool {
     //        return lhs.hasSameSuit(rhs) && lhs.hasSameRank(rhs)

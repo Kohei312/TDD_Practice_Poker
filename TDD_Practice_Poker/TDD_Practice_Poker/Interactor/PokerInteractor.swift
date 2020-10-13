@@ -7,8 +7,24 @@
 
 import Foundation
 
+// MARK:- InteractorInputProtocol
+extension PokerInteractor:InteractorInputProtocol{
+    mutating func notifyUpdatePlayerUI() {
+        interactorOutputProtocol?.callUpdatePlayerUI()
+    }
+    
+    mutating func notify(_ gameSide:GameSide,judgeStatus:Judgement?) {
+        switch gameSide{
+        case .playerType(.me),.playerType(.other):
+            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus: nil)
+        case .result:
+            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus: judgeStatus)
+        }
+    }
+}
+
 // MARK:- Protocolの具体的な実装は,PokerInteractorProtocol.swiftに記載.
-struct PokerInteractor:InteractorInputProtocol{
+struct PokerInteractor{
     // MARK:- Output先のprotocolをDI
     var interactorOutputProtocol:InteractorOutputProtocol?
     var handStatus:HandStatus
@@ -18,7 +34,7 @@ struct PokerInteractor:InteractorInputProtocol{
     var judgementStatus:JudgementStatus
     
     init(handStatus:HandStatus, gameFieldStatus:GameFieldStatus,playerStatus_me:PlayerStatus,playerStatus_other:PlayerStatus, judgementStatus:JudgementStatus){
-       
+
         self.handStatus = handStatus
         self.gameFieldStatus = gameFieldStatus
         self.player_me = playerStatus_me
@@ -34,14 +50,22 @@ struct PokerInteractor:InteractorInputProtocol{
         player_me.interactorInputProtocol = self
         player_other.interactorInputProtocol = self
         judgementStatus.interactorInputProtocol = self
+        handStatus.interactorInputProtocol = self
     }
 }
 
 extension PokerInteractor{
     // MARK:- HandStatus
-    mutating func drawCard(playerType:PlayerType,takeNumber:Int,removeCardIndex:[Int]){
-        handStatus.drawCard(playerType: playerType, takeNumber: takeNumber, removeCardIndex: removeCardIndex)
-        decrementChangeCounter(playerType)
+    mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+        handStatus.changeCard(playerType: playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
+    }
+    
+    mutating func addCard(playerType:PlayerType,takeNumber:Int){
+        handStatus.addCard(playerType:playerType,takeNumber:takeNumber)
+    }
+    
+    mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:Int,willReplaceIndex:Int){
+        handStatus.changeCardIndex(playerType:playerType,willMoveIndex:willMoveIndex,willReplaceIndex:willReplaceIndex)
     }
     
     // MARK:- JudgementStatus
@@ -68,14 +92,15 @@ extension PokerInteractor{
     }
     
     // カードを交換したとき
-    mutating func choseChange(_ playerType:PlayerType, takeNumber:Int,removeCardIndex:[Int]){
+    mutating func throwCard(_ playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
+        
         switch playerType{
         case .me:
             player_me.player.playerStatement = .action(.change)
-            drawCard(playerType:playerType,takeNumber:takeNumber,removeCardIndex:removeCardIndex)
+            changeCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
         case .other:
             player_other.player.playerStatement = .action(.change)
-            drawCard(playerType:playerType,takeNumber:takeNumber,removeCardIndex:removeCardIndex)
+            changeCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
         }
         // カード交換回数デクリメント
         // ここでは呼ばず, CollectionViewのアニメーションが終了したあと,
@@ -155,3 +180,4 @@ extension PokerInteractor{
         }
     }
 }
+

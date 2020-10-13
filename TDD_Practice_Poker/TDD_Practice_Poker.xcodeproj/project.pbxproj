@@ -36,6 +36,26 @@
 		7CAC466225300E09004008A5 /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC466125300E09004008A5 /* PlayerType.swift */; };
 		7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */; };
 		7CAC46792530736E004008A5 /* PokerInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */; };
+		7CDE9D92253465CD00898855 /* NSObjectProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9D91253465CD00898855 /* NSObjectProtocol+Extension.swift */; };
+		7CDE9D9A253465FD00898855 /* CollectionViewReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9D99253465FD00898855 /* CollectionViewReusableView+Extension.swift */; };
+		7CDE9D9F2534661300898855 /* CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9D9E2534661300898855 /* CollectionView+Extension.swift */; };
+		7CDE9DA42534665700898855 /* Identifier+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DA32534665700898855 /* Identifier+Extension.swift */; };
+		7CDE9DA92534666A00898855 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DA82534666A00898855 /* UIColor+Extension.swift */; };
+		7CDE9DAF2534691400898855 /* PlayerCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DAD2534691400898855 /* PlayerCardCollectionViewCell.swift */; };
+		7CDE9DB02534691400898855 /* PlayerCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDE9DAE2534691400898855 /* PlayerCardCollectionViewCell.xib */; };
+		7CDE9DB92534694000898855 /* ThrowoutCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DB72534694000898855 /* ThrowoutCardCollectionViewCell.swift */; };
+		7CDE9DBA2534694000898855 /* ThrowoutCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDE9DB82534694000898855 /* ThrowoutCardCollectionViewCell.xib */; };
+		7CDE9DCA2534698500898855 /* CPUCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DC82534698500898855 /* CPUCardCollectionViewCell.swift */; };
+		7CDE9DCB2534698500898855 /* CPUCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDE9DC92534698500898855 /* CPUCardCollectionViewCell.xib */; };
+		7CDE9DD325346B7500898855 /* CPUCardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DD225346B7500898855 /* CPUCardCollectionViewLayout.swift */; };
+		7CDE9DD825346B8600898855 /* ThrowoutCardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DD725346B8600898855 /* ThrowoutCardCollectionViewLayout.swift */; };
+		7CDE9DDD25346B9400898855 /* PlayerCardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DDC25346B9400898855 /* PlayerCardCollectionViewLayout.swift */; };
+		7CDE9DE225346C7100898855 /* CPUCardCollectionViewLayoutProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DE125346C7100898855 /* CPUCardCollectionViewLayoutProperty.swift */; };
+		7CDE9DE725346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DE625346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift */; };
+		7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */; };
+		7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */; };
+		7CDE9DFF2535634600898855 /* RemoveCellHashValuesProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */; };
+		7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +111,26 @@
 		7CAC466125300E09004008A5 /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
 		7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerViewControllerBuilder.swift; sourceTree = "<group>"; };
 		7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerInteractorProtocol.swift; sourceTree = "<group>"; };
+		7CDE9D91253465CD00898855 /* NSObjectProtocol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Extension.swift"; sourceTree = "<group>"; };
+		7CDE9D99253465FD00898855 /* CollectionViewReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewReusableView+Extension.swift"; sourceTree = "<group>"; };
+		7CDE9D9E2534661300898855 /* CollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extension.swift"; sourceTree = "<group>"; };
+		7CDE9DA32534665700898855 /* Identifier+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identifier+Extension.swift"; sourceTree = "<group>"; };
+		7CDE9DA82534666A00898855 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7CDE9DAD2534691400898855 /* PlayerCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CDE9DAE2534691400898855 /* PlayerCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		7CDE9DB72534694000898855 /* ThrowoutCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowoutCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CDE9DB82534694000898855 /* ThrowoutCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThrowoutCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		7CDE9DC82534698500898855 /* CPUCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CDE9DC92534698500898855 /* CPUCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPUCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		7CDE9DD225346B7500898855 /* CPUCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCardCollectionViewLayout.swift; sourceTree = "<group>"; };
+		7CDE9DD725346B8600898855 /* ThrowoutCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowoutCardCollectionViewLayout.swift; sourceTree = "<group>"; };
+		7CDE9DDC25346B9400898855 /* PlayerCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewLayout.swift; sourceTree = "<group>"; };
+		7CDE9DE125346C7100898855 /* CPUCardCollectionViewLayoutProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCardCollectionViewLayoutProperty.swift; sourceTree = "<group>"; };
+		7CDE9DE625346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowoutCardCollectionViewLayoutProperty.swift.swift; sourceTree = "<group>"; };
+		7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewLayoutProperty.swift.swift; sourceTree = "<group>"; };
+		7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerCollectionViewControllersBuilder.swift; sourceTree = "<group>"; };
+		7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCellHashValuesProperty.swift; sourceTree = "<group>"; };
+		7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardButtonStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,15 +181,16 @@
 		7C00247A252847120031FAC9 /* TDD_Practice_Poker */ = {
 			isa = PBXGroup;
 			children = (
+				7C002481252847120031FAC9 /* Main.storyboard */,
 				7C002506252AA4B70031FAC9 /* Extension */,
 				7C0024FA2529DAC30031FAC9 /* Protocol */,
 				7CAC46662530541B004008A5 /* ViewController */,
+				7CDE9D8B2534657300898855 /* View */,
 				7CAC462A252EE82C004008A5 /* Presenter */,
 				7C0024C6252861F00031FAC9 /* Interactor */,
 				7C0024BA252849160031FAC9 /* Entity */,
 				7C00247B252847120031FAC9 /* AppDelegate.swift */,
 				7C00247D252847120031FAC9 /* SceneDelegate.swift */,
-				7C002481252847120031FAC9 /* Main.storyboard */,
 				7C002484252847140031FAC9 /* Assets.xcassets */,
 				7C002486252847140031FAC9 /* LaunchScreen.storyboard */,
 				7C002489252847140031FAC9 /* Info.plist */,
@@ -204,6 +245,11 @@
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
 				7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */,
 				7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */,
+				7CDE9D91253465CD00898855 /* NSObjectProtocol+Extension.swift */,
+				7CDE9D99253465FD00898855 /* CollectionViewReusableView+Extension.swift */,
+				7CDE9D9E2534661300898855 /* CollectionView+Extension.swift */,
+				7CDE9DA32534665700898855 /* Identifier+Extension.swift */,
+				7CDE9DA82534666A00898855 /* UIColor+Extension.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -218,6 +264,7 @@
 		7CAC462A252EE82C004008A5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */,
 				7CAC462B252EE86E004008A5 /* PokerPresenter.swift */,
 			);
 			path = Presenter;
@@ -275,8 +322,53 @@
 			children = (
 				7C00247F252847120031FAC9 /* PokerViewController.swift */,
 				7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */,
+				7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7CDE9D8B2534657300898855 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CDE9DD125346B4100898855 /* PlayerCard */,
+				7CDE9DD025346B3200898855 /* ThrowoutCard */,
+				7CDE9DCF25346B2600898855 /* CPUCard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CDE9DCF25346B2600898855 /* CPUCard */ = {
+			isa = PBXGroup;
+			children = (
+				7CDE9DC82534698500898855 /* CPUCardCollectionViewCell.swift */,
+				7CDE9DC92534698500898855 /* CPUCardCollectionViewCell.xib */,
+				7CDE9DD225346B7500898855 /* CPUCardCollectionViewLayout.swift */,
+				7CDE9DE125346C7100898855 /* CPUCardCollectionViewLayoutProperty.swift */,
+			);
+			path = CPUCard;
+			sourceTree = "<group>";
+		};
+		7CDE9DD025346B3200898855 /* ThrowoutCard */ = {
+			isa = PBXGroup;
+			children = (
+				7CDE9DB72534694000898855 /* ThrowoutCardCollectionViewCell.swift */,
+				7CDE9DB82534694000898855 /* ThrowoutCardCollectionViewCell.xib */,
+				7CDE9DD725346B8600898855 /* ThrowoutCardCollectionViewLayout.swift */,
+				7CDE9DE625346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift */,
+			);
+			path = ThrowoutCard;
+			sourceTree = "<group>";
+		};
+		7CDE9DD125346B4100898855 /* PlayerCard */ = {
+			isa = PBXGroup;
+			children = (
+				7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */,
+				7CDE9DAD2534691400898855 /* PlayerCardCollectionViewCell.swift */,
+				7CDE9DAE2534691400898855 /* PlayerCardCollectionViewCell.xib */,
+				7CDE9DDC25346B9400898855 /* PlayerCardCollectionViewLayout.swift */,
+				7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */,
+			);
+			path = PlayerCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,7 +476,10 @@
 			files = (
 				7C002488252847140031FAC9 /* LaunchScreen.storyboard in Resources */,
 				7C002485252847140031FAC9 /* Assets.xcassets in Resources */,
+				7CDE9DB02534691400898855 /* PlayerCardCollectionViewCell.xib in Resources */,
+				7CDE9DCB2534698500898855 /* CPUCardCollectionViewCell.xib in Resources */,
 				7C002483252847120031FAC9 /* Main.storyboard in Resources */,
+				7CDE9DBA2534694000898855 /* ThrowoutCardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,26 +505,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */,
+				7CDE9DA42534665700898855 /* Identifier+Extension.swift in Sources */,
+				7CDE9DA92534666A00898855 /* UIColor+Extension.swift in Sources */,
 				7CAC4601252DCB4E004008A5 /* CardStub.swift in Sources */,
+				7CDE9D92253465CD00898855 /* NSObjectProtocol+Extension.swift in Sources */,
 				7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */,
 				7C002480252847120031FAC9 /* PokerViewController.swift in Sources */,
+				7CDE9DE725346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift in Sources */,
 				7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */,
+				7CDE9DCA2534698500898855 /* CPUCardCollectionViewCell.swift in Sources */,
+				7CDE9DB92534694000898855 /* ThrowoutCardCollectionViewCell.swift in Sources */,
+				7CDE9DD825346B8600898855 /* ThrowoutCardCollectionViewLayout.swift in Sources */,
 				7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */,
+				7CDE9D9F2534661300898855 /* CollectionView+Extension.swift in Sources */,
 				7CAC45FC252DC8AC004008A5 /* PlayerStatus.swift in Sources */,
 				7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */,
+				7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */,
+				7CDE9D9A253465FD00898855 /* CollectionViewReusableView+Extension.swift in Sources */,
+				7CDE9DE225346C7100898855 /* CPUCardCollectionViewLayoutProperty.swift in Sources */,
+				7CDE9DD325346B7500898855 /* CPUCardCollectionViewLayout.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
 				7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */,
 				7CAC46792530736E004008A5 /* PokerInteractorProtocol.swift in Sources */,
 				7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */,
+				7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */,
 				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
+				7CDE9DAF2534691400898855 /* PlayerCardCollectionViewCell.swift in Sources */,
 				7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */,
 				7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */,
 				7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */,
 				7C0024BC2528491F0031FAC9 /* Card.swift in Sources */,
+				7CDE9DDD25346B9400898855 /* PlayerCardCollectionViewLayout.swift in Sources */,
 				7CAC466225300E09004008A5 /* PlayerType.swift in Sources */,
 				7CAC4626252DF230004008A5 /* GameFieldStatus.swift in Sources */,
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
+				7CDE9DFF2535634600898855 /* RemoveCellHashValuesProperty.swift in Sources */,
+				7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,8 @@ import Foundation
 // CardDeckは唯一のインスタンスをHandStateに
 struct CardDeck{
     
-    private var unAppearCards:[Card]
-    private var appearedCards:[Card] = []
+    var unAppearCards:[Card]
+    var appearedCards:[Card] = []
     init(){
         unAppearCards = CardDeck.makeCardDeck()
     }
@@ -34,14 +34,15 @@ struct CardDeck{
     mutating func changeCards(_ takeNumber:Int)->[Card]{
         
         let cards = Array(unAppearCards[0..<takeNumber])
-        throwAwayCard(takeNumber)
+//        throwAwayCard(takeNumber)
         return cards
     }
   
     mutating func throwAwayCard(_ takeNumber:Int){
         for i in 0..<takeNumber{
-            appearedCards.append(self.unAppearCards[i])
-            self.unAppearCards.remove(at: i)
+            print("i :",i)
+            appearedCards.append(self.unAppearCards[0])
+            self.unAppearCards.remove(at: 0)
         }
     }
 }

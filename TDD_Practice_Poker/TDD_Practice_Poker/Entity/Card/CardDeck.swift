@@ -34,7 +34,7 @@ struct CardDeck{
     mutating func changeCards(_ takeNumber:Int)->[Card]{
         
         let cards = Array(unAppearCards[0..<takeNumber])
-        throwAwayCard(takeNumber)
+//        throwAwayCard(takeNumber)
         return cards
     }
   

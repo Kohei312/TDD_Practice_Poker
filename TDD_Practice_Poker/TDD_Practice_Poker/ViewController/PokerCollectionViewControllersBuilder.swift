@@ -83,32 +83,32 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
             else { return }
             
 //             データソースを更新する
-            self.pokerPresenter?.changeCardIndex(playerType:.me,willMoveIndex:sourceIndexPath,willReplaceIndex:destinationIndexPath)
+            self.pokerPresenter?.changeCardIndex(playerType:.me,willMoveIndexPath:sourceIndexPath,willReplaceIndexPath:destinationIndexPath)
 
             self.playerCardCollectionView.performBatchUpdates({
                 self.playerCardCollectionView.deleteItems(at: [sourceIndexPath])
                 self.playerCardCollectionView.insertItems(at: [destinationIndexPath])
                 self.updateCardUI(coordinator: coordinator, sourceDragItem: sourceDragItem, destinationIndexPath: destinationIndexPath)
             })
+            
+        // ここでremovedIndexPathを空にする
      
         // MARK:- カードを交換する
         case .copy:
-            self.pokerPresenter?.changeCard(playerType: .me, takeNumber: 1,willRemoveIndex: removedIndexPath)
+            self.pokerPresenter?.changeCard(playerType: .me, takeNumber: 1,willRemoveIndexPath: removedIndexPath)
 
             // indexPathを作成して返却する
-//            if let item = self.pokerPresenter?.pokerInteractor.handStatus.myPlayerHand.cards.count{
-                    self.playerCardCollectionView.performBatchUpdates({
-                        self.playerCardCollectionView.deleteItems(at: [removedIndexPath])
-//                        self.playerCardCollectionView.insertItems(at: [removedIndexPath])
-                     
-                    })
-//            }
+            self.playerCardCollectionView.performBatchUpdates({
+                self.playerCardCollectionView.deleteItems(at: [removedIndexPath])
+            })
         
             if let itemitem = self.pokerPresenter?.pokerInteractor.handStatus.cardDeck.appearedCards.count{
                 self.throwoutCardCollectionView.performBatchUpdates({
                     self.throwoutCardCollectionView.insertItems(at: [IndexPath(row:  itemitem - 1, section: 0)])
                 })
             }
+            
+            
  
         case .cancel, .forbidden:
             return

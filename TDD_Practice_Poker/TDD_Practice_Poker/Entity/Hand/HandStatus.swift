@@ -28,14 +28,10 @@ enum HandState:Comparable{
 // MARK:- 役割は、各プレイヤーの手札を一元管理すること
 struct HandStatus{
     
-    // カードにsuit・rankとも同じカードがないように初期化したい
-    // TODO:
-    //  - まず初期化時は、分配する10枚のCardインスタンスをランダムに作成する(引数はPlayerTypeのみ)
-    //  - PlayerごとのHandインスタンスに[Card]を入れる
     var cardDeck = CardDeck()
-    
     var myPlayerHand:Hand
     var otherPlayerHand:Hand
+    var interactorInputProtocol:InteractorInputProtocol?
     
     init(){
         self.myPlayerHand = Hand(.me,cards:Array(cardDeck.unAppearCards[5..<10]))
@@ -44,14 +40,14 @@ struct HandStatus{
     }
     
     
-    mutating func drawCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+    mutating func drawCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
         //        let changeCards = cardDeck.changeCards(takeNumber)
         var removeCount = 0
         cardDeck.throwAwayCard(takeNumber)
         //        for card in changeCards{
         switch playerType{
         case .me:
-            myPlayerHand.cards.remove(at: willRemoveIndex.row)
+            myPlayerHand.cards.remove(at: willRemoveIndex)
         //                myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
         case .other:
             break
@@ -67,14 +63,14 @@ struct HandStatus{
         //        }
     }
     
-    mutating func addCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:IndexPath){
+    mutating func addCard(playerType:PlayerType,takeNumber:Int){
         let changeCards = cardDeck.changeCards(takeNumber)
 
-        cardDeck.throwAwayCard(takeNumber)
         for i in 0..<takeNumber {
         switch playerType{
         case .me:
             myPlayerHand.cards.insert(changeCards[i], at: myPlayerHand.cards.count)
+            interactorInputProtocol?.notifyUpdatePlayerUI()
         case .other:
             break
         }
@@ -102,18 +98,18 @@ struct HandStatus{
     }
     
     // OK
-    mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:IndexPath,willReplaceIndex:IndexPath){
+    mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:Int,willReplaceIndex:Int){
         
-        let changeCard = myPlayerHand.cards[willMoveIndex.row]
+        let changeCard = myPlayerHand.cards[willMoveIndex]
         
         
         switch playerType{
         case .me:
-            myPlayerHand.cards.remove(at: willMoveIndex.row)
-            myPlayerHand.cards.insert(changeCard, at: willReplaceIndex.row)
+            myPlayerHand.cards.remove(at: willMoveIndex)
+            myPlayerHand.cards.insert(changeCard, at: willReplaceIndex)
         case .other:
-            otherPlayerHand.cards.remove(at: willMoveIndex.row)
-            otherPlayerHand.cards.insert(changeCard, at: willReplaceIndex.row)
+            otherPlayerHand.cards.remove(at: willMoveIndex)
+            otherPlayerHand.cards.insert(changeCard, at: willReplaceIndex)
         }
     }
 }

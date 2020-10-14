@@ -34,7 +34,6 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         playerCardCollectionView.dropDelegate = self
         playerCardCollectionView.dragDelegate = self
         playerCardCollectionView.dragInteractionEnabled = true
-//        addLongTapGesture()
         
         throwoutCardCollectionView.registerCell(ThrowoutCardCollectionViewCell.self)
         throwoutCardCollectionView.registerLayout(layout: ThrowOutCardsCollectionViewLayout())
@@ -49,34 +48,8 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         cpuCardCollectionView.dataSource = self
     }
     
-    func addLongTapGesture() {
-         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(longTap(gesture:)))
-        playerCardCollectionView.addGestureRecognizer(tapGesture)
-     }
-     
-     @objc func longTap(gesture: UITapGestureRecognizer) {
-         switch gesture.state {
-         // ロングタップの開始時
-         case .began:
-//            .indexPathForItem(at: gesture.location(in: collectionView))
-            guard let selectedIndexPath = playerCardCollectionView.indexPathForItem(at:gesture.location(in: playerCardCollectionView)) else {
-                 break
-             }
-            let i = self.playerCardCollectionView.visibleCells(with: PlayerCardCollectionViewCell.self)[selectedIndexPath.row]
-            if i.cardChangeState == .canChange{
-                print("hoge")
-                playerCardCollectionView.dragInteractionEnabled = true
-            }
-            playerCardCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
-         // セルの移動中
-         case .changed:
-            playerCardCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view))
-         // セルの移動完了時
-         case .ended:
-            playerCardCollectionView.endInteractiveMovement()
-         default:
-            playerCardCollectionView.cancelInteractiveMovement()
-         }
-     }
-    
+    func setupChangePlayerStateButton(){
+        self.changePlayerStateButton.addTarget(self,action: #selector(self.tappedChangeCardBtn(_ :)),for: .touchUpInside)
+        self.changePlayerStateButton.layer.cornerRadius = self.changePlayerStateButton.frame.width / 2
+    }
 }

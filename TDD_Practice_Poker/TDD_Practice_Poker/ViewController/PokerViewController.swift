@@ -9,31 +9,28 @@ import UIKit
 
 class PokerViewController: UIViewController,PokerPresenterOutputProtocol {
 
-    
-    
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw
     var removeCellHashValues = RemoveCellHashValuesProperty()
-    var localObject:String = ""
+    var moveCardStatuses = MoveCardStatusProperty()
     
     @IBOutlet weak var cpuCardCollectionView: UICollectionView!
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
-    @IBOutlet weak var changeCardButton: UIButton!
+    @IBOutlet weak var changePlayerStateButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.build()
         self.setupCollectionViews()
-        self.changeCardButton.addTarget(self,action: #selector(self.tappedChangeCardBtn(_ :)),for: .touchUpInside)
-//        self.changeCardButton.isHidden = true
+        self.setupChangePlayerStateButton()
     }
     
     @objc func tappedChangeCardBtn(_ sender: UIButton){
         
 //        pokerPresenter?.changeCardButtonStatus()
-        updateCardUI(sourceIndexPath: nil, destinationIndexPath: nil)
+
     }
     
     func updateChangeCardButtonUI(_ changeState: Bool) {

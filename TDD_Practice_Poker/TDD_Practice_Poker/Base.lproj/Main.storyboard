@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-d4-0Rc">
-                                <rect key="frame" x="0.0" y="590" width="414" height="256"/>
+                                <rect key="frame" x="0.0" y="606" width="414" height="256"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="m6x-d4-0Rc" secondAttribute="height" multiplier="1.618:1" id="Zsk-J0-AgB"/>
@@ -42,7 +42,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-ba-mSu">
-                                <rect key="frame" x="0.0" y="46.5" width="414" height="256"/>
+                                <rect key="frame" x="0.0" y="94.5" width="414" height="256"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f25-wx-s6e">
                                     <size key="itemSize" width="128" height="128"/>
@@ -62,7 +62,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAs-8z-jcV">
-                                <rect key="frame" x="280" y="728" width="70" height="70"/>
+                                <rect key="frame" x="320" y="768" width="70" height="70"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="M6v-ip-7LF"/>
@@ -73,7 +73,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zcP-OY-6Vq">
-                                <rect key="frame" x="0.0" y="318.5" width="414" height="255.5"/>
+                                <rect key="frame" x="0.0" y="350.5" width="414" height="255.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FvR-mT-fvk">
                                     <size key="itemSize" width="128" height="128"/>
@@ -99,21 +99,21 @@
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="width" secondItem="zcP-OY-6Vq" secondAttribute="height" multiplier="1.618:1" id="5u5-VO-Pz6"/>
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Yg-CQ-2xP"/>
                             <constraint firstItem="gXt-ba-mSu" firstAttribute="width" secondItem="gXt-ba-mSu" secondAttribute="height" multiplier="1.618:1" id="Hfs-bb-sT3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xAs-8z-jcV" secondAttribute="bottom" constant="64" id="KBw-J7-Lcj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xAs-8z-jcV" secondAttribute="trailing" constant="64" id="Ksd-wo-PZu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xAs-8z-jcV" secondAttribute="bottom" constant="24" id="KBw-J7-Lcj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xAs-8z-jcV" secondAttribute="trailing" constant="24" id="Ksd-wo-PZu"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M8n-AV-IyM"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PgX-Nr-kyJ"/>
-                            <constraint firstItem="m6x-d4-0Rc" firstAttribute="top" secondItem="zcP-OY-6Vq" secondAttribute="bottom" constant="16" id="Zvf-6R-J0Q"/>
+                            <constraint firstItem="m6x-d4-0Rc" firstAttribute="top" secondItem="zcP-OY-6Vq" secondAttribute="bottom" id="R7m-wI-x7q"/>
                             <constraint firstItem="gXt-ba-mSu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="atm-A9-74R"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6x-d4-0Rc" secondAttribute="bottom" constant="16" id="dHZ-rB-CJ7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6x-d4-0Rc" secondAttribute="bottom" id="dHZ-rB-CJ7"/>
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hXn-F0-dTv"/>
                             <constraint firstItem="gXt-ba-mSu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jzL-HE-cbI"/>
-                            <constraint firstItem="zcP-OY-6Vq" firstAttribute="top" secondItem="gXt-ba-mSu" secondAttribute="bottom" constant="16" id="prf-1V-0z7"/>
+                            <constraint firstItem="zcP-OY-6Vq" firstAttribute="top" secondItem="gXt-ba-mSu" secondAttribute="bottom" id="prf-1V-0z7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g0b-d1-7gp"/>
                     <connections>
-                        <outlet property="changeCardButton" destination="xAs-8z-jcV" id="bM5-tM-KF2"/>
+                        <outlet property="changePlayerStateButton" destination="xAs-8z-jcV" id="cgS-kE-eh1"/>
                         <outlet property="cpuCardCollectionView" destination="gXt-ba-mSu" id="lxN-8h-IiE"/>
                         <outlet property="playerCardCollectionView" destination="m6x-d4-0Rc" id="0JQ-2H-Dnu"/>
                         <outlet property="throwoutCardCollectionView" destination="zcP-OY-6Vq" id="rG2-5S-2IH"/>

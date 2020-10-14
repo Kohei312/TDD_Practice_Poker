@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokerViewController: UIViewController,PokerPresenterOutputProtocol {
+class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
 
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw

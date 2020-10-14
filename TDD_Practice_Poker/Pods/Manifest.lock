@@ -1,0 +1,16 @@
+PODS:
+  - CircleMenu (4.1.0)
+
+DEPENDENCIES:
+  - CircleMenu
+
+SPEC REPOS:
+  trunk:
+    - CircleMenu
+
+SPEC CHECKSUMS:
+  CircleMenu: a66095199a5e26f19acbb212f077010257767fe5
+
+PODFILE CHECKSUM: 2994421d857d55f25e03e9176410fd52ed9605f1
+
+COCOAPODS: 1.9.3

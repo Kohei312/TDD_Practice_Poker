@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TDD_Practice_Poker' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TDD_Practice_Poker
+
+  target 'TDD_Practice_PokerTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TDD_Practice_PokerUITests' do
+    # Pods for testing
+  end
+	
+
+  pod 'CircleMenu'
+
+end

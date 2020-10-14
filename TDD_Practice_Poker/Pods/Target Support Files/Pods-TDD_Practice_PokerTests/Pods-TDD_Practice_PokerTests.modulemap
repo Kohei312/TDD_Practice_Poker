@@ -1,0 +1,6 @@
+framework module Pods_TDD_Practice_PokerTests {
+  umbrella header "Pods-TDD_Practice_PokerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

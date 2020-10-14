@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		416B856D43215B0FE0623319 /* Pods_TDD_Practice_PokerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BEE1CFB47CEE9C3A501E6C /* Pods_TDD_Practice_PokerTests.framework */; };
+		46F5702CC9E7FE995FE384EE /* Pods_TDD_Practice_Poker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EB03093D970E8FF995A903 /* Pods_TDD_Practice_Poker.framework */; };
 		7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00247B252847120031FAC9 /* AppDelegate.swift */; };
 		7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00247D252847120031FAC9 /* SceneDelegate.swift */; };
 		7C002480252847120031FAC9 /* PokerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00247F252847120031FAC9 /* PokerViewController.swift */; };
@@ -24,6 +26,7 @@
 		7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */; };
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
 		7C364B282536B20700FA4C9C /* MoveCardStatusProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */; };
+		7C364B452536C36E00FA4C9C /* CircleMenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
@@ -57,6 +60,7 @@
 		7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */; };
 		7CDE9DFF2535634600898855 /* RemoveCellHashValuesProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */; };
 		7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */; };
+		E0A92BF337E768B27278AC5A /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C47EFBAE195B223AB9A34E /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AA839AE80D8816DC13BD932 /* Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.release.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		61BEE1CFB47CEE9C3A501E6C /* Pods_TDD_Practice_PokerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDD_Practice_PokerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1BCECAD86138B2C333268F /* Pods-TDD_Practice_PokerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_PokerTests.debug.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_PokerTests/Pods-TDD_Practice_PokerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		76D1576C1DACBAA5CB1B94A1 /* Pods-TDD_Practice_Poker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_Poker.debug.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_Poker/Pods-TDD_Practice_Poker.debug.xcconfig"; sourceTree = "<group>"; };
 		7C002478252847120031FAC9 /* TDD_Practice_Poker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDD_Practice_Poker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C00247B252847120031FAC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C00247D252847120031FAC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +108,7 @@
 		7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandProtocol.swift; sourceTree = "<group>"; };
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
 		7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCardStatusProperty.swift; sourceTree = "<group>"; };
+		7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuBuilder.swift; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
@@ -133,6 +142,11 @@
 		7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerCollectionViewControllersBuilder.swift; sourceTree = "<group>"; };
 		7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCellHashValuesProperty.swift; sourceTree = "<group>"; };
 		7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardButtonStatus.swift; sourceTree = "<group>"; };
+		80EB03093D970E8FF995A903 /* Pods_TDD_Practice_Poker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDD_Practice_Poker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		822DA62D64142E3678C038D9 /* Pods-TDD_Practice_PokerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_PokerTests.release.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_PokerTests/Pods-TDD_Practice_PokerTests.release.xcconfig"; sourceTree = "<group>"; };
+		949545BC24BCB55821A43F3E /* Pods-TDD_Practice_Poker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_Poker.release.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_Poker/Pods-TDD_Practice_Poker.release.xcconfig"; sourceTree = "<group>"; };
+		D59EC61B023E89BC75AB3FD1 /* Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.debug.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6C47EFBAE195B223AB9A34E /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F5702CC9E7FE995FE384EE /* Pods_TDD_Practice_Poker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416B856D43215B0FE0623319 /* Pods_TDD_Practice_PokerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,12 +170,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A92BF337E768B27278AC5A /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012894D081E8A86D63EFE396 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80EB03093D970E8FF995A903 /* Pods_TDD_Practice_Poker.framework */,
+				E6C47EFBAE195B223AB9A34E /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework */,
+				61BEE1CFB47CEE9C3A501E6C /* Pods_TDD_Practice_PokerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3905F877505B1DDED4AC2019 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76D1576C1DACBAA5CB1B94A1 /* Pods-TDD_Practice_Poker.debug.xcconfig */,
+				949545BC24BCB55821A43F3E /* Pods-TDD_Practice_Poker.release.xcconfig */,
+				D59EC61B023E89BC75AB3FD1 /* Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.debug.xcconfig */,
+				2AA839AE80D8816DC13BD932 /* Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.release.xcconfig */,
+				6D1BCECAD86138B2C333268F /* Pods-TDD_Practice_PokerTests.debug.xcconfig */,
+				822DA62D64142E3678C038D9 /* Pods-TDD_Practice_PokerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7C00246F252847120031FAC9 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +207,8 @@
 				7C002491252847140031FAC9 /* TDD_Practice_PokerTests */,
 				7C00249C252847140031FAC9 /* TDD_Practice_PokerUITests */,
 				7C002479252847120031FAC9 /* Products */,
+				3905F877505B1DDED4AC2019 /* Pods */,
+				012894D081E8A86D63EFE396 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,11 +289,6 @@
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
 				7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */,
 				7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */,
-				7CDE9D91253465CD00898855 /* NSObjectProtocol+Extension.swift */,
-				7CDE9D99253465FD00898855 /* CollectionViewReusableView+Extension.swift */,
-				7CDE9D9E2534661300898855 /* CollectionView+Extension.swift */,
-				7CDE9DA32534665700898855 /* Identifier+Extension.swift */,
-				7CDE9DA82534666A00898855 /* UIColor+Extension.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -259,6 +296,11 @@
 		7C002506252AA4B70031FAC9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7CDE9D91253465CD00898855 /* NSObjectProtocol+Extension.swift */,
+				7CDE9D99253465FD00898855 /* CollectionViewReusableView+Extension.swift */,
+				7CDE9D9E2534661300898855 /* CollectionView+Extension.swift */,
+				7CDE9DA32534665700898855 /* Identifier+Extension.swift */,
+				7CDE9DA82534666A00898855 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -325,6 +367,7 @@
 				7C00247F252847120031FAC9 /* PokerViewController.swift */,
 				7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */,
 				7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */,
+				7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -381,9 +424,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C0024A2252847140031FAC9 /* Build configuration list for PBXNativeTarget "TDD_Practice_Poker" */;
 			buildPhases = (
+				4470C4E461E60CE4175C41E5 /* [CP] Check Pods Manifest.lock */,
 				7C002474252847120031FAC9 /* Sources */,
 				7C002475252847120031FAC9 /* Frameworks */,
 				7C002476252847120031FAC9 /* Resources */,
+				F605EF5468A9824D3532C932 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -398,6 +443,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C0024A5252847140031FAC9 /* Build configuration list for PBXNativeTarget "TDD_Practice_PokerTests" */;
 			buildPhases = (
+				564C6891E53BD9712D207345 /* [CP] Check Pods Manifest.lock */,
 				7C00248A252847140031FAC9 /* Sources */,
 				7C00248B252847140031FAC9 /* Frameworks */,
 				7C00248C252847140031FAC9 /* Resources */,
@@ -416,9 +462,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C0024A8252847140031FAC9 /* Build configuration list for PBXNativeTarget "TDD_Practice_PokerUITests" */;
 			buildPhases = (
+				F3319236FA515ED86750CF84 /* [CP] Check Pods Manifest.lock */,
 				7C002495252847140031FAC9 /* Sources */,
 				7C002496252847140031FAC9 /* Frameworks */,
 				7C002497252847140031FAC9 /* Resources */,
+				9184D3DF63CAFF3FD16DA098 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -502,6 +550,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4470C4E461E60CE4175C41E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TDD_Practice_Poker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		564C6891E53BD9712D207345 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TDD_Practice_PokerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9184D3DF63CAFF3FD16DA098 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3319236FA515ED86750CF84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F605EF5468A9824D3532C932 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TDD_Practice_Poker/Pods-TDD_Practice_Poker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TDD_Practice_Poker/Pods-TDD_Practice_Poker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TDD_Practice_Poker/Pods-TDD_Practice_Poker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C002474252847120031FAC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -515,6 +666,7 @@
 				7CDE9D92253465CD00898855 /* NSObjectProtocol+Extension.swift in Sources */,
 				7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */,
 				7C002480252847120031FAC9 /* PokerViewController.swift in Sources */,
+				7C364B452536C36E00FA4C9C /* CircleMenuBuilder.swift in Sources */,
 				7CDE9DE725346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift in Sources */,
 				7C0024C8252861FD0031FAC9 /* Hand.swift in Sources */,
 				7CDE9DCA2534698500898855 /* CPUCardCollectionViewCell.swift in Sources */,
@@ -721,6 +873,7 @@
 		};
 		7C0024A3252847140031FAC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76D1576C1DACBAA5CB1B94A1 /* Pods-TDD_Practice_Poker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -740,6 +893,7 @@
 		};
 		7C0024A4252847140031FAC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 949545BC24BCB55821A43F3E /* Pods-TDD_Practice_Poker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -759,6 +913,7 @@
 		};
 		7C0024A6252847140031FAC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D1BCECAD86138B2C333268F /* Pods-TDD_Practice_PokerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -781,6 +936,7 @@
 		};
 		7C0024A7252847140031FAC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 822DA62D64142E3678C038D9 /* Pods-TDD_Practice_PokerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -803,6 +959,7 @@
 		};
 		7C0024A9252847140031FAC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D59EC61B023E89BC75AB3FD1 /* Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -823,6 +980,7 @@
 		};
 		7C0024AA252847140031FAC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AA839AE80D8816DC13BD932 /* Pods-TDD_Practice_Poker-TDD_Practice_PokerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -14,7 +14,8 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol {
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw
     var removeCellHashValues = RemoveCellHashValuesProperty()
-    var localObject:String = ""
+    var moveCardStatuses = MoveCardStatusProperty()
+//    var localObject:String = ""
     
     @IBOutlet weak var cpuCardCollectionView: UICollectionView!
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
@@ -33,7 +34,7 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol {
     @objc func tappedChangeCardBtn(_ sender: UIButton){
         
 //        pokerPresenter?.changeCardButtonStatus()
-        updateCardUI(sourceIndexPath: nil, destinationIndexPath: nil)
+
     }
     
     func updateChangeCardButtonUI(_ changeState: Bool) {

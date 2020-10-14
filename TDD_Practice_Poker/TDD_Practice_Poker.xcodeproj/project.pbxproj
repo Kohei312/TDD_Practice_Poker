@@ -23,6 +23,7 @@
 		7C0024F525298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */; };
 		7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */; };
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
+		7C364B282536B20700FA4C9C /* MoveCardStatusProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
@@ -98,6 +99,7 @@
 		7C0024F425298C830031FAC9 /* TDD_Practice_Poker_ThreeCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_ThreeCardLogicTests.swift; sourceTree = "<group>"; };
 		7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandProtocol.swift; sourceTree = "<group>"; };
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
+		7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCardStatusProperty.swift; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */,
+				7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */,
 				7CDE9DAD2534691400898855 /* PlayerCardCollectionViewCell.swift */,
 				7CDE9DAE2534691400898855 /* PlayerCardCollectionViewCell.xib */,
 				7CDE9DDC25346B9400898855 /* PlayerCardCollectionViewLayout.swift */,
@@ -508,6 +511,7 @@
 				7CDE9DA42534665700898855 /* Identifier+Extension.swift in Sources */,
 				7CDE9DA92534666A00898855 /* UIColor+Extension.swift in Sources */,
 				7CAC4601252DCB4E004008A5 /* CardStub.swift in Sources */,
+				7C364B282536B20700FA4C9C /* MoveCardStatusProperty.swift in Sources */,
 				7CDE9D92253465CD00898855 /* NSObjectProtocol+Extension.swift in Sources */,
 				7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */,
 				7C002480252847120031FAC9 /* PokerViewController.swift in Sources */,

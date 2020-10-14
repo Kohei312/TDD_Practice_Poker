@@ -41,4 +41,11 @@ extension UIColor{
         
         return color
     }
+    
+    func changedCellColor()->UIColor{
+        
+        guard var color:UIColor = UIColor(named: "Purple/Deepest") else {return UIColor()}
+        return color
+        
+    }
 }

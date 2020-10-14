@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum ChangeCardState{
-    case canChange
-    case cannotChange
-}
-
 class PlayerCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var suitLabel: UILabel!
@@ -27,18 +22,18 @@ class PlayerCardCollectionViewCell: UICollectionViewCell {
     func setupPlayerCardCellColor(color:UIColor){
         self.contentView.backgroundColor = color
     }
-    
-    func switchCardTouchState()->Bool{
-        switch cardChangeState{
-        case .canChange:
-            return true
-        case .cannotChange:
-            return false
-        }
-    }
-    
+        
     func setCardHashValue(cardHashValue:Int){
         self.cardHashValue = cardHashValue
+    }
+    
+    func setupLabels(suit:String,rank:String){
+        self.suitLabel.text = suit
+        self.rankLabel.text = rank
+    }
+    
+    func setupCardChangeStatus(_ cardState:ChangeCardState){
+        self.cardChangeState = cardState
     }
     
 }

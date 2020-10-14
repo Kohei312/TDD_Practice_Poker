@@ -25,7 +25,6 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol {
         self.build()
         self.setupCollectionViews()
         self.setupChangePlayerStateButton()
-//        self.changeCardButton.isHidden = true
     }
     
     @objc func tappedChangeCardBtn(_ sender: UIButton){

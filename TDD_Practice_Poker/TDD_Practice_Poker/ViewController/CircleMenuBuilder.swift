@@ -62,18 +62,25 @@ extension PokerViewController:CircleMenuDelegate{
         // MARK:- ターン終了: atIndex = 0
         // 交換したカードが表示される時間
         // MARK:- バトル開始: atIndex = 1
+        // バトル宣言をしたことが表示される時間
         
     }
     
     func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
         // ボタンのアニメーション終了後に呼ばれる
-        // MARK:- ターン終了: atIndex = 0
-    
+
         changePlayerCollectionViewDragEnable() // メニューボタンを押した直後に.falseとなっているため、ここで一瞬.trueにもどす
+        switch atIndex{
+        case 0:
+            // MARK:- ターン終了: atIndex = 0
+            self.pokerPresenter?.tappedTurnoverBtn(.me)
+        case 1:
+            // MARK:- バトル開始: atIndex = 1
+            self.pokerPresenter?.tappedBattleBtn(.me)
+        default :break
+        }
         
-        self.pokerPresenter?.finishChangeCard(.me)
-        // MARK:- バトル開始: atIndex = 1
     }
 
 }

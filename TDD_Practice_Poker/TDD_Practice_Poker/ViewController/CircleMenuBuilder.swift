@@ -61,6 +61,14 @@ extension PokerViewController:CircleMenuDelegate{
         // ボタンをタップした瞬間にコールされる
         // MARK:- ターン終了: atIndex = 0
         // 交換したカードが表示される時間
+        
+         
+//        if atIndex == 0{
+//            shouldAppearAnimationView(true,view:self.animationView)
+//        } else if atIndex == 1{
+//            shouldAppearAnimationView(false,view:self.animationView)
+//        }
+
         // MARK:- バトル開始: atIndex = 1
         // バトル宣言をしたことが表示される時間
         

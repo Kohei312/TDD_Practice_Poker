@@ -18,7 +18,6 @@ extension PokerPresenter:InteractorOutputProtocol{
         print("各UIパーツに状態変更を指示 :",gameSide)
         switch gameSide{
         case .playerType(.me):
-            
             pokerPresenterOutputProtocol?.updateGameStateUI()
         case .playerType(.other):
             pokerPresenterOutputProtocol?.updateGameStateUI()

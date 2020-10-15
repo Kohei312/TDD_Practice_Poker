@@ -50,7 +50,7 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
         case playerCardCollectionView:
             return playerhands.myPlayerHand.cards.count
         case throwoutCardCollectionView:
-            return cardDeck.appearedCards.count
+            return 5
         case cpuCardCollectionView:
             return playerhands.otherPlayerHand.cards.count
         default:
@@ -76,7 +76,7 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
             return cell
         case throwoutCardCollectionView:
             let cell = collectionView.dequeueReusableCell(with: ThrowoutCardCollectionViewCell.self, indexPath: indexPath)
-            cell.setupThrowoutCardCellColor(color: UIColor().cellColor(indexPath))
+            cell.setupThrowoutCardCellColor(color: UIColor().cellColor(IndexPath(item: randomNumber(0..<4), section: 0)))
             return cell
         case cpuCardCollectionView:
             let cell = collectionView.dequeueReusableCell(with: CPUCardCollectionViewCell.self, indexPath: indexPath)
@@ -227,9 +227,10 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
                 self.updatePlayerCardUI(insertIndexPath: insertIndexPath, operation: coordinator.proposal.operation)
             }
         case throwoutCardCollectionView:
-            collectionView.performBatchUpdates({
-                collectionView.insertItems(at: [insertIndexPath])
-            })
+//            collectionView.performBatchUpdates({
+//                collectionView.insertItems(at: [insertIndexPath])
+//            })
+        break
         case cpuCardCollectionView:
             
             break

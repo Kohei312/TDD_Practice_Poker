@@ -8,7 +8,7 @@
 import UIKit
 import CircleMenu
 
-class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
+class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomNumberProtocol{
 
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw
@@ -24,11 +24,13 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
     var circleMenuButton:CircleMenu?
+    var animationView:UIView?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.build()
+        
     }
 
     
@@ -58,6 +60,7 @@ extension PokerViewController{
         playerCardCollectionView.dragInteractionEnabled =
             playerCardCollectionView.dragInteractionEnabled ? false : true
         print(playerCardCollectionView.dragInteractionEnabled)
+        view.isHidden = false
     }
     
     func changeCircleMenuButtonIsHidden(){

@@ -27,6 +27,8 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         setupCollectionViews()
         
         setupMenuButton()
+        
+        setupAnimationVIew()
         print("初期化")
     }
 }

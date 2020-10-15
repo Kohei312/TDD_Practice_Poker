@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ThrowOutCardsCollectionViewLayout:UICollectionViewLayout{
+class ThrowOutCardsCollectionViewLayout:UICollectionViewLayout,RandomNumberProtocol{
     
     private var property = ThrowoutCardCollectionVewLayoutProperty()
     
@@ -51,7 +51,7 @@ class ThrowOutCardsCollectionViewLayout:UICollectionViewLayout{
             // indexPathが若いitemは、少し高さを出す.
             attributes.center = CGPoint(x: property.center.x , y: property.center.y )
             attributes.size = CGSize(width: property.itemSize.width, height: property.itemSize.height)
-            attributes.transform = attributes.transform.rotated(by: 270 - (angle/2))
+            attributes.transform = attributes.transform.rotated(by: 270 - (angle))
             
             return attributes
         
@@ -59,10 +59,9 @@ class ThrowOutCardsCollectionViewLayout:UICollectionViewLayout{
     
 
     // MARK:- 表示範囲内にあるセルのLayoutAttributesを返す
-    // prepare()内でcachedAttributesに格納した、attributeのフレームとcontentBoundsを一致させる →検索処理が重くなりやすいので、二分探索で検索
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return (0 ..< property.numberOfItems).compactMap { item -> UICollectionViewLayoutAttributes? in
-            self.layoutAttributesForItem(at: IndexPath(item: item, section: 0))
+            self.layoutAttributesForItem(at: IndexPath(item: randomNumber(0..<5), section: 0))
         }
     }
 }

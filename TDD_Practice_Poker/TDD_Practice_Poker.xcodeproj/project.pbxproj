@@ -30,6 +30,10 @@
 		7C458C3F2536D8CA0047884D /* CircleMenuButtonProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C458C3E2536D8CA0047884D /* CircleMenuButtonProperty.swift */; };
 		7CA186CC2537E1D500441A71 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186CB2537E1D500441A71 /* UIImage+Extension.swift */; };
 		7CA186D425381A8E00441A71 /* PokerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186D325381A8E00441A71 /* PokerPresenterProtocol.swift */; };
+		7CA186DF253823EC00441A71 /* GameStateAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186DE253823EC00441A71 /* GameStateAnimationView.swift */; };
+		7CA186E42538298100441A71 /* GameStateAnimationBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */; };
+		7CA186E925382D4A00441A71 /* RandomNumberProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */; };
+		7CA186F12538314700441A71 /* PokerAnimationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
@@ -114,6 +118,10 @@
 		7C458C3E2536D8CA0047884D /* CircleMenuButtonProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuButtonProperty.swift; sourceTree = "<group>"; };
 		7CA186CB2537E1D500441A71 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7CA186D325381A8E00441A71 /* PokerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerPresenterProtocol.swift; sourceTree = "<group>"; };
+		7CA186DE253823EC00441A71 /* GameStateAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateAnimationView.swift; sourceTree = "<group>"; };
+		7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateAnimationBaseView.swift; sourceTree = "<group>"; };
+		7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberProtocol.swift; sourceTree = "<group>"; };
+		7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerAnimationViewBuilder.swift; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
@@ -290,6 +298,7 @@
 		7C0024FA2529DAC30031FAC9 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */,
 				7C0024FB2529DAD50031FAC9 /* HandProtocol.swift */,
 				7CAC4605252DCF42004008A5 /* JudgementProtocol.swift */,
 				7CAC46782530736E004008A5 /* PokerInteractorProtocol.swift */,
@@ -371,6 +380,7 @@
 			children = (
 				7C00247F252847120031FAC9 /* PokerViewController.swift */,
 				7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */,
+				7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */,
 				7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */,
 				7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */,
 				7C458C3E2536D8CA0047884D /* CircleMenuButtonProperty.swift */,
@@ -384,6 +394,8 @@
 				7CDE9DD125346B4100898855 /* PlayerCard */,
 				7CDE9DD025346B3200898855 /* ThrowoutCard */,
 				7CDE9DCF25346B2600898855 /* CPUCard */,
+				7CA186DE253823EC00441A71 /* GameStateAnimationView.swift */,
+				7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -664,13 +676,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA186DF253823EC00441A71 /* GameStateAnimationView.swift in Sources */,
 				7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */,
 				7CDE9DA42534665700898855 /* Identifier+Extension.swift in Sources */,
 				7CDE9DA92534666A00898855 /* UIColor+Extension.swift in Sources */,
 				7CAC4601252DCB4E004008A5 /* CardStub.swift in Sources */,
 				7C364B282536B20700FA4C9C /* MoveCardStatusProperty.swift in Sources */,
 				7CDE9D92253465CD00898855 /* NSObjectProtocol+Extension.swift in Sources */,
+				7CA186F12538314700441A71 /* PokerAnimationViewBuilder.swift in Sources */,
 				7CAC466825305441004008A5 /* PokerViewControllerBuilder.swift in Sources */,
+				7CA186E42538298100441A71 /* GameStateAnimationBaseView.swift in Sources */,
 				7C002480252847120031FAC9 /* PokerViewController.swift in Sources */,
 				7C364B452536C36E00FA4C9C /* CircleMenuBuilder.swift in Sources */,
 				7CDE9DE725346C7E00898855 /* ThrowoutCardCollectionViewLayoutProperty.swift.swift in Sources */,
@@ -682,6 +697,7 @@
 				7CA186CC2537E1D500441A71 /* UIImage+Extension.swift in Sources */,
 				7CDE9D9F2534661300898855 /* CollectionView+Extension.swift in Sources */,
 				7CAC45FC252DC8AC004008A5 /* PlayerStatus.swift in Sources */,
+				7CA186E925382D4A00441A71 /* RandomNumberProtocol.swift in Sources */,
 				7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */,
 				7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */,
 				7CDE9D9A253465FD00898855 /* CollectionViewReusableView+Extension.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 import CircleMenu
 
 class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
-    
+
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw
     
@@ -32,11 +32,16 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
     }
 
     
-    func updateJudgementUI(judgement:Judgement) {
+    func updateJudgementUI(judgement: Judgement, myHand: Hand, otherHand: Hand) {
         // スタブ OK
         print("presenterから呼ばれる")
         self.result = judgement
         // Presenterからの伝達で、UI更新
+        // 自分と相手の手札を見せあい、役がわかるようにしたい
+        /* TODO:-
+             ・cpuCardCVのUIを更新し、カードの柄が見えるようにする
+             ・相手と自分の役がわかるように、Handも一緒に伝達する ->テスト OK
+         */
     }
     
     func updateGameStateUI() {

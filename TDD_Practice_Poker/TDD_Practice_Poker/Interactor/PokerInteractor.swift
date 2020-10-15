@@ -16,9 +16,11 @@ extension PokerInteractor:InteractorInputProtocol{
     mutating func notify(_ gameSide:GameSide,judgeStatus:Judgement?) {
         switch gameSide{
         case .playerType(.me),.playerType(.other):
-            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus: nil)
+            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus:nil,myHand:nil,otherHand:nil)
         case .result:
-            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus: judgeStatus)
+            let myHand = handStatus.myPlayerHand
+            let otherHand = handStatus.otherPlayerHand
+            interactorOutputProtocol?.callPresenter(gameSide,judgeStatus:judgeStatus,myHand:myHand,otherHand:otherHand)
         }
     }
 }
@@ -160,8 +162,7 @@ extension PokerInteractor{
     
     mutating func changeGameStatement(_ playerType:PlayerType, noChangeCount:Bool){
         
-        if player_me.player.playerStatement == .isReadyButtle &&
-            player_other.player.playerStatement == .isReadyButtle{
+        if player_me.player.playerStatement == .isReadyButtle {
             
             judge()
         

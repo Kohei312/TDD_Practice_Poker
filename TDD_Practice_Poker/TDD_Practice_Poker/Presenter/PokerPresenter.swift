@@ -7,19 +7,14 @@
 
 import Foundation
 
-protocol PokerPresenterOutputProtocol{
-    func updateJudgementUI(judgement:Judgement)
-    func updateGameStateUI()
-    //    func updatePlayerUI()
-}
+
 
 extension PokerPresenter:InteractorOutputProtocol{
     func callUpdatePlayerUI() {
         //        pokerPresenterOutputProtocol?.updatePlayerUI()
     }
-    
-    
-    mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?) {
+
+    mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?,myHand:Hand?,otherHand:Hand?) {
         print("各UIパーツに状態変更を指示 :",gameSide)
         switch gameSide{
         case .playerType(.me):
@@ -28,9 +23,11 @@ extension PokerPresenter:InteractorOutputProtocol{
         case .playerType(.other):
             pokerPresenterOutputProtocol?.updateGameStateUI()
         case .result:
-            if let judge = judgeStatus{
+            if let judge = judgeStatus,let myHand = myHand,let otherHand = otherHand{
                 print("結果は :",judge)
-                pokerPresenterOutputProtocol?.updateJudgementUI(judgement: judge)
+                print("決まり手は :",myHand.handState)
+                print("相手の決まり手は :",otherHand.handState)
+                pokerPresenterOutputProtocol?.updateJudgementUI(judgement: judge,myHand: myHand,otherHand: otherHand)
             }
         }
     }

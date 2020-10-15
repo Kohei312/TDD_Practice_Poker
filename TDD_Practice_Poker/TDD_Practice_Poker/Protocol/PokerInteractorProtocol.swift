@@ -13,6 +13,6 @@ protocol InteractorInputProtocol{
 }
 
 protocol InteractorOutputProtocol{
-    mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?)
+    mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?,myHand:Hand?,otherHand:Hand?)
     mutating func callUpdatePlayerUI()
 }

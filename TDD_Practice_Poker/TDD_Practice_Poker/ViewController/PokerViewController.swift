@@ -33,9 +33,9 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
 
     
     func updateJudgementUI(judgement:Judgement) {
+        // スタブ OK
         print("presenterから呼ばれる")
         self.result = judgement
-        
         // Presenterからの伝達で、UI更新
     }
     

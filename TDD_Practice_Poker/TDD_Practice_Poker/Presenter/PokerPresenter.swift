@@ -75,7 +75,11 @@ extension PokerPresenter{
         //MARK:- UI更新をコール
     }
     
-    mutating func finishChangeCard(_ playerType:PlayerType){
+    mutating func tappedTurnoverBtn(_ playerType:PlayerType){
         pokerInteractor.decrementChangeCounter(playerType)
+    }
+    
+    mutating func tappedBattleBtn(_ playerType:PlayerType){
+        pokerInteractor.isReadyButtle(playerType)
     }
 }

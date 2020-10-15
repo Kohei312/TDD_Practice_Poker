@@ -153,6 +153,7 @@ extension PokerInteractor{
         case .other:
             player_other.callReadyButtle()
         }
+        
 
         changeGameStatement(playerType,noChangeCount: true)
     }

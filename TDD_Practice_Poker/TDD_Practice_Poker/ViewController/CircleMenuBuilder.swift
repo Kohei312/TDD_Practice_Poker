@@ -16,9 +16,9 @@ extension PokerViewController:CircleMenuDelegate{
             normalIcon:"ButtonMenu/MenuIcon",
             selectedIcon:"ButtonMenu/MenuIcon",
             buttonsCount: 2,
-            duration: 2,
+            duration: 0.5,
             distance: 75)
-        circleMenuButtonProperty.setSubButtonPosition(frame: button.frame)
+
         button.backgroundColor = UIColor.systemBlue
         button.delegate = self
         button.layer.cornerRadius = button.frame.size.width / 2
@@ -28,8 +28,8 @@ extension PokerViewController:CircleMenuDelegate{
         
         view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: self.playerCardCollectionView.trailingAnchor,constant: -fibonuchThirdSquareLength / 2).isActive = true
-        button.centerYAnchor.constraint(equalTo: self.playerCardCollectionView.bottomAnchor, constant: -fibonuchThirdSquareLength / 2).isActive = true
+        button.trailingAnchor.constraint(equalTo: self.playerCardCollectionView.trailingAnchor,constant: -8).isActive = true
+        button.bottomAnchor.constraint(equalTo: self.playerCardCollectionView.bottomAnchor, constant: -fibonuchThirdSquareLength + 8).isActive = true
         
         button.widthAnchor.constraint(equalToConstant: 50).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -39,7 +39,6 @@ extension PokerViewController:CircleMenuDelegate{
         button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
         
         button.setImage(UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.resized(toWidth:45), for: .normal)
-        button.center = circleMenuButtonProperty.subButtonPosition[atIndex]
         // set highlited image
         let highlightedImage = UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
         button.setImage(highlightedImage, for: .highlighted)

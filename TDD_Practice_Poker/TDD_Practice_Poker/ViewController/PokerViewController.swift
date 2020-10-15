@@ -6,31 +6,38 @@
 //
 
 import UIKit
+import CircleMenu
 
 class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
-
+    
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw
     var removeCellHashValues = RemoveCellHashValuesProperty()
     var moveCardStatuses = MoveCardStatusProperty()
+    var circleMenuButtonProperty = CircleMenuButtonProperty()
     
     @IBOutlet weak var cpuCardCollectionView: UICollectionView!
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
-    @IBOutlet weak var changePlayerStateButton: UIButton!
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.build()
         self.setupCollectionViews()
-        self.setupChangePlayerStateButton()
+        self.setupMenuButton()
+//        self.setupChangePlayerStateButton()
+
+        
     }
     
     @objc func tappedChangeCardBtn(_ sender: UIButton){
         
-//        pokerPresenter?.changeCardButtonStatus()
-
+        //        pokerPresenter?.changeCardButtonStatus()
+        
     }
     
     func updateChangeCardButtonUI(_ changeState: Bool) {
@@ -42,14 +49,14 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
             // カード選択状態を許可する
             // ボタン表記を「OK」に変更
             print("ok")
-            // MARK:- CollectionViewCellが選択状態のときに有効となる
-
-
-                // スタブ OK
-                //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                //                self.pokerPresenter?.addCard(playerType: .me)
-                //            }
-
+        // MARK:- CollectionViewCellが選択状態のときに有効となる
+        
+        
+        // スタブ OK
+        //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        //                self.pokerPresenter?.addCard(playerType: .me)
+        //            }
+        
         case false:
             // カード選択状態を不許可にする
             // ボタン表記を「交換する」に変更

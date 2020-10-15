@@ -48,4 +48,8 @@ extension UIColor{
         return color
         
     }
+    
+    func setMenuButtonColor()->UIColor{
+        return UIColor(red: 110, green: 186, blue: 255, alpha: 0.7)
+    }
 }

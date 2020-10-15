@@ -28,7 +28,7 @@ class PlayerCardCollectionViewLayout:UICollectionViewLayout{
         cv.contentSize = collectionViewContentSize
         
         //        property.center = CGPoint(x: cv.bounds.midX, y: cv.bounds.midY)
-        property.center = CGPoint(x: cv.bounds.midX + (cv.bounds.midX / 1.3) , y: cv.bounds.maxY - (cv.bounds.midY / 16))
+        property.center = CGPoint(x: cv.bounds.midX + (cv.bounds.midX / 2) , y: cv.bounds.maxY - (cv.bounds.midY / 16))
         let shortAxisLength = min(cv.bounds.width, cv.bounds.height)
         // 正方形を作成 -> 円の直径をshortAxisLengthに設定
         property.itemSize = CGSize(width: shortAxisLength , height: shortAxisLength)
@@ -49,7 +49,7 @@ class PlayerCardCollectionViewLayout:UICollectionViewLayout{
             let angle = circleLength / CGFloat(property.numberOfItems)
             
             // indexPathが若いitemは、少し高さを出す.
-            attributes.center = CGPoint(x: property.center.x - ( property.radius * sin(angle) / 2 ), y: property.center.y - ( property.radius * cos(angle) / 2.5 ) )
+        attributes.center = CGPoint(x: property.center.x - ( property.radius * sin(angle) / 1.7 ), y: property.center.y - ( property.radius * cos(angle) / 3 ) )
             attributes.size = CGSize(width: property.itemSize.width / 2, height: property.itemSize.height)
             attributes.transform = attributes.transform.rotated(by: 270 - (angle/2))
             attributes.zIndex = indexPath.item

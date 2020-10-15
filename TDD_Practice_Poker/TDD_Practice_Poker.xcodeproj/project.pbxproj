@@ -27,6 +27,8 @@
 		7C002514252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */; };
 		7C364B282536B20700FA4C9C /* MoveCardStatusProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */; };
 		7C364B452536C36E00FA4C9C /* CircleMenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */; };
+		7C458C3F2536D8CA0047884D /* CircleMenuButtonProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C458C3E2536D8CA0047884D /* CircleMenuButtonProperty.swift */; };
+		7CA186CC2537E1D500441A71 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186CB2537E1D500441A71 /* UIImage+Extension.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
@@ -109,6 +111,8 @@
 		7C002513252AC5E00031FAC9 /* TDD_Practice_Poker_FiveCardLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_Practice_Poker_FiveCardLogicTests.swift; sourceTree = "<group>"; };
 		7C364B272536B20700FA4C9C /* MoveCardStatusProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCardStatusProperty.swift; sourceTree = "<group>"; };
 		7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuBuilder.swift; sourceTree = "<group>"; };
+		7C458C3E2536D8CA0047884D /* CircleMenuButtonProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuButtonProperty.swift; sourceTree = "<group>"; };
+		7CA186CB2537E1D500441A71 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 				7CDE9D9E2534661300898855 /* CollectionView+Extension.swift */,
 				7CDE9DA32534665700898855 /* Identifier+Extension.swift */,
 				7CDE9DA82534666A00898855 /* UIColor+Extension.swift */,
+				7CA186CB2537E1D500441A71 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				7CAC466725305441004008A5 /* PokerViewControllerBuilder.swift */,
 				7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */,
 				7C364B442536C36E00FA4C9C /* CircleMenuBuilder.swift */,
+				7C458C3E2536D8CA0047884D /* CircleMenuButtonProperty.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				7CDE9DB92534694000898855 /* ThrowoutCardCollectionViewCell.swift in Sources */,
 				7CDE9DD825346B8600898855 /* ThrowoutCardCollectionViewLayout.swift in Sources */,
 				7C0024D525287CD00031FAC9 /* HandStatus.swift in Sources */,
+				7CA186CC2537E1D500441A71 /* UIImage+Extension.swift in Sources */,
 				7CDE9D9F2534661300898855 /* CollectionView+Extension.swift in Sources */,
 				7CAC45FC252DC8AC004008A5 /* PlayerStatus.swift in Sources */,
 				7CAC462C252EE86E004008A5 /* PokerPresenter.swift in Sources */,
@@ -682,6 +689,7 @@
 				7CDE9DD325346B7500898855 /* CPUCardCollectionViewLayout.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
 				7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */,
+				7C458C3F2536D8CA0047884D /* CircleMenuButtonProperty.swift in Sources */,
 				7CAC46792530736E004008A5 /* PokerInteractorProtocol.swift in Sources */,
 				7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */,
 				7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */,

@@ -32,6 +32,5 @@ extension UICollectionView{
         return self.visibleCells as! [T]
         
     }
-    
 }
 

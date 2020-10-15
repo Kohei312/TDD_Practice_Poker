@@ -48,8 +48,8 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         cpuCardCollectionView.dataSource = self
     }
     
-    func setupChangePlayerStateButton(){
-        self.changePlayerStateButton.addTarget(self,action: #selector(self.tappedChangeCardBtn(_ :)),for: .touchUpInside)
-        self.changePlayerStateButton.layer.cornerRadius = self.changePlayerStateButton.frame.width / 2
-    }
+//    func setupChangePlayerStateButton(){
+//        self.changePlayerStateButton.addTarget(self,action: #selector(self.tappedChangeCardBtn(_ :)),for: .touchUpInside)
+//        self.changePlayerStateButton.layer.cornerRadius = self.changePlayerStateButton.frame.width / 2
+//    }
 }

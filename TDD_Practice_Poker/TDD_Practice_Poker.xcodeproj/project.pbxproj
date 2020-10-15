@@ -61,7 +61,6 @@
 		7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */; };
 		7CDE9DFA25346F2600898855 /* PokerCollectionViewControllersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */; };
 		7CDE9DFF2535634600898855 /* RemoveCellHashValuesProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */; };
-		7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */; };
 		E0A92BF337E768B27278AC5A /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C47EFBAE195B223AB9A34E /* Pods_TDD_Practice_Poker_TDD_Practice_PokerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,7 +144,6 @@
 		7CDE9DEB25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewLayoutProperty.swift.swift; sourceTree = "<group>"; };
 		7CDE9DF925346F2600898855 /* PokerCollectionViewControllersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerCollectionViewControllersBuilder.swift; sourceTree = "<group>"; };
 		7CDE9DFE2535634600898855 /* RemoveCellHashValuesProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCellHashValuesProperty.swift; sourceTree = "<group>"; };
-		7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardButtonStatus.swift; sourceTree = "<group>"; };
 		80EB03093D970E8FF995A903 /* Pods_TDD_Practice_Poker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDD_Practice_Poker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		822DA62D64142E3678C038D9 /* Pods-TDD_Practice_PokerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_PokerTests.release.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_PokerTests/Pods-TDD_Practice_PokerTests.release.xcconfig"; sourceTree = "<group>"; };
 		949545BC24BCB55821A43F3E /* Pods-TDD_Practice_Poker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDD_Practice_Poker.release.xcconfig"; path = "Target Support Files/Pods-TDD_Practice_Poker/Pods-TDD_Practice_Poker.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		7CAC462A252EE82C004008A5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				7CDE9E0F25359F0F00898855 /* ChangeCardButtonStatus.swift */,
 				7CAC462B252EE86E004008A5 /* PokerPresenter.swift */,
 			);
 			path = Presenter;
@@ -705,7 +702,6 @@
 				7CAC4606252DCF42004008A5 /* JudgementProtocol.swift in Sources */,
 				7C0024FC2529DAD50031FAC9 /* HandProtocol.swift in Sources */,
 				7CDE9DFF2535634600898855 /* RemoveCellHashValuesProperty.swift in Sources */,
-				7CDE9E1025359F0F00898855 /* ChangeCardButtonStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

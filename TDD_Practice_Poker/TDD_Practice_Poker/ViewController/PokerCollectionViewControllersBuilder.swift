@@ -17,6 +17,28 @@ enum CollectionViewType{
 
 extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
+    func setupCollectionViews(){
+        playerCardCollectionView.registerCell(PlayerCardCollectionViewCell.self)
+        playerCardCollectionView.registerLayout(layout: PlayerCardCollectionViewLayout())
+        playerCardCollectionView.delegate = self
+        playerCardCollectionView.dataSource = self
+        playerCardCollectionView.dropDelegate = self
+        playerCardCollectionView.dragDelegate = self
+        playerCardCollectionView.dragInteractionEnabled = true
+        
+        throwoutCardCollectionView.registerCell(ThrowoutCardCollectionViewCell.self)
+        throwoutCardCollectionView.registerLayout(layout: ThrowOutCardsCollectionViewLayout())
+        throwoutCardCollectionView.delegate = self
+        throwoutCardCollectionView.dataSource = self
+        throwoutCardCollectionView.dropDelegate = self
+        throwoutCardCollectionView.dragInteractionEnabled = true
+        
+        cpuCardCollectionView.registerCell(CPUCardCollectionViewCell.self)
+        cpuCardCollectionView.registerLayout(layout: CPUCardsCollectionViewLayout())
+        cpuCardCollectionView.delegate = self
+        cpuCardCollectionView.dataSource = self
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         guard let pokerPresenter = self.pokerPresenter else {return 0}
@@ -123,7 +145,7 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
                 } else if cells != [] && cells[0].cardChangeState == .cannotChange{
                     dropProposal = UICollectionViewDropProposal(operation: .cancel)
                 }
-            
+                
             default:break
             }
             
@@ -135,13 +157,65 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
         return dropProposal
     }
     
-    func updateCollectionViewUI(_ collectionView:UICollectionView,deleteIndexPath:IndexPath?,insertIndexPath:IndexPath,sourceDragItem:UIDragItem?,coordinator: UICollectionViewDropCoordinator?){
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        
+        switch coordinator.proposal.operation {
+        
+        // MARK:- カードを並べ替える（交換なし）
+        case .move:
+            moveCard(coordinator: coordinator)
+        // MARK:- カードを交換する
+        case .copy:
+            changeCard(coordinator: coordinator)
+            
+        case .cancel, .forbidden:
+            return
+        @unknown default:
+            self.removeCellHashValues.removeCellHashValues = []
+            fatalError()
+        }
+        self.removeCellHashValues.removeCellHashValues = []
+    }
+    
+    func moveCard(coordinator: UICollectionViewDropCoordinator){
+        guard
+            let destinationIndexPath = coordinator.destinationIndexPath,
+            let sourceIndexPath = coordinator.items.first?.sourceIndexPath,
+            let sourceDragItem = coordinator.items.first?.dragItem
+        else { return }
+        
+        //             データソースを更新する
+        self.pokerPresenter?.changeCardIndex(playerType:.me,willMoveIndexPath:sourceIndexPath,willReplaceIndexPath:destinationIndexPath)
+        
+        self.updateCollectionViewUI(playerCardCollectionView, deleteIndexPath: sourceIndexPath, insertIndexPath: destinationIndexPath, sourceDragItem: sourceDragItem, coordinator: coordinator)
+    }
+    
+    func changeCard(coordinator: UICollectionViewDropCoordinator){
+        guard
+            let hashValue = self.removeCellHashValues.removeCellHashValues.last,
+            let cell = self.playerCardCollectionView.visibleCells(with: PlayerCardCollectionViewCell.self).filter({$0.hashValue == hashValue}).last,
+            let deleteIndexPath = self.playerCardCollectionView.indexPath(for: cell)
+        else { return }
+        
+        self.pokerPresenter?.changeCard(playerType: .me, takeNumber: 1,willRemoveIndexPath: deleteIndexPath)
+        
+        if let itemCount = self.pokerPresenter?.pokerInteractor.handStatus.myPlayerHand.cards.count,
+           let cardCount = self.pokerPresenter?.pokerInteractor.handStatus.cardDeck.appearedCards.count {
+            
+            let insertIndexPath = IndexPath(item:itemCount - 1,section:0)
+            let throwoutIndexPath = IndexPath(row:  cardCount - 1, section: 0)
+            
+            self.updateCollectionViewUI(playerCardCollectionView, deleteIndexPath: deleteIndexPath, insertIndexPath: insertIndexPath, sourceDragItem: nil, coordinator: coordinator)
+            self.updateCollectionViewUI(throwoutCardCollectionView, deleteIndexPath: nil, insertIndexPath: throwoutIndexPath, sourceDragItem: nil, coordinator: coordinator)
+            
+        }
+    }
+    
+    func updateCollectionViewUI(_ collectionView:UICollectionView,deleteIndexPath:IndexPath?,insertIndexPath:IndexPath,sourceDragItem:UIDragItem?,coordinator: UICollectionViewDropCoordinator){
         
         switch collectionView{
         case playerCardCollectionView:
-            guard let deleteIndexPath = deleteIndexPath,
-                  let coordinator = coordinator
-            else { return }
+            guard let deleteIndexPath = deleteIndexPath else { return }
             
             collectionView.performBatchUpdates({
                 collectionView.deleteItems(at: [deleteIndexPath])
@@ -164,53 +238,6 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        
-        switch coordinator.proposal.operation {
-        
-        // MARK:- カードを並べ替える（交換なし）
-        case .move:
-            guard
-                let destinationIndexPath = coordinator.destinationIndexPath,
-                let sourceIndexPath = coordinator.items.first?.sourceIndexPath,
-                let sourceDragItem = coordinator.items.first?.dragItem
-            else { return }
-            
-            //             データソースを更新する
-            self.pokerPresenter?.changeCardIndex(playerType:.me,willMoveIndexPath:sourceIndexPath,willReplaceIndexPath:destinationIndexPath)
-            
-            self.updateCollectionViewUI(playerCardCollectionView, deleteIndexPath: sourceIndexPath, insertIndexPath: destinationIndexPath, sourceDragItem: sourceDragItem, coordinator: coordinator)
- 
-        // MARK:- カードを交換する
-        case .copy:
-            
-            guard
-                let hashValue = self.removeCellHashValues.removeCellHashValues.last,
-                let cell = self.playerCardCollectionView.visibleCells(with: PlayerCardCollectionViewCell.self).filter({$0.hashValue == hashValue}).last,
-                let deleteIndexPath = self.playerCardCollectionView.indexPath(for: cell)
-            else { return }
-            
-            self.pokerPresenter?.changeCard(playerType: .me, takeNumber: 1,willRemoveIndexPath: deleteIndexPath)
-            
-            if let itemCount = self.pokerPresenter?.pokerInteractor.handStatus.myPlayerHand.cards.count,
-               let cardCount = self.pokerPresenter?.pokerInteractor.handStatus.cardDeck.appearedCards.count {
- 
-                let insertIndexPath = IndexPath(item:itemCount - 1,section:0)
-                let throwoutIndexPath = IndexPath(row:  cardCount - 1, section: 0)
-                
-                self.updateCollectionViewUI(playerCardCollectionView, deleteIndexPath: deleteIndexPath, insertIndexPath: insertIndexPath, sourceDragItem: nil, coordinator: coordinator)
-                self.updateCollectionViewUI(throwoutCardCollectionView, deleteIndexPath: nil, insertIndexPath: throwoutIndexPath, sourceDragItem: nil, coordinator: coordinator)
-                
-            }
-        case .cancel, .forbidden:
-            return
-        @unknown default:
-            self.removeCellHashValues.removeCellHashValues = []
-            fatalError()
-        }
-        self.removeCellHashValues.removeCellHashValues = []
-    }
-    
     func updatePlayerCardUI(insertIndexPath:IndexPath,operation: UIDropOperation){
         
         let cells = self.playerCardCollectionView.visibleCells(with: PlayerCardCollectionViewCell.self)
@@ -230,7 +257,7 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
         case .copy:
             let cell = cells[insertIndexPath.row]
             cell.cardChangeState = .cannotChange
-        // 変更後のカードは、すべて最も暗い色にする -> 視覚的に変更不可がわかるように
+            // 変更後のカードは、すべて最も暗い色にする -> 視覚的に変更不可がわかるように
             cell.contentView.backgroundColor = UIColor().changedCellColor()
         case .cancel,.forbidden:
             break
@@ -238,5 +265,4 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
             fatalError()
         }
     }
-    
 }

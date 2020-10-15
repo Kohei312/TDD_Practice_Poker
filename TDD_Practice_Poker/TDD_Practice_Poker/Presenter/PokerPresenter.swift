@@ -10,50 +10,51 @@ import Foundation
 protocol PokerPresenterOutputProtocol{
     func updateJudgementUI(judgement:Judgement)
     func updateGameStateUI()
-    func updateChangeCardButtonUI(_ changeState:Bool)
-//    func updatePlayerUI()
+    //    func updatePlayerUI()
 }
 
 extension PokerPresenter:InteractorOutputProtocol{
     func callUpdatePlayerUI() {
-//        pokerPresenterOutputProtocol?.updatePlayerUI()
+        //        pokerPresenterOutputProtocol?.updatePlayerUI()
     }
     
     
     mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?) {
-        print("各UIパーツに状態変更を指示")
-        if let judge = judgeStatus{
-            print("結果は :",judge)
-            pokerPresenterOutputProtocol?.updateJudgementUI(judgement: judge)
+        print("各UIパーツに状態変更を指示 :",gameSide)
+        switch gameSide{
+        case .playerType(.me):
+            
+            pokerPresenterOutputProtocol?.updateGameStateUI()
+        case .playerType(.other):
+            pokerPresenterOutputProtocol?.updateGameStateUI()
+        case .result:
+            if let judge = judgeStatus{
+                print("結果は :",judge)
+                pokerPresenterOutputProtocol?.updateJudgementUI(judgement: judge)
+            }
         }
     }
 }
 
 public struct PokerPresenter{
     
-
+    
     var pokerInteractor:PokerInteractor
     var pokerPresenterOutputProtocol:PokerPresenterOutputProtocol?
     var result:Judgement = .draw
-    var cardButtonStatus:ChangeCardButtonStatus
     
     init(pokerInteractor:PokerInteractor){
         self.pokerInteractor = pokerInteractor
-        self.cardButtonStatus = ChangeCardButtonStatus()
-//        self.removeIndexPath = removeIndexPath
+        //        self.removeIndexPath = removeIndexPath
     }
     
     // ViewControllerからDI
     mutating func inject(pokerPresenterOutputProtocol:PokerPresenterOutputProtocol){
         self.pokerPresenterOutputProtocol = pokerPresenterOutputProtocol
     }
-    
-    mutating func changeCardButtonStatus(){
-        pokerPresenterOutputProtocol?.updateChangeCardButtonUI(
-            cardButtonStatus.changeCardButtonStatus()
-        )
-    }
-    
+}
+
+extension PokerPresenter{    
     // MARK:- ViewControllerからの入力を受け,PokerInteractorに伝達
     mutating func changeCardIndex(playerType:PlayerType,willMoveIndexPath:IndexPath,willReplaceIndexPath:IndexPath){
         let willMoveIndex = willMoveIndexPath.row
@@ -68,7 +69,7 @@ public struct PokerPresenter{
     }
     
     mutating func addCard(playerType:PlayerType){
-//        let takeNumber = removeIndexPath.removeIndexPaths.count
+        //        let takeNumber = removeIndexPath.removeIndexPaths.count
         let takeNumber = 1
         pokerInteractor.addCard(playerType:playerType,takeNumber:takeNumber)
         //MARK:- UI更新をコール

@@ -23,7 +23,7 @@ extension PokerViewController:CircleMenuDelegate{
         button.delegate = self
         button.layer.cornerRadius = button.frame.size.width / 2
 
-        guard let cv = self.playerCardCollectionView else {return}
+        guard let cv = self.playerCardCollectionView else { fatalError("PlayerCollectionView not found")}
         let fibonuchThirdSquareLength = min(cv.frame.width / 4, cv.frame.height / 4)
         
         view.addSubview(button)
@@ -33,11 +33,15 @@ extension PokerViewController:CircleMenuDelegate{
         
         button.widthAnchor.constraint(equalToConstant: 50).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        self.circleMenuButton = button
+        
     }
     
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-        self.playerCardCollectionView.dragInteractionEnabled = false
-        
+        if atIndex == 0{
+            changePlayerCollectionViewDragEnable()
+        }
         button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
         
         button.setImage(UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.resized(toWidth:45), for: .normal)
@@ -49,13 +53,14 @@ extension PokerViewController:CircleMenuDelegate{
     
     func menuCollapsed(_ circleMenu: CircleMenu) {
         print("button will be collapsed")
-        self.playerCardCollectionView.dragInteractionEnabled = true
+        changePlayerCollectionViewDragEnable()
     }
     
     func circleMenu(_: CircleMenu, buttonWillSelected _: UIButton, atIndex: Int) {
         print("button will selected: \(atIndex)")
         // ボタンをタップした瞬間にコールされる
         // MARK:- ターン終了: atIndex = 0
+        // 交換したカードが表示される時間
         // MARK:- バトル開始: atIndex = 1
         
     }
@@ -64,7 +69,12 @@ extension PokerViewController:CircleMenuDelegate{
         print("button did selected: \(atIndex)")
         // ボタンのアニメーション終了後に呼ばれる
         // MARK:- ターン終了: atIndex = 0
+    
+        changePlayerCollectionViewDragEnable() // メニューボタンを押した直後に.falseとなっているため、ここで一瞬.trueにもどす
+        
+        self.pokerPresenter?.finishChangeCard(.me)
         // MARK:- バトル開始: atIndex = 1
     }
+
 }
 

@@ -25,6 +25,10 @@ struct Player{
     
     var playerType:PlayerType
     var playerStatement:PlayerStatement = .thinking
-    var changeCount = 3
+    var changeCount = 3{
+        didSet{
+            print(changeCount)
+        }
+    }
 }
 

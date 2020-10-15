@@ -12,58 +12,25 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
     
     var pokerPresenter:PokerPresenter?
     var result:Judgement = .draw
+    
+    // MARK:- PlayerCollectionViewの制御プロパティ
     var removeCellHashValues = RemoveCellHashValuesProperty()
     var moveCardStatuses = MoveCardStatusProperty()
+
+    // MARK:- MenuButtonの制御プロパティ
     var circleMenuButtonProperty = CircleMenuButtonProperty()
     
     @IBOutlet weak var cpuCardCollectionView: UICollectionView!
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
+    var circleMenuButton:CircleMenu?
+    
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.build()
-        self.setupCollectionViews()
-        self.setupMenuButton()
-//        self.setupChangePlayerStateButton()
+    }
 
-        
-    }
-    
-    @objc func tappedChangeCardBtn(_ sender: UIButton){
-        
-        //        pokerPresenter?.changeCardButtonStatus()
-        
-    }
-    
-    func updateChangeCardButtonUI(_ changeState: Bool) {
-        
-        self.playerCardCollectionView.dragInteractionEnabled = changeState
-        
-        switch  changeState {
-        case true:
-            // カード選択状態を許可する
-            // ボタン表記を「OK」に変更
-            print("ok")
-        // MARK:- CollectionViewCellが選択状態のときに有効となる
-        
-        
-        // スタブ OK
-        //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-        //                self.pokerPresenter?.addCard(playerType: .me)
-        //            }
-        
-        case false:
-            // カード選択状態を不許可にする
-            // ボタン表記を「交換する」に変更
-            print("交換する")
-        }
-    }
-    
     
     func updateJudgementUI(judgement:Judgement) {
         print("presenterから呼ばれる")
@@ -75,6 +42,21 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol{
     func updateGameStateUI() {
         print("gamestateを更新")
         // Presenterからの伝達で、UI更新
+        changePlayerCollectionViewDragEnable()
+        changeCircleMenuButtonIsHidden()
     }
 }
 
+extension PokerViewController{
+    
+    func changePlayerCollectionViewDragEnable(){
+        playerCardCollectionView.dragInteractionEnabled =
+            playerCardCollectionView.dragInteractionEnabled ? false : true
+        print(playerCardCollectionView.dragInteractionEnabled)
+    }
+    
+    func changeCircleMenuButtonIsHidden(){
+        guard let menuButton = circleMenuButton else {return}
+        circleMenuButton?.isHidden = menuButton.isHidden ? false : true
+    }
+}

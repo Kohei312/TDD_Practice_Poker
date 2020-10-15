@@ -23,33 +23,10 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
         presenter.pokerInteractor.inject(interactorOutputProtocol: presenter)
         
         self.pokerPresenter = presenter
+
+        setupCollectionViews()
+        
+        setupMenuButton()
         print("初期化")
     }
-    
-    func setupCollectionViews(){
-        playerCardCollectionView.registerCell(PlayerCardCollectionViewCell.self)
-        playerCardCollectionView.registerLayout(layout: PlayerCardCollectionViewLayout())
-        playerCardCollectionView.delegate = self
-        playerCardCollectionView.dataSource = self
-        playerCardCollectionView.dropDelegate = self
-        playerCardCollectionView.dragDelegate = self
-        playerCardCollectionView.dragInteractionEnabled = true
-        
-        throwoutCardCollectionView.registerCell(ThrowoutCardCollectionViewCell.self)
-        throwoutCardCollectionView.registerLayout(layout: ThrowOutCardsCollectionViewLayout())
-        throwoutCardCollectionView.delegate = self
-        throwoutCardCollectionView.dataSource = self
-        throwoutCardCollectionView.dropDelegate = self
-        throwoutCardCollectionView.dragInteractionEnabled = true
-        
-        cpuCardCollectionView.registerCell(CPUCardCollectionViewCell.self)
-        cpuCardCollectionView.registerLayout(layout: CPUCardsCollectionViewLayout())
-        cpuCardCollectionView.delegate = self
-        cpuCardCollectionView.dataSource = self
-    }
-    
-//    func setupChangePlayerStateButton(){
-//        self.changePlayerStateButton.addTarget(self,action: #selector(self.tappedChangeCardBtn(_ :)),for: .touchUpInside)
-//        self.changePlayerStateButton.layer.cornerRadius = self.changePlayerStateButton.frame.width / 2
-//    }
 }

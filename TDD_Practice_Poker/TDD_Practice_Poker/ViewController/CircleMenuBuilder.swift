@@ -36,6 +36,8 @@ extension PokerViewController:CircleMenuDelegate{
     }
     
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+        self.playerCardCollectionView.dragInteractionEnabled = false
+        
         button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
         
         button.setImage(UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.resized(toWidth:45), for: .normal)
@@ -45,13 +47,24 @@ extension PokerViewController:CircleMenuDelegate{
         button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
+    func menuCollapsed(_ circleMenu: CircleMenu) {
+        print("button will be collapsed")
+        self.playerCardCollectionView.dragInteractionEnabled = true
+    }
+    
     func circleMenu(_: CircleMenu, buttonWillSelected _: UIButton, atIndex: Int) {
         print("button will selected: \(atIndex)")
+        // ボタンをタップした瞬間にコールされる
+        // MARK:- ターン終了: atIndex = 0
+        // MARK:- バトル開始: atIndex = 1
         
     }
     
     func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
+        // ボタンのアニメーション終了後に呼ばれる
+        // MARK:- ターン終了: atIndex = 0
+        // MARK:- バトル開始: atIndex = 1
     }
 }
 

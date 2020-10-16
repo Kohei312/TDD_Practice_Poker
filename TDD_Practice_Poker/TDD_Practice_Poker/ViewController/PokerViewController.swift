@@ -11,19 +11,18 @@ import CircleMenu
 class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomNumberProtocol{
 
     var pokerPresenter:PokerPresenter?
-    var result:Judgement = .draw
     
     // MARK:- PlayerCollectionViewの制御プロパティ
     var removeCellHashValues = RemoveCellHashValuesProperty()
     var moveCardStatuses = MoveCardStatusProperty()
 
     // MARK:- MenuButtonの制御プロパティ
+    var circleMenuButton:CircleMenu?
     var circleMenuButtonProperty = CircleMenuButtonProperty()
     
     @IBOutlet weak var cpuCardCollectionView: UICollectionView!
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
-    var circleMenuButton:CircleMenu?
     var animationView:GameStateAnimationView?
     
 
@@ -36,7 +35,6 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
     func updateJudgementUI(judgement: Judgement, myHand: Hand, otherHand: Hand) {
         // スタブ OK
         print("presenterから呼ばれる")
-        self.result = judgement
         // CPUのCollectionViewの更新を忘れずに
         self.openAllCPUCards(otherHand: otherHand)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -45,20 +43,31 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
     }
     
     func updateGameStateUI(_ gameSide:GameSide) {
-        print("gamestateを更新")
-        // Presenterからの伝達で、UI更新
-        changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
-        changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
-        animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
+        print("gamestateを更新 :",gameSide)
+        circleMenuButtonProperty.gameSide = gameSide
+        // CPUの処理を開始する.
+        if gameSide == .playerType(.other){
+//            showCPUAnimation()
+            // Presenterからの伝達で、UI更新
+            changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
+            changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
+            animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
+            showCPUAnimation()
+
+        } else if gameSide == .playerType(.me) {
+            // Presenterからの伝達で、UI更新
+            changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
+            changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
+            animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
+            
+        }
+    }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            // CPUの処理を開始する.
-            if gameSide == .playerType(.other){
-                self.pokerPresenter?.callCPU()
-            } else {
-                print(self.pokerPresenter?.pokerInteractor.handStatus.otherPlayerHand.cards)
-                print(self.pokerPresenter?.pokerInteractor.handStatus.otherPlayerHand.handState)
-            }
+    func showCPUAnimation(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.changeCPUCard()
+            self.pokerPresenter?.callCPU()
+//            self.pokerPresenter?.finishCPUTurn()
         }
     }
 }

@@ -10,10 +10,6 @@ import Foundation
 
 
 extension PokerPresenter:InteractorOutputProtocol{
-    
-    func callUpdatePlayerUI() {
-        //        pokerPresenterOutputProtocol?.updatePlayerUI()
-    }
 
     mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?,myHand:Hand?,otherHand:Hand?) {
         print("各UIパーツに状態変更を指示 :",gameSide)
@@ -75,5 +71,13 @@ extension PokerPresenter{
     
     mutating func callCPU(){
         pokerInteractor.startCPUTurn()
+    }
+    
+    mutating func finishCPUTurn(){
+        pokerInteractor.chosePass(.other)
+    }
+    
+    mutating func tappedResetBtn(){
+        // ここにリセット処理を入れる
     }
 }

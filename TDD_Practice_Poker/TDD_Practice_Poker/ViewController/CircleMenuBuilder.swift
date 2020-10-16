@@ -39,15 +39,29 @@ extension PokerViewController:CircleMenuDelegate{
     }
     
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+        
+        switch circleMenuButtonProperty.gameSide{
+        
+        case .playerType(_):
+            button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
+            
+            button.setImage(UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.resized(toWidth:45), for: .normal)
+            // set highlited image
+            let highlightedImage = UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
+            button.setImage(highlightedImage, for: .highlighted)
+        case .result:
+            button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
+            
+            button.setImage(UIImage(named: circleMenuButtonProperty.items[0].icon)?.resized(toWidth:45), for: .normal)
+            // set highlited image
+            let highlightedImage = UIImage(named: circleMenuButtonProperty.items[0].icon)?.withRenderingMode(.alwaysTemplate)
+            button.setImage(highlightedImage, for: .highlighted)
+        }
+        
         if atIndex == 0{
             changePlayerCollectionViewDragEnable(nextGameSide: .playerType(.other))
         }
-        button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
         
-        button.setImage(UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.resized(toWidth:45), for: .normal)
-        // set highlited image
-        let highlightedImage = UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
-        button.setImage(highlightedImage, for: .highlighted)
         button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
@@ -74,6 +88,7 @@ extension PokerViewController:CircleMenuDelegate{
         
     }
     
+    #warning("ボタンの機能を切り替えるフラグが欲しい")
     func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
         // ボタンのアニメーション終了後に呼ばれる
@@ -82,7 +97,11 @@ extension PokerViewController:CircleMenuDelegate{
         switch atIndex{
         case 0:
             // MARK:- ターン終了: atIndex = 0
-            self.pokerPresenter?.tappedTurnoverBtn(.me)
+            if circleMenuButtonProperty.gameSide == .result{
+                // ココにリセット処理を入れる
+            } else {
+                self.pokerPresenter?.tappedTurnoverBtn(.me)
+            }
         case 1:
             // MARK:- バトル開始: atIndex = 1
             self.pokerPresenter?.tappedBattleBtn(.me)

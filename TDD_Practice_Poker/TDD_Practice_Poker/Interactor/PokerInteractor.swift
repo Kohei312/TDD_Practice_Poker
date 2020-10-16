@@ -10,6 +10,7 @@ import Foundation
 // MARK:- InteractorInputProtocol
 extension PokerInteractor:InteractorInputProtocol{
     mutating func completeCPUTurn() {
+//        interactorOutputProtocol?.callUpdateCPU_UI()
         self.chosePass(.other)
     }
     

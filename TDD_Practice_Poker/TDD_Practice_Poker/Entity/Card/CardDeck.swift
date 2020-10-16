@@ -31,16 +31,14 @@ struct CardDeck{
         return cards.shuffled()
     }
     
-    mutating func changeCards(_ takeNumber:Int)->[Card]{
+    mutating func takeCards(_ takeNumber:Int)->[Card]{
         
         let cards = Array(unAppearCards[0..<takeNumber])
-//        throwAwayCard(takeNumber)
         return cards
     }
   
     mutating func throwAwayCard(_ takeNumber:Int){
         for i in 0..<takeNumber{
-            print("i :",i)
             appearedCards.append(self.unAppearCards[0])
             self.unAppearCards.remove(at: 0)
         }

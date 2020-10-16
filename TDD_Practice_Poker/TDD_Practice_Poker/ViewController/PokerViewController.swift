@@ -50,6 +50,16 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
         changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
         animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            // CPUの処理を開始する.
+            if gameSide == .playerType(.other){
+                self.pokerPresenter?.callCPU()
+            } else {
+                print(self.pokerPresenter?.pokerInteractor.handStatus.otherPlayerHand.cards)
+                print(self.pokerPresenter?.pokerInteractor.handStatus.otherPlayerHand.handState)
+            }
+        }
     }
 }
 

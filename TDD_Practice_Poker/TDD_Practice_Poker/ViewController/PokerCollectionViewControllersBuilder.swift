@@ -81,8 +81,8 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
         case cpuCardCollectionView:
             let cell = collectionView.dequeueReusableCell(with: CPUCardCollectionViewCell.self, indexPath: indexPath)
             cell.setupCPUCardCellColor(color: UIColor().cellColor(indexPath))
-            cell.cpuSuitLabel.isHidden = true
-            cell.cpuRankLabel.isHidden = true
+            cell.cpuSuitLabel.isHidden = false
+            cell.cpuRankLabel.isHidden = false
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(with: PlayerCardCollectionViewCell.self, indexPath: indexPath)

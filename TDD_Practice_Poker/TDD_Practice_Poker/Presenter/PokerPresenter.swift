@@ -65,18 +65,15 @@ extension PokerPresenter{
         
     }
     
-    mutating func addCard(playerType:PlayerType){
-        //        let takeNumber = removeIndexPath.removeIndexPaths.count
-        let takeNumber = 1
-        pokerInteractor.addCard(playerType:playerType,takeNumber:takeNumber)
-        //MARK:- UI更新をコール
-    }
-    
     mutating func tappedTurnoverBtn(_ playerType:PlayerType){
-        pokerInteractor.decrementChangeCounter(playerType)
+        pokerInteractor.chosePass(playerType)
     }
     
     mutating func tappedBattleBtn(_ playerType:PlayerType){
         pokerInteractor.isReadyButtle(playerType)
+    }
+    
+    mutating func callCPU(){
+        pokerInteractor.startCPUTurn()
     }
 }

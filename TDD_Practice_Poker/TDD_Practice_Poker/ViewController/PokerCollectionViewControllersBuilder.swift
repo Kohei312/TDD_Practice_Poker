@@ -81,6 +81,8 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
         case cpuCardCollectionView:
             let cell = collectionView.dequeueReusableCell(with: CPUCardCollectionViewCell.self, indexPath: indexPath)
             cell.setupCPUCardCellColor(color: UIColor().cellColor(indexPath))
+            cell.cpuSuitLabel.isHidden = true
+            cell.cpuRankLabel.isHidden = true
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(with: PlayerCardCollectionViewCell.self, indexPath: indexPath)
@@ -265,5 +267,19 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
         @unknown default:
             fatalError()
         }
+    }
+    
+    func openAllCPUCards(otherHand: Hand){
+        let cells = self.cpuCardCollectionView.visibleCells(with:CPUCardCollectionViewCell.self)
+        // 決着時
+        for i in 0..<cells.count{
+            cells[i].openCPUCard(card:otherHand.cards[i])
+        }
+    }
+    
+    func changeCPUCard(){
+        // カード交換時
+        let cells = self.cpuCardCollectionView.visibleCells(with:CPUCardCollectionViewCell.self)
+        cells[randomNumber(0..<UInt32(cells.count))].changeCPUCard()
     }
 }

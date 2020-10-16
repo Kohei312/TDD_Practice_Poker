@@ -24,13 +24,12 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
     var circleMenuButton:CircleMenu?
-    var animationView:UIView?
+    var animationView:GameStateAnimationView?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.build()
-        
     }
 
     
@@ -38,33 +37,43 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         // スタブ OK
         print("presenterから呼ばれる")
         self.result = judgement
-        // Presenterからの伝達で、UI更新
-        // 自分と相手の手札を見せあい、役がわかるようにしたい
-        /* TODO:-
-             ・cpuCardCVのUIを更新し、カードの柄が見えるようにする
-             ・相手と自分の役がわかるように、Handも一緒に伝達する ->テスト OK
-         */
+        // CPUのCollectionViewの更新を忘れずに
+        self.openAllCPUCards(otherHand: otherHand)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.animationView?.showJudge(judgement:judgement,myHand:myHand,otherHand:otherHand)
+        }
     }
     
-    func updateGameStateUI() {
+    func updateGameStateUI(_ gameSide:GameSide) {
         print("gamestateを更新")
         // Presenterからの伝達で、UI更新
-        changePlayerCollectionViewDragEnable()
-        changeCircleMenuButtonIsHidden()
+        changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
+        changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
+        animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
     }
 }
 
 extension PokerViewController{
     
-    func changePlayerCollectionViewDragEnable(){
-        playerCardCollectionView.dragInteractionEnabled =
-            playerCardCollectionView.dragInteractionEnabled ? false : true
-        print(playerCardCollectionView.dragInteractionEnabled)
-        view.isHidden = false
+    func changePlayerCollectionViewDragEnable(nextGameSide:GameSide){
+        
+        switch nextGameSide{
+        
+        case .playerType(.other),.result:
+            playerCardCollectionView.dragInteractionEnabled = false
+        case .playerType(.me):
+            playerCardCollectionView.dragInteractionEnabled = true
+        }
     }
     
-    func changeCircleMenuButtonIsHidden(){
-        guard let menuButton = circleMenuButton else {return}
-        circleMenuButton?.isHidden = menuButton.isHidden ? false : true
+    func changeCircleMenuButtonIsHidden(nextGameSide:GameSide){
+        
+        switch nextGameSide{
+        
+        case .playerType(.other),.result:
+            circleMenuButton?.isHidden = true
+        case .playerType(.me):
+            circleMenuButton?.isHidden = false
+        }
     }
 }

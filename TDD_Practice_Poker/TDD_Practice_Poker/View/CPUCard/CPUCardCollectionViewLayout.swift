@@ -51,7 +51,7 @@ class CPUCardsCollectionViewLayout:UICollectionViewLayout{
             // indexPathが若いitemは、少し高さを出す.
             attributes.center = CGPoint(x: property.center.x + ( property.radius * sin(angle) / 2 ), y: property.center.y + ( property.radius * cos(angle) / 2.5 ) )
             attributes.size = CGSize(width: property.itemSize.width / 2, height: property.itemSize.height)
-            attributes.transform = attributes.transform.rotated(by: 270 - (angle/2))
+            attributes.transform = attributes.transform.rotated(by: 100 - (angle/2))
             attributes.zIndex = indexPath.item
             
             cachedAttributes.append(attributes)

@@ -30,7 +30,6 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
     override func viewDidLoad() {
         super.viewDidLoad()
         self.build()
-        
     }
 
     
@@ -41,29 +40,40 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         // CPUのCollectionViewの更新を忘れずに
         self.openAllCPUCards(otherHand: otherHand)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.animationView?.showJudge(itemFrame:.ResultLabel,judgement:judgement,myHand:myHand,otherHand:otherHand)
+            self.animationView?.showJudge(judgement:judgement,myHand:myHand,otherHand:otherHand)
         }
     }
     
-    func updateGameStateUI() {
+    func updateGameStateUI(_ gameSide:GameSide) {
         print("gamestateを更新")
         // Presenterからの伝達で、UI更新
-        changePlayerCollectionViewDragEnable()
-        changeCircleMenuButtonIsHidden()
+        changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
+        changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
+        animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
     }
 }
 
 extension PokerViewController{
     
-    func changePlayerCollectionViewDragEnable(){
-        playerCardCollectionView.dragInteractionEnabled =
-            playerCardCollectionView.dragInteractionEnabled ? false : true
-       
-        view.isHidden = false
+    func changePlayerCollectionViewDragEnable(nextGameSide:GameSide){
+        
+        switch nextGameSide{
+        
+        case .playerType(.other),.result:
+            playerCardCollectionView.dragInteractionEnabled = false
+        case .playerType(.me):
+            playerCardCollectionView.dragInteractionEnabled = true
+        }
     }
     
-    func changeCircleMenuButtonIsHidden(){
-        guard let menuButton = circleMenuButton else {return}
-        circleMenuButton?.isHidden = menuButton.isHidden ? false : true
+    func changeCircleMenuButtonIsHidden(nextGameSide:GameSide){
+        
+        switch nextGameSide{
+        
+        case .playerType(.other),.result:
+            circleMenuButton?.isHidden = true
+        case .playerType(.me):
+            circleMenuButton?.isHidden = false
+        }
     }
 }

@@ -153,22 +153,36 @@ class GameStateAnimationView: UIView {
                 itemLabel.text = String(describing:hand.handState)
             case .ResultLabel:
                 guard let judge = judgement else {return}
+                itemLabel.textColor = .systemRed
                 itemLabel.text = result.judgeText(judgement: judge)
             }
         }
     }
     
-    func showJudge(itemFrame:AnimationItemFrame,judgement:Judgement?,myHand:Hand,otherHand:Hand){
+    func showJudge(judgement:Judgement?,myHand:Hand,otherHand:Hand){
         self.setupItemLabelText(itemFrame:.ResultLabel,result:.showJudge,judgement:judgement,hand:nil)
         self.setupItemLabelText(itemFrame:.MyHandStateLabel,result:.showJudge,judgement:nil,hand:myHand)
         self.setupItemLabelText(itemFrame:.CPUHandStateLabel,result:.showJudge,judgement:nil,hand:otherHand)
         self.shouldAppearAnimationView(true)
     }
     
-//    func showHandState(hand:Hand)->([Card],HandState){
-//        let i = String(describing:hand.handState)
-//        return (hand.cards,hand.handState)
-//    }
+    func showTurnOverAnimationView(nextGameSide:GameSide){
+        
+        switch nextGameSide{
+        
+        case .playerType(.me):
+            self.setupItemLabelText(itemFrame:.ResultLabel,result:.myPlayerSide,judgement:nil,hand:nil)
+        case .playerType(.other):
+            self.setupItemLabelText(itemFrame:.ResultLabel,result:.otherPlayerSide,judgement:nil,hand:nil)
+        case .result:
+            self.setupItemLabelText(itemFrame:.ResultLabel,result:.beforeJudge,judgement:nil,hand:nil)
+        }
+        
+        self.shouldAppearAnimationView(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.shouldAppearAnimationView(false)
+        }
+    }
 }
 
 

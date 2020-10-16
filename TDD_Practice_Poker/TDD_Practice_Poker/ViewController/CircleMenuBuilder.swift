@@ -40,7 +40,7 @@ extension PokerViewController:CircleMenuDelegate{
     
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         if atIndex == 0{
-            changePlayerCollectionViewDragEnable()
+            changePlayerCollectionViewDragEnable(nextGameSide: .playerType(.other))
         }
         button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
         
@@ -53,7 +53,7 @@ extension PokerViewController:CircleMenuDelegate{
     
     func menuCollapsed(_ circleMenu: CircleMenu) {
         print("button will be collapsed")
-        changePlayerCollectionViewDragEnable()
+        changePlayerCollectionViewDragEnable(nextGameSide: .playerType(.me))
     }
     
     func circleMenu(_: CircleMenu, buttonWillSelected _: UIButton, atIndex: Int) {
@@ -78,7 +78,7 @@ extension PokerViewController:CircleMenuDelegate{
         print("button did selected: \(atIndex)")
         // ボタンのアニメーション終了後に呼ばれる
 
-        changePlayerCollectionViewDragEnable() // メニューボタンを押した直後に.falseとなっているため、ここで一瞬.trueにもどす
+        changePlayerCollectionViewDragEnable(nextGameSide: .playerType(.other)) // メニューボタンを押した直後に.falseとなっているため、ここで一瞬.trueにもどす
         switch atIndex{
         case 0:
             // MARK:- ターン終了: atIndex = 0

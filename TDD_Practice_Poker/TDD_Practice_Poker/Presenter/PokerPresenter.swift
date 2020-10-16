@@ -10,6 +10,7 @@ import Foundation
 
 
 extension PokerPresenter:InteractorOutputProtocol{
+    
     func callUpdatePlayerUI() {
         //        pokerPresenterOutputProtocol?.updatePlayerUI()
     }
@@ -18,9 +19,9 @@ extension PokerPresenter:InteractorOutputProtocol{
         print("各UIパーツに状態変更を指示 :",gameSide)
         switch gameSide{
         case .playerType(.me):
-            pokerPresenterOutputProtocol?.updateGameStateUI()
+            pokerPresenterOutputProtocol?.updateGameStateUI(gameSide)
         case .playerType(.other):
-            pokerPresenterOutputProtocol?.updateGameStateUI()
+            pokerPresenterOutputProtocol?.updateGameStateUI(gameSide)
         case .result:
             if let judge = judgeStatus,let myHand = myHand,let otherHand = otherHand{
                 print("結果は :",judge)

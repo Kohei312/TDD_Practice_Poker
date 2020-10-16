@@ -34,26 +34,4 @@ extension PokerViewController{
         
         
     }
-    
-    // OK
-    func shouldAppearAnimationView(_ shouldAppear:Bool,view:UIView?){
-        UIView.animate(withDuration: 7, animations: {
-            switch shouldAppear{
-            case true:
-                view?.isHidden = !shouldAppear
-                view?.alpha = 0.5
-            case false:
-                view?.isHidden = shouldAppear
-                view?.alpha = 0
-            }
-        }, completion:  { _ in
-            switch shouldAppear{
-            case true:
-                view?.alpha = 0.5
-            case false:
-                view?.alpha = 0
-            }
-        })
-    }
-
 }

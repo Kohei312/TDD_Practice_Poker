@@ -24,7 +24,7 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
     @IBOutlet weak var throwoutCardCollectionView: UICollectionView!
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
     var circleMenuButton:CircleMenu?
-    var animationView:UIView?
+    var animationView:GameStateAnimationView?
     
 
     override func viewDidLoad() {
@@ -38,12 +38,13 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         // スタブ OK
         print("presenterから呼ばれる")
         self.result = judgement
-        // Presenterからの伝達で、UI更新
-        // 自分と相手の手札を見せあい、役がわかるようにしたい
-        /* TODO:-
-             ・cpuCardCVのUIを更新し、カードの柄が見えるようにする
-             ・相手と自分の役がわかるように、Handも一緒に伝達する ->テスト OK
-         */
+        // CPUのCollectionViewの更新を忘れずに
+        animationView?.showJudge(itemFrame:.ResultLabel,judgement:judgement,myHand:myHand,otherHand:otherHand)
+        
+//        animationView?.setupItemLabelText(itemFrame:.ResultLabel,result:.showJudge,judgement:judgement,hand:nil)
+//        animationView?.setupItemLabelText(itemFrame:.MyHandStateLabel,result:.showJudge,judgement:nil,hand:myHand)
+//        animationView?.setupItemLabelText(itemFrame:.CPUHandStateLabel,result:.showJudge,judgement:nil,hand:otherHand)
+//        animationView?.shouldAppearAnimationView(true)
     }
     
     func updateGameStateUI() {
@@ -59,7 +60,7 @@ extension PokerViewController{
     func changePlayerCollectionViewDragEnable(){
         playerCardCollectionView.dragInteractionEnabled =
             playerCardCollectionView.dragInteractionEnabled ? false : true
-        print(playerCardCollectionView.dragInteractionEnabled)
+       
         view.isHidden = false
     }
     

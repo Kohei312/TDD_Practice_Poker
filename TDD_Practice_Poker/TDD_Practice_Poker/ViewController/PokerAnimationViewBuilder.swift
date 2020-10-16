@@ -22,11 +22,14 @@ extension PokerViewController{
         view.topAnchor.constraint(equalTo: self.throwoutCardCollectionView.topAnchor).isActive = true
         view.trailingAnchor.constraint(equalTo: self.throwoutCardCollectionView.trailingAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: self.throwoutCardCollectionView.bottomAnchor).isActive = true
+
+        //初期値
+//        view.isHidden = false
+//        view.alpha = 0.5
         
-        view.setupConstraint()
-        
-        view.isHidden = false
-        view.alpha = 0.5
+        // アニメーションテストOK
+        view.isHidden = true
+        view.alpha = 0
         
         
         
@@ -34,7 +37,7 @@ extension PokerViewController{
     
     // OK
     func shouldAppearAnimationView(_ shouldAppear:Bool,view:UIView?){
-        UIView.animate(withDuration: 3, animations: {
+        UIView.animate(withDuration: 7, animations: {
             switch shouldAppear{
             case true:
                 view?.isHidden = !shouldAppear

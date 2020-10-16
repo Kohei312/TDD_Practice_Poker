@@ -161,9 +161,11 @@ extension PokerInteractor{
     }
     
     mutating func changeGameStatement(_ playerType:PlayerType, noChangeCount:Bool){
-        
-        if player_me.player.playerStatement == .isReadyButtle &&
-            player_other.player.playerStatement == .isReadyButtle {
+
+        #warning("修正をわすれないように")
+//        &&
+//            player_other.player.playerStatement == .isReadyButtle
+        if player_me.player.playerStatement == .isReadyButtle {
             
             judge()
         

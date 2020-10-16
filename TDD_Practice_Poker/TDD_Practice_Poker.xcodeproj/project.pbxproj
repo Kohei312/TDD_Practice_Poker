@@ -34,6 +34,7 @@
 		7CA186E42538298100441A71 /* GameStateAnimationBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */; };
 		7CA186E925382D4A00441A71 /* RandomNumberProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */; };
 		7CA186F12538314700441A71 /* PokerAnimationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */; };
+		7CA187012539583200441A71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA187002539583200441A71 /* UIView+Extension.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
@@ -122,6 +123,7 @@
 		7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateAnimationBaseView.swift; sourceTree = "<group>"; };
 		7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberProtocol.swift; sourceTree = "<group>"; };
 		7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerAnimationViewBuilder.swift; sourceTree = "<group>"; };
+		7CA187002539583200441A71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				7CDE9DA32534665700898855 /* Identifier+Extension.swift */,
 				7CDE9DA82534666A00898855 /* UIColor+Extension.swift */,
 				7CA186CB2537E1D500441A71 /* UIImage+Extension.swift */,
+				7CA187002539583200441A71 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				7CDE9DE225346C7100898855 /* CPUCardCollectionViewLayoutProperty.swift in Sources */,
 				7CDE9DD325346B7500898855 /* CPUCardCollectionViewLayout.swift in Sources */,
 				7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */,
+				7CA187012539583200441A71 /* UIView+Extension.swift in Sources */,
 				7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */,
 				7C458C3F2536D8CA0047884D /* CircleMenuButtonProperty.swift in Sources */,
 				7CA186D425381A8E00441A71 /* PokerPresenterProtocol.swift in Sources */,

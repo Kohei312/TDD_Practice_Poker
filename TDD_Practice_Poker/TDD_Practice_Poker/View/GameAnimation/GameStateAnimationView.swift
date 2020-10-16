@@ -82,8 +82,8 @@ class GameStateAnimationView: UIView {
         self.addSubview(self.otherHandStateLabel!)
         self.addSubview(self.resultLabel!)
         self.addSubview(self.myHandStateLabel!)
-//        
-//        setupConstraint()
+        
+        setupConstraint()
     }
     
     func setupConstraint(){
@@ -115,9 +115,12 @@ class GameStateAnimationView: UIView {
         case .MyHandStateLabel:
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -8).isActive = true
         }
-           
+        
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 24.0)
         label.isHidden = false
-        label.alpha = 0.5
+        label.alpha = 1
     }
     
     func setupItemLabelText(itemFrame:AnimationItemFrame,result:ResultLabelState,judgement:Judgement?,hand:Hand?){
@@ -153,6 +156,13 @@ class GameStateAnimationView: UIView {
                 itemLabel.text = result.judgeText(judgement: judge)
             }
         }
+    }
+    
+    func showJudge(itemFrame:AnimationItemFrame,judgement:Judgement?,myHand:Hand,otherHand:Hand){
+        self.setupItemLabelText(itemFrame:.ResultLabel,result:.showJudge,judgement:judgement,hand:nil)
+        self.setupItemLabelText(itemFrame:.MyHandStateLabel,result:.showJudge,judgement:nil,hand:myHand)
+        self.setupItemLabelText(itemFrame:.CPUHandStateLabel,result:.showJudge,judgement:nil,hand:otherHand)
+        self.shouldAppearAnimationView(true)
     }
     
 //    func showHandState(hand:Hand)->([Card],HandState){

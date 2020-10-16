@@ -39,12 +39,10 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         print("presenterから呼ばれる")
         self.result = judgement
         // CPUのCollectionViewの更新を忘れずに
-        animationView?.showJudge(itemFrame:.ResultLabel,judgement:judgement,myHand:myHand,otherHand:otherHand)
-        
-//        animationView?.setupItemLabelText(itemFrame:.ResultLabel,result:.showJudge,judgement:judgement,hand:nil)
-//        animationView?.setupItemLabelText(itemFrame:.MyHandStateLabel,result:.showJudge,judgement:nil,hand:myHand)
-//        animationView?.setupItemLabelText(itemFrame:.CPUHandStateLabel,result:.showJudge,judgement:nil,hand:otherHand)
-//        animationView?.shouldAppearAnimationView(true)
+        self.openAllCPUCards(otherHand: otherHand)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.animationView?.showJudge(itemFrame:.ResultLabel,judgement:judgement,myHand:myHand,otherHand:otherHand)
+        }
     }
     
     func updateGameStateUI() {

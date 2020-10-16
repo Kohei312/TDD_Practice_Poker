@@ -10,14 +10,39 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CPUCardCollectionViewCell" id="gTV-IL-0wX" customClass="CPUCardCollectionViewCell" customModule="TDD_Practice_Poker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="123" height="174"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="123" height="174"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCA-8i-jJh">
+                        <rect key="frame" x="8" y="116" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1l-mN-UcC">
+                        <rect key="frame" x="8" y="145" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <point key="canvasLocation" x="138" y="85"/>
+            <constraints>
+                <constraint firstItem="BCA-8i-jJh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="2PT-tg-sms"/>
+                <constraint firstItem="Z1l-mN-UcC" firstAttribute="top" secondItem="BCA-8i-jJh" secondAttribute="bottom" constant="8" id="Rj5-xF-PIe"/>
+                <constraint firstAttribute="bottom" secondItem="Z1l-mN-UcC" secondAttribute="bottom" constant="8" id="VAJ-96-5ck"/>
+                <constraint firstItem="Z1l-mN-UcC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="w2j-AW-6NA"/>
+            </constraints>
+            <size key="customSize" width="123" height="174"/>
+            <connections>
+                <outlet property="cpuRankLabel" destination="Z1l-mN-UcC" id="nbh-Io-TH6"/>
+                <outlet property="cpuSuitLabel" destination="BCA-8i-jJh" id="Uza-7e-NPS"/>
+            </connections>
+            <point key="canvasLocation" x="190.57971014492756" y="66.964285714285708"/>
         </collectionViewCell>
     </objects>
 </document>

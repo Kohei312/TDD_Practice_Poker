@@ -239,6 +239,8 @@ class TDD_Practice_Poker_FiveCardLogicTests: XCTestCase {
 ////
 //    }
 
-    
+    func testEnum(){
+        XCTAssertEqual(AnimationViewState.showJudge.showJudgeText(judgement:.win),"")
+    }
     
 }

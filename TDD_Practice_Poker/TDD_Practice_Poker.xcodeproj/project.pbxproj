@@ -320,6 +320,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		7CA186F525385AE500441A71 /* GameAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				7CA186DE253823EC00441A71 /* GameStateAnimationView.swift */,
+				7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */,
+			);
+			path = GameAnimation;
+			sourceTree = "<group>";
+		};
 		7CAC462A252EE82C004008A5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,11 +400,10 @@
 		7CDE9D8B2534657300898855 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7CA186F525385AE500441A71 /* GameAnimation */,
 				7CDE9DD125346B4100898855 /* PlayerCard */,
 				7CDE9DD025346B3200898855 /* ThrowoutCard */,
 				7CDE9DCF25346B2600898855 /* CPUCard */,
-				7CA186DE253823EC00441A71 /* GameStateAnimationView.swift */,
-				7CA186E32538298100441A71 /* GameStateAnimationBaseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

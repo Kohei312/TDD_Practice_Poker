@@ -18,11 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-d4-0Rc">
-                                <rect key="frame" x="0.0" y="606" width="414" height="256"/>
+                                <rect key="frame" x="0.0" y="563.5" width="414" height="298.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="m6x-d4-0Rc" secondAttribute="height" multiplier="1.618:1" id="Zsk-J0-AgB"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zKp-6W-YAF">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,7 +38,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-ba-mSu">
-                                <rect key="frame" x="0.0" y="94.5" width="414" height="256"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="220.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f25-wx-s6e">
                                     <size key="itemSize" width="128" height="128"/>
@@ -61,7 +58,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zcP-OY-6Vq">
-                                <rect key="frame" x="0.0" y="350.5" width="414" height="255.5"/>
+                                <rect key="frame" x="0.0" y="264.5" width="414" height="299"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FvR-mT-fvk">
                                     <size key="itemSize" width="128" height="128"/>
@@ -84,17 +81,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zcP-OY-6Vq" firstAttribute="width" secondItem="zcP-OY-6Vq" secondAttribute="height" multiplier="1.618:1" id="5u5-VO-Pz6"/>
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Yg-CQ-2xP"/>
-                            <constraint firstItem="gXt-ba-mSu" firstAttribute="width" secondItem="gXt-ba-mSu" secondAttribute="height" multiplier="1.618:1" id="Hfs-bb-sT3"/>
+                            <constraint firstItem="gXt-ba-mSu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AY9-Lr-RhE"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M8n-AV-IyM"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PgX-Nr-kyJ"/>
                             <constraint firstItem="m6x-d4-0Rc" firstAttribute="top" secondItem="zcP-OY-6Vq" secondAttribute="bottom" id="R7m-wI-x7q"/>
                             <constraint firstItem="gXt-ba-mSu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="atm-A9-74R"/>
+                            <constraint firstItem="m6x-d4-0Rc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.33333" id="dCE-iV-NIv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6x-d4-0Rc" secondAttribute="bottom" id="dHZ-rB-CJ7"/>
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hXn-F0-dTv"/>
                             <constraint firstItem="gXt-ba-mSu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jzL-HE-cbI"/>
+                            <constraint firstItem="m6x-d4-0Rc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="kEk-dH-Uta"/>
                             <constraint firstItem="zcP-OY-6Vq" firstAttribute="top" secondItem="gXt-ba-mSu" secondAttribute="bottom" id="prf-1V-0z7"/>
+                            <constraint firstItem="zcP-OY-6Vq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.33333" id="wZD-lT-hk0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g0b-d1-7gp"/>

@@ -14,9 +14,7 @@ extension PokerPresenter:InteractorOutputProtocol{
     mutating func callPresenter(_ gameSide:GameSide,judgeStatus:Judgement?,myHand:Hand?,otherHand:Hand?) {
         print("各UIパーツに状態変更を指示 :",gameSide)
         switch gameSide{
-        case .playerType(.me):
-            pokerPresenterOutputProtocol?.updateGameStateUI(gameSide)
-        case .playerType(.other):
+        case .playerType(.me),.playerType(.other),.beforeJudgement:
             pokerPresenterOutputProtocol?.updateGameStateUI(gameSide)
         case .result:
             if let judge = judgeStatus,let myHand = myHand,let otherHand = otherHand{
@@ -73,8 +71,8 @@ extension PokerPresenter{
         pokerInteractor.startCPUTurn()
     }
     
-    mutating func finishCPUTurn(){
-        pokerInteractor.chosePass(.other)
+    mutating func callJudge(){
+        pokerInteractor.judge()
     }
     
     mutating func tappedResetBtn(){

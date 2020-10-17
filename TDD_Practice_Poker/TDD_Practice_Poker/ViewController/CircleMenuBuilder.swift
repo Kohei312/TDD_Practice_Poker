@@ -42,7 +42,7 @@ extension PokerViewController:CircleMenuDelegate{
         
         switch circleMenuButtonProperty.gameSide{
         
-        case .playerType(_):
+        case .playerType(_),.beforeJudgement:
             button.backgroundColor = circleMenuButtonProperty.items[atIndex].color
             
             button.setImage(UIImage(named: circleMenuButtonProperty.items[atIndex].icon)?.resized(toWidth:45), for: .normal)

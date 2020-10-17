@@ -15,4 +15,7 @@ enum ChangeCardState{
 struct MoveCardStatusProperty {
     var cardStatuses:[IndexPath:ChangeCardState] = [:]
     
+    mutating func resetCardStatus(){
+        self.cardStatuses = [:]
+    }
 }

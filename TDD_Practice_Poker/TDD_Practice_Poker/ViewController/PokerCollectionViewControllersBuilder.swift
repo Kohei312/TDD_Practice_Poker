@@ -50,7 +50,7 @@ extension PokerViewController:UICollectionViewDelegate,UICollectionViewDataSourc
         case playerCardCollectionView:
             return playerhands.myPlayerHand.cards.count
         case throwoutCardCollectionView:
-            return 5
+            return cardDeck.appearedCards.count
         case cpuCardCollectionView:
             return playerhands.otherPlayerHand.cards.count
         default:
@@ -229,10 +229,10 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
                 self.updatePlayerCardUI(insertIndexPath: insertIndexPath, operation: coordinator.proposal.operation)
             }
         case throwoutCardCollectionView:
-//            collectionView.performBatchUpdates({
-//                collectionView.insertItems(at: [insertIndexPath])
-//            })
-        break
+            collectionView.performBatchUpdates({
+                collectionView.insertItems(at: [insertIndexPath])
+            })
+            break
         case cpuCardCollectionView:
             
             break
@@ -272,7 +272,7 @@ extension PokerViewController:UICollectionViewDropDelegate,UICollectionViewDragD
     func openAllCPUCards(otherHand: Hand){
         let cells = self.cpuCardCollectionView.visibleCells(with:CPUCardCollectionViewCell.self)
         // 決着時
-        var count = 0
+//        var count = 0
         for i in 0..<cells.count{
             cells[i].openCPUCard(card:otherHand.cards[i])
         }

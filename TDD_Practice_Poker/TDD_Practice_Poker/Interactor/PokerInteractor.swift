@@ -135,7 +135,7 @@ extension PokerInteractor{
             count = player_other.decrementChangeCount()
         }
         
-        if count < 0{
+        if count == 0{
             isReadyButtle(playerType)
         } else {
             changeGameStatement(playerType,noChangeCount: false)

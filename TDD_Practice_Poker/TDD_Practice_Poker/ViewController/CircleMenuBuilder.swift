@@ -101,6 +101,10 @@ extension PokerViewController:CircleMenuDelegate{
                 // ココにリセット処理を入れる
             } else {
                 self.pokerPresenter?.tappedTurnoverBtn(.me)
+                self.moveCardStatuses.resetCardStatus()
+                for cell in self.playerCardCollectionView.visibleCells(with: PlayerCardCollectionViewCell.self){
+                    cell.cardChangeState = .canChange
+                }
             }
         case 1:
             // MARK:- バトル開始: atIndex = 1

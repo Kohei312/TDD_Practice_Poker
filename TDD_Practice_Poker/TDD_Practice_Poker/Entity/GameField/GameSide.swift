@@ -13,5 +13,6 @@ import Foundation
 
 enum GameSide:Equatable{
     case playerType(PlayerType)
+    case beforeJudgement
     case result
 }

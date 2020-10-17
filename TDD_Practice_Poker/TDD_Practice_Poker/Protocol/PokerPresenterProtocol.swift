@@ -10,5 +10,4 @@ import Foundation
 protocol PokerPresenterOutputProtocol{
     func updateJudgementUI(judgement:Judgement,myHand:Hand,otherHand:Hand)
     func updateGameStateUI(_ gameSide:GameSide)
-    //    func updatePlayerUI()
 }

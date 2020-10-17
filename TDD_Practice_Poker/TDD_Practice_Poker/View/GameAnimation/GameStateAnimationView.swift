@@ -174,12 +174,14 @@ class GameStateAnimationView: UIView {
             self.setupItemLabelText(itemFrame:.ResultLabel,result:.myPlayerSide,judgement:nil,hand:nil)
         case .playerType(.other):
             self.setupItemLabelText(itemFrame:.ResultLabel,result:.otherPlayerSide,judgement:nil,hand:nil)
-        case .result:
+        case .beforeJudgement:
             self.setupItemLabelText(itemFrame:.ResultLabel,result:.beforeJudge,judgement:nil,hand:nil)
+        case .result:
+            self.setupItemLabelText(itemFrame:.ResultLabel,result:.showJudge,judgement:nil,hand:nil)
         }
         
         self.shouldAppearAnimationView(true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.shouldAppearAnimationView(false)
         }
     }

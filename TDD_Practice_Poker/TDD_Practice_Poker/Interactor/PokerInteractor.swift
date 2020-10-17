@@ -9,13 +9,14 @@ import Foundation
 
 // MARK:- InteractorInputProtocol
 extension PokerInteractor:InteractorInputProtocol{
-    mutating func notifyUpdatePlayerUI() {
-        interactorOutputProtocol?.callUpdatePlayerUI()
+    mutating func completeCPUTurn() {
+//        interactorOutputProtocol?.callUpdateCPU_UI()
+        self.chosePass(.other)
     }
     
     mutating func notify(_ gameSide:GameSide,judgeStatus:Judgement?) {
         switch gameSide{
-        case .playerType(.me),.playerType(.other):
+        case .playerType(.me),.playerType(.other),.beforeJudgement:
             interactorOutputProtocol?.callPresenter(gameSide,judgeStatus:nil,myHand:nil,otherHand:nil)
         case .result:
             let myHand = handStatus.myPlayerHand
@@ -62,12 +63,12 @@ extension PokerInteractor{
         handStatus.changeCard(playerType: playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
     }
     
-    mutating func addCard(playerType:PlayerType,takeNumber:Int){
-        handStatus.addCard(playerType:playerType,takeNumber:takeNumber)
-    }
-    
     mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:Int,willReplaceIndex:Int){
         handStatus.changeCardIndex(playerType:playerType,willMoveIndex:willMoveIndex,willReplaceIndex:willReplaceIndex)
+    }
+    
+    mutating func startCPUTurn(){
+        handStatus.checkCPUCard()
     }
     
     // MARK:- JudgementStatus
@@ -81,7 +82,7 @@ extension PokerInteractor{
         gameFieldStatus.gameSide = nextGameSide
     }
    
-    // パスしたとき
+    // 攻守交代ボタンを押したとき
     mutating func chosePass(_ playerType:PlayerType){
         switch playerType{
         case .me:
@@ -104,10 +105,6 @@ extension PokerInteractor{
             player_other.player.playerStatement = .action(.change)
             changeCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
         }
-        // カード交換回数デクリメント
-        // ここでは呼ばず, CollectionViewのアニメーションが終了したあと,
-        // Completionhandler内で decrementChangeCounter をコールする.
-//        decrementChangeCounter(playerType)
     }
     
     
@@ -167,7 +164,11 @@ extension PokerInteractor{
 //            player_other.player.playerStatement == .isReadyButtle
         if player_me.player.playerStatement == .isReadyButtle {
             
-            judge()
+            if gameFieldStatus.gameSide == .beforeJudgement{
+                judge()
+            } else {
+                changeGameSide(nextGameSide:.beforeJudgement)
+            }
         
         } else if player_me.player.playerStatement == .isReadyButtle &&
                     player_other.player.playerStatement != .isReadyButtle{

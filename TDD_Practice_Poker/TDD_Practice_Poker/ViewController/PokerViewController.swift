@@ -61,22 +61,6 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         case .beforeJudgement:
             showJudge()
         }
-        
-//        if gameSide == .playerType(.other){
-////            showCPUAnimation()
-//            // Presenterからの伝達で、UI更新
-//            changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
-//            changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
-//            animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
-//            showCPUAnimation()
-//
-//        } else if gameSide == .playerType(.me) {
-//            // Presenterからの伝達で、UI更新
-//            changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
-//            changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
-//            animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
-//
-//        }
     }
         
     func showCPUAnimation(){

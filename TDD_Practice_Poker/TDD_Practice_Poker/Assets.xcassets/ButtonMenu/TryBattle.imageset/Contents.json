@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-バトル-100.png",
+      "filename" : "icons8-battle-50.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-バトル-101.png",
+      "filename" : "icons8-battle-51.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-バトル-102.png",
+      "filename" : "icons8-battle-52.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

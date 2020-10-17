@@ -12,7 +12,7 @@
 		7C00247C252847120031FAC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00247B252847120031FAC9 /* AppDelegate.swift */; };
 		7C00247E252847120031FAC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00247D252847120031FAC9 /* SceneDelegate.swift */; };
 		7C002480252847120031FAC9 /* PokerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00247F252847120031FAC9 /* PokerViewController.swift */; };
-		7C002483252847120031FAC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C002481252847120031FAC9 /* Main.storyboard */; };
+		7C002483252847120031FAC9 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C002481252847120031FAC9 /* Game.storyboard */; };
 		7C002485252847140031FAC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C002484252847140031FAC9 /* Assets.xcassets */; };
 		7C002488252847140031FAC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C002486252847140031FAC9 /* LaunchScreen.storyboard */; };
 		7C002493252847140031FAC9 /* TDD_Practice_PokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C002492252847140031FAC9 /* TDD_Practice_PokerTests.swift */; };
@@ -35,6 +35,8 @@
 		7CA186E925382D4A00441A71 /* RandomNumberProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */; };
 		7CA186F12538314700441A71 /* PokerAnimationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */; };
 		7CA187012539583200441A71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA187002539583200441A71 /* UIView+Extension.swift */; };
+		7CA1870C253ADA5100441A71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1870B253ADA5100441A71 /* Main.storyboard */; };
+		7CA18711253ADAB800441A71 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA18710253ADAB800441A71 /* TopViewController.swift */; };
 		7CAC4582252D5F6C004008A5 /* GameSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4581252D5F6C004008A5 /* GameSide.swift */; };
 		7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC4589252D60FC004008A5 /* Judgement.swift */; };
 		7CAC45AE252D7B3A004008A5 /* JudgementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */; };
@@ -96,7 +98,7 @@
 		7C00247B252847120031FAC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C00247D252847120031FAC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7C00247F252847120031FAC9 /* PokerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerViewController.swift; sourceTree = "<group>"; };
-		7C002482252847120031FAC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C002482252847120031FAC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
 		7C002484252847140031FAC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C002487252847140031FAC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C002489252847140031FAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +126,8 @@
 		7CA186E825382D4A00441A71 /* RandomNumberProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberProtocol.swift; sourceTree = "<group>"; };
 		7CA186F02538314700441A71 /* PokerAnimationViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerAnimationViewBuilder.swift; sourceTree = "<group>"; };
 		7CA187002539583200441A71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7CA1870B253ADA5100441A71 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7CA18710253ADAB800441A71 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		7CAC4581252D5F6C004008A5 /* GameSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSide.swift; sourceTree = "<group>"; };
 		7CAC4589252D60FC004008A5 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		7CAC45AD252D7B3A004008A5 /* JudgementStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgementStatus.swift; sourceTree = "<group>"; };
@@ -239,7 +243,9 @@
 		7C00247A252847120031FAC9 /* TDD_Practice_Poker */ = {
 			isa = PBXGroup;
 			children = (
-				7C002481252847120031FAC9 /* Main.storyboard */,
+				7CA1870B253ADA5100441A71 /* Main.storyboard */,
+				7CA18710253ADAB800441A71 /* TopViewController.swift */,
+				7C002481252847120031FAC9 /* Game.storyboard */,
 				7C002506252AA4B70031FAC9 /* Extension */,
 				7C0024FA2529DAC30031FAC9 /* Protocol */,
 				7CAC46662530541B004008A5 /* ViewController */,
@@ -554,11 +560,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA1870C253ADA5100441A71 /* Main.storyboard in Resources */,
 				7C002488252847140031FAC9 /* LaunchScreen.storyboard in Resources */,
 				7C002485252847140031FAC9 /* Assets.xcassets in Resources */,
 				7CDE9DB02534691400898855 /* PlayerCardCollectionViewCell.xib in Resources */,
 				7CDE9DCB2534698500898855 /* CPUCardCollectionViewCell.xib in Resources */,
-				7C002483252847120031FAC9 /* Main.storyboard in Resources */,
+				7C002483252847120031FAC9 /* Game.storyboard in Resources */,
 				7CDE9DBA2534694000898855 /* ThrowoutCardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +730,7 @@
 				7CAC458A252D60FC004008A5 /* Judgement.swift in Sources */,
 				7CDE9DEC25346C8B00898855 /* PlayerCardCollectionViewLayoutProperty.swift.swift in Sources */,
 				7C0024E8252957C50031FAC9 /* Player.swift in Sources */,
+				7CA18711253ADAB800441A71 /* TopViewController.swift in Sources */,
 				7CDE9DAF2534691400898855 /* PlayerCardCollectionViewCell.swift in Sources */,
 				7CAC463C252EEFBA004008A5 /* PokerInteractor.swift in Sources */,
 				7CAC464D252F28E5004008A5 /* CardDeck.swift in Sources */,
@@ -772,12 +780,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7C002481252847120031FAC9 /* Main.storyboard */ = {
+		7C002481252847120031FAC9 /* Game.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7C002482252847120031FAC9 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Game.storyboard;
 			sourceTree = "<group>";
 		};
 		7C002486252847140031FAC9 /* LaunchScreen.storyboard */ = {

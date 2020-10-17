@@ -25,21 +25,10 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
     @IBOutlet weak var playerCardCollectionView: UICollectionView!
     var animationView:GameStateAnimationView?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.build()
-    }
-
-    
-    func updateJudgementUI(judgement: Judgement, myHand: Hand, otherHand: Hand) {
-        // スタブ OK
-        print("presenterから呼ばれる")
-        // CPUのCollectionViewの更新を忘れずに
-        self.openAllCPUCards(otherHand: otherHand)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.animationView?.showJudge(judgement:judgement,myHand:myHand,otherHand:otherHand)
-        }
     }
     
     func updateGameStateUI(_ gameSide:GameSide) {
@@ -62,17 +51,15 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
             showJudge()
         }
     }
-        
-    func showCPUAnimation(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.changeCPUCard()
-            self.pokerPresenter?.callCPU()
-        }
-    }
     
-    func showJudge(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.pokerPresenter?.callJudge()
+    func updateJudgementUI(judgement: Judgement, myHand: Hand, otherHand: Hand) {
+        // スタブ OK
+        print("presenterから呼ばれる")
+        // CPUのCollectionViewの更新を忘れずに
+        self.openAllCPUCards(otherHand: otherHand)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.changeCircleMenuButtonIsHidden(nextGameSide:.result)
+            self.animationView?.showJudge(judgement:judgement,myHand:myHand,otherHand:otherHand)
         }
     }
 }
@@ -102,4 +89,18 @@ extension PokerViewController{
             circleMenuButton?.isHidden = false
         }
     }
+    
+    func showCPUAnimation(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.changeCPUCard()
+            self.pokerPresenter?.callCPU()
+        }
+    }
+    
+    func showJudge(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.pokerPresenter?.callJudge()
+        }
+    }
+
 }

@@ -35,7 +35,6 @@ extension PokerViewController:CircleMenuDelegate{
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         self.circleMenuButton = button
-        
     }
     
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {

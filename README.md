@@ -11,7 +11,7 @@ It is my first time to use UITest.
 
 I'd be glad if you take consider to the parts which cannot separate some View components from ViewController. 
  
-![result](https://github.com/Kohei312/TDD_Practice_Poker/blob/README_gif/Videotogif.gif)
+![result](https://github.com/Kohei312/TDD_Practice_Poker/blob/README_gif/TDD_Test_Poker.gif)
 
 # Note
 

@@ -24,31 +24,25 @@ struct HandStatus:RandomNumberProtocol,CPUBrainManagementProtocol{
         self.myPlayerHand = Hand(.me,cards:Array(cardDeck.unAppearCards[5..<10]))
         self.otherPlayerHand = Hand(.other,cards:Array(cardDeck.unAppearCards[0..<5]))
         cardDeck.throwAwayCard(10)
-        print(otherPlayerHand.cards)
-        print(otherPlayerHand.handState)
     }
     
     
     mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
         let changeCards = cardDeck.takeCards(takeNumber)
-//        var removeCount = 0
+        //        var removeCount = 0
         cardDeck.throwAwayCard(takeNumber)
         for card in changeCards{
             switch playerType{
             case .me:
                 myPlayerHand.cards.remove(at: willRemoveIndex)
                 myPlayerHand.cards.insert(card, at: myPlayerHand.cards.count)
-//                removeCount += 1
-//                if takeNumber == removeCount{
-//                    removeCount = 0
-//
-//                }
+
             case .other:
                 break
             }
         }
     }
-        
+    
     // OK
     mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:Int,willReplaceIndex:Int){
         
@@ -80,7 +74,7 @@ extension HandStatus{
             removeCount += 1
             if changeCards.count == removeCount{
                 removeCount = 0
-                interactorInputProtocol?.completeCPUTurn()
+                interactorInputProtocol?.completeCPUTurn(playerStatement: .action(.change))
             }
         }
     }
@@ -90,16 +84,12 @@ extension HandStatus{
         let currentState = otherPlayerHand.handState
         
         if currentState < .flush {
-            // カードを交換する
-            /* TODO:-
-               交換するカードを抽出する -> ペア以外のカードが対象
-               交換するカードの枚数を決める
-               枚数が決まったら、カードのインデックスを取得する（インデックスは、カード全体から取得する）
-            */
+
             let notEqualSuitCardIndex = otherPlayerHand.checkThreeorFourEqualSuitIndex()
             
             if currentState == .straight {
                 // これで勝負
+                interactorInputProtocol?.completeCPUTurn(playerStatement: .isReadyButtle)
                 
             } else if currentState < .straight && notEqualSuitCardIndex != [] {
                 // フラッシュの可能性があるとき
@@ -123,7 +113,7 @@ extension HandStatus{
             
         } else {
             // バトルをコールする
-            
+            interactorInputProtocol?.completeCPUTurn(playerStatement: .isReadyButtle)
         }
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 protocol InteractorInputProtocol{
     mutating func notify(_ gameSide:GameSide,judgeStatus:Judgement?)
-    mutating func completeCPUTurn()
+    mutating func completeCPUTurn(playerStatement:PlayerStatement)
 }
 
 protocol InteractorOutputProtocol{

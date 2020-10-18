@@ -24,7 +24,12 @@ enum PlayerStatement:Equatable{
 struct Player{
     
     var playerType:PlayerType
-    var playerStatement:PlayerStatement = .thinking
+    
+    init(playerType:PlayerType){
+        self.playerType = playerType
+    }
+    
+    var playerStatement:PlayerStatement = .action(.choosing)
     var changeCount = 3{
         didSet{
             print(changeCount)

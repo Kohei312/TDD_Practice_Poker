@@ -16,7 +16,7 @@ extension PokerViewController:PokerViewControllerBuilderProtocol{
     
     
     func build() {
-        let interactor = PokerInteractor(handStatus: HandStatus(), gameFieldStatus: GameFieldStatus(), playerStatus_me: PlayerStatus(playerType: .me), playerStatus_other: PlayerStatus(playerType: .other), judgementStatus: JudgementStatus())
+        let interactor = PokerInteractor(handStatus: HandStatus(), gameFieldStatus: GameFieldStatus(), playerStatus: PlayerStatus(), judgementStatus: JudgementStatus())
         var presenter = PokerPresenter(pokerInteractor: interactor)
         
         presenter.inject(pokerPresenterOutputProtocol: self)

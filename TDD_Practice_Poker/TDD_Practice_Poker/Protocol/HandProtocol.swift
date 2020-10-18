@@ -85,7 +85,14 @@ extension Hand{
                     if !continuousRanks.contains(willSortCards[x].rank){
                         continuousRanks.append(willSortCards[x].rank)
                     }
-                } 
+                } else {
+                    if continuousRanks.contains(willSortCards[x].rank){
+                       let i = continuousRanks.filter({$0 == willSortCards[x].rank})[0]
+                        if let removeIndex = continuousRanks.firstIndex(of: i){
+                            continuousRanks.remove(at: removeIndex)
+                        }
+                    }
+                }
             } else {
                 
                 y = 0

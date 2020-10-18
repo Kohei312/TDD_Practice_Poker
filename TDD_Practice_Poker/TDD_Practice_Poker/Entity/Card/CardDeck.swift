@@ -20,7 +20,7 @@ struct CardDeck{
     static func makeCardDeck()->[Card]{
         
         var cards:[Card] = []
-        
+
         for i in 0..<4{
             let suit = Card.Suit.allCases[i]
             for k in 0..<12{
@@ -38,7 +38,7 @@ struct CardDeck{
     }
   
     mutating func throwAwayCard(_ takeNumber:Int){
-        for i in 0..<takeNumber{
+        for _ in 0..<takeNumber{
             appearedCards.append(self.unAppearCards[0])
             self.unAppearCards.remove(at: 0)
         }

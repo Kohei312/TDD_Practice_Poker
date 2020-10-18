@@ -164,16 +164,13 @@ extension PokerInteractor{
         
         } else if players.player_me.playerStatement == .isReadyButtle &&
                     players.player_other.playerStatement != .isReadyButtle{
-              
             changeGameSide(nextGameSide:.playerType(.other))
                 
         } else if players.player_me.playerStatement != .isReadyButtle &&
                     players.player_other.playerStatement == .isReadyButtle{
-              
             changeGameSide(nextGameSide:.playerType(.me))
                 
         } else {
-            
             changePlayerStatement(playerType, playerStatement: .waiting)
         }
     }
@@ -182,7 +179,6 @@ extension PokerInteractor{
     mutating func changePlayerStatement(_ playerType:PlayerType, playerStatement:PlayerStatement){
         switch playerType{
         case .me:
-
             players.player_me.playerStatement = playerStatement
             changeGameSide(nextGameSide:.playerType(.other))
         case .other:

@@ -22,3 +22,10 @@ extension UICollectionViewLayout{
     }
 }
 
+extension UIViewController{
+    
+    static var identifier: String{
+        return className
+    }
+}
+

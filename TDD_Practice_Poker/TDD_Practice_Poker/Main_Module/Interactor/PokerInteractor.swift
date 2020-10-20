@@ -9,7 +9,7 @@ import Foundation
 
 // MARK:- InteractorInputProtocol
 extension PokerInteractor:InteractorInputProtocol{
-    func completeCPUTurn(playerStatement:PlayerStatement) {
+    mutating func completeCPUTurn(playerStatement:PlayerStatement) {
 
         if playerStatement == .isReadyButtle{
             self.isReadyButtle(.other)
@@ -29,7 +29,7 @@ extension PokerInteractor:InteractorInputProtocol{
         }
     }
     
-    func changePlayerStatement(_ playerType:PlayerType){
+    mutating func checkGameStatement(_ playerType:PlayerType){
         checkCountState(playerType)
     }
 }
@@ -63,20 +63,16 @@ extension PokerInteractor{
     // MARK:- HandStatus
     // カードを交換したとき
     mutating func throwCard(_ playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
-        changeCard(playerType:playerType,takeNumber:takeNumber,willRemoveIndex: willRemoveIndex)
-    }
-    
-    mutating func changeCard(playerType:PlayerType,takeNumber:Int,willRemoveIndex:Int){
         handStatus.changeCard(playerType: playerType, takeNumber: takeNumber, willRemoveIndex:willRemoveIndex)
     }
-    
+        
     mutating func changeCardIndex(playerType:PlayerType,willMoveIndex:Int,willReplaceIndex:Int){
         handStatus.changeCardIndex(playerType:playerType,willMoveIndex:willMoveIndex,willReplaceIndex:willReplaceIndex)
     }
     
     mutating func startCPUTurn(){
-        
-        if players.player_other.changeCount == 0{
+  
+        if players[.other].changeCount == 0{
             isReadyButtle(.other)
         } else {
             handStatus.checkCPUCard()
@@ -89,25 +85,27 @@ extension PokerInteractor{
     }
     
     // 攻守交代ボタンを押したとき
-    func chosePass(_ playerType:PlayerType){
+    mutating func chosePass(_ playerType:PlayerType){
         players.decrementChangeCount(playerType)
     }
     
     
-    func checkCountState(_ playerType:PlayerType){
+    mutating func checkCountState(_ playerType:PlayerType){
 
         
         switch playerType{
         case .me:
-            if players.player_me.changeCount <= 0 &&
-                players.player_me.playerStatement != .isReadyButtle{
+            if players[.me].changeCount <= 0 &&
+               players[.me].playerStatement != .isReadyButtle{
+
                 isReadyButtle(playerType)
             } else {
                 changeGameStatement(playerType)
             }
         case .other:
-            if players.player_other.changeCount <= 0 &&
-                players.player_other.playerStatement != .isReadyButtle {
+            if players[.other].changeCount <= 0 &&
+                players[.other].playerStatement != .isReadyButtle {
+
                 isReadyButtle(playerType)
             } else {
                 changeGameStatement(playerType)
@@ -118,31 +116,30 @@ extension PokerInteractor{
     
     
     
-    func isReadyButtle(_ playerType:PlayerType){
+    mutating func isReadyButtle(_ playerType:PlayerType){
 
         players.callReadyButtle(playerType)
+        changeGameStatement(playerType)
 
     }
     
     
-    func changeGameStatement(_ playerType:PlayerType){
+    mutating func changeGameStatement(_ playerType:PlayerType){
         
-        if players.player_me.playerStatement == .isReadyButtle &&
-            players.player_other.playerStatement == .isReadyButtle{
-            
+        if players[.me].playerStatement == .isReadyButtle &&
+            players[.other].playerStatement == .isReadyButtle{
             
             notify(.beforeJudgement, judgement: nil)
-        
-        
-        } else if players.player_me.playerStatement == .isReadyButtle &&
-                    players.player_other.playerStatement != .isReadyButtle{
-            notify(.playerType(.other), judgement: nil)
-
                 
-        } else if players.player_me.playerStatement != .isReadyButtle &&
-                    players.player_other.playerStatement == .isReadyButtle{
-            notify(.playerType(.me), judgement: nil)
+        } else if players[.me].playerStatement == .isReadyButtle &&
+                    players[.other].playerStatement != .isReadyButtle{
 
+            notify(.playerType(.other), judgement: nil)
+                
+        } else if players[.me].playerStatement != .isReadyButtle &&
+                    players[.other].playerStatement == .isReadyButtle{
+
+            notify(.playerType(.me), judgement: nil)
                 
         } else {
             changePlayerStatement(playerType, playerStatement: .waiting)
@@ -150,17 +147,18 @@ extension PokerInteractor{
     }
     
     // MARK:- PlayerState
-    func changePlayerStatement(_ playerType:PlayerType, playerStatement:PlayerStatement){
+    mutating func changePlayerStatement(_ playerType:PlayerType, playerStatement:PlayerStatement){
+
         switch playerType{
         case .me:
-            players.player_me.playerStatement = playerStatement
+            players[.me].changePlayerStatement(playerType,playerStatement:playerStatement)
             notify(.playerType(.other), judgement: nil)
 
         case .other:
-
-            players.player_other.playerStatement = playerStatement
+            players[.other].changePlayerStatement(playerType,playerStatement:playerStatement)
             notify(.playerType(.me), judgement: nil)
 
         }
+
     }
 }

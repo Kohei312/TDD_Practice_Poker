@@ -12,7 +12,7 @@ import Foundation
 extension PokerPresenter:InteractorOutputProtocol{
 
     func callPresenter(_ gameSide:GameSide,judgement:Judgement?,myHand:Hand?,otherHand:Hand?) {
-
+        
         switch gameSide{
         case .playerType(.me),.playerType(.other),.beforeJudgement:
             pokerPresenterOutputProtocol?.updateGameStateUI(gameSide)
@@ -46,7 +46,7 @@ public struct PokerPresenter{
 extension PokerPresenter{    
     // MARK:- ViewControllerからの入力を受け,PokerInteractorに伝達
     
-    func willChangeUserStatus(_ userAction:PlayerAction){
+    mutating func willChangeUserStatus(_ userAction:PlayerAction){
         switch userAction{
         case .tappedBattleBtn:
             pokerInteractor.isReadyButtle(.me)

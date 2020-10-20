@@ -8,52 +8,51 @@
 import Foundation
 
 // 仮実装OK
-class PlayerStatus{
+final class PlayerStatus{
     
-    var player_me:Player
-    var player_other:Player
+    var players:[Player] = []
     var interactorInputProtocol:InteractorInputProtocol?
     
+    subscript(playerType:PlayerType)->Player{
+        get{
+            return players.filter({$0.playerType == playerType}).last!
+        }
+        set(newValue){
+            if let player = players.filter({$0.playerType == playerType}).last{
+                for (index,p) in players.enumerated() {
+                    if p.playerType == player.playerType{
+                        players.remove(at: index)
+                        players.insert(newValue, at: index)
+                    }
+                }
+            }
+        }
+    }
+    
     init(){
-        self.player_me = Player(playerType:.me)
-        self.player_other = Player(playerType: .other)
+        let player_me = Player(playerType:.me)
+        let player_other = Player(playerType: .other)
+        players = [player_me,player_other]
     }
 
     
     func changePlayerStatement(_ playerType:PlayerType, playerStatement:PlayerStatement){
-        
-        switch playerType{
-        
-        case .me:
-            player_me.playerStatement = playerStatement
-        case .other:
-            player_other.playerStatement = playerStatement
-        }
+
+        self[playerType].playerStatement = playerStatement
+
     }
     
     func decrementChangeCount(_ playerType:PlayerType){
-        switch playerType{
         
-        case .me:
-            player_me.changeCount -= 1
-        case .other:
-            player_other.changeCount -= 1
-        }
+        self[playerType].changeCount -= 1
         
-        interactorInputProtocol?.changePlayerStatement(playerType)
+        interactorInputProtocol?.checkGameStatement(playerType)
         
     }
     
     func callReadyButtle(_ playerType:PlayerType){
-        switch playerType{
         
-        case .me:
-            player_me.playerStatement = .isReadyButtle
-            player_me.changeCount = 0
-        case .other:
-            player_other.playerStatement = .isReadyButtle
-            player_other.changeCount = 0
-        }
-        interactorInputProtocol?.changePlayerStatement(playerType)
+        self[playerType].playerStatement = .isReadyButtle
+        self[playerType].changeCount = 0
     }
 }

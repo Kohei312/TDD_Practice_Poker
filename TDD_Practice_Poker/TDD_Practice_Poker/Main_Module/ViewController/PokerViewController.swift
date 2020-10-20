@@ -39,7 +39,7 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         changePlayerCollectionViewDragEnable(nextGameSide: gameSide)
         changeCircleMenuButtonIsHidden(nextGameSide: gameSide)
         animationView?.showTurnOverAnimationView(nextGameSide:gameSide)
-
+        
         switch gameSide{
         
         case .playerType(.other):
@@ -47,7 +47,7 @@ class PokerViewController: UIViewController,PokerPresenterOutputProtocol,RandomN
         case .playerType(.me):
             break
         case .result:
-           break
+            break
         case .beforeJudgement:
             showJudge()
         }

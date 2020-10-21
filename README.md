@@ -1,5 +1,6 @@
 # TDD_Practice_Poker
-Swiftで書いておぼえるTDDより
+TDD Boot Camp.TDDBC仙台07課題：ポーカーより
+(http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B007%2F%E8%AA%B2%E9%A1%8C)
 
 # DEMO
  
